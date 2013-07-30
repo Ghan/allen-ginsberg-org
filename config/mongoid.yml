@@ -31,4 +31,4 @@ production:
   # uri: <%= ENV['MONGOHQ_URL'] %>
 
   # bushido (mongohq_url will also work)
-  uri: "mongodb://<user>:<password>@dharma.mongohq.com:10060/app17225840"
+  uri: "mongodb://ag-admin:ag-pw-vortexSutra1@dharma.mongohq.com:10060/app17225840"
