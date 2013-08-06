@@ -1,0 +1,51 @@
+# Public name of this content type
+name: Events
+
+# TODO: explain
+slug: events
+
+# Explanation for the backoffice
+description: A description of the content type for the editors
+
+# Default field (e.g title)
+label_field_name: title
+
+# Order of entries
+order_by: manually # default: manually, also available: created_at or any field slug
+
+# Order direction
+# order_direction: asc # default: asc, also available: desc
+
+# Display entries grouped by <field> in the backoffice
+# group_by: <your field>
+
+# Activate public 'create' API (e.g for a contact form)
+# public_submission_enabled: false
+
+# Emails to be notified on new entries using the public API
+# public_submission_accounts: ['john@acme.net']
+
+# Describe each field. The name shoud always be an underscored string
+fields: 
+- title: # Name of the field
+    label: Title
+    type: string
+    required: true
+    hint: A description of the field for the editors
+    localized: false
+
+- description: # Name of the field
+    label: Description
+    type: text
+    required: false
+    hint: A description of the field for the editors
+    localized: false
+    # Enable or not the RTE [html|text]
+    # text_formatting: html
+
+- event_date: # Name of the field
+    label: Event date
+    type: date
+    required: false
+    hint: A description of the field for the editors
+    localized: false

@@ -6,24 +6,21 @@ gem 'rails', '3.2.13'
 gem 'locomotive_cms', '~> 2.0.1', :require => 'locomotive/engine'
 gem 'locomotive-heroku', '~> 0.0.2', :require => 'locomotive/heroku'
 gem 'thin', :group => 'production'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
+gem 'html5-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'compass-rails',  '~> 1.0.2'
+  gem 'compass-rails'
+  gem 'compass-h5bp'
   gem 'sass-rails',     '~> 3.2.4'
   gem 'coffee-rails',   '~> 3.2.2'
+	gem 'therubyracer', :platforms => :ruby
   gem 'uglifier',       '~> 1.2.4'
 
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
 end
+
+gem 'jquery-rails'
 
 group :development do
   gem 'unicorn'

@@ -67,5 +67,8 @@ module AllenGinsbergOrg
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # HTML5 Boilerplate polyfills
+    config.assets.precompile += %w( polyfills.js )
   end
 end
