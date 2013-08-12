@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="gApp">
 <head>
   <title>AllenGinsbergOrg</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="container">
 
-	<%= yield %>
+		<%= yield %>
 
+	</div>
 <SCRIPT type="text/javascript">
 	var api_token = "<%= @token %>";
 </SCRIPT>

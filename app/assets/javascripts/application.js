@@ -8,3 +8,10 @@
 //= require jquery_ujs
 //= require h5bp
 //= require ../../../lib/assets/javascripts/main.js
+//= require ../../../lib/assets/javascripts/angular.min.js
+//= require ../../../lib/assets/angular/angular-sanitize.min.js
+//= require ../../../lib/assets/javascripts/app.js
+//= require ../../../lib/assets/javascripts/services.js
+//= require ../../../lib/assets/javascripts/controllers.js
+//= require ../../../lib/assets/javascripts/filters.js
+//= require ../../../lib/assets/javascripts/directives.js
