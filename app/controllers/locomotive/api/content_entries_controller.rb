@@ -82,7 +82,7 @@ module Locomotive
                       "archive_type" => entry.archive_type._slug,
                       "title" => entry.title, 
                       "file_slash_image" => entry.file_slash_image.url,
-                      "date" => entry.date
+                      "date" => entry.date_item_was_created
                     }
             @new_content_entries.push(entry)
           }
