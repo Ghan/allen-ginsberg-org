@@ -1,8 +1,25 @@
 <h2>Biography</h2>
 
 <div id="timeline">
-
+<!-- 	<ul>
+    <li ng-repeat="item in timeline">
+        <p>Name: {{item.id}}</p>
+        <p>Cost: {{item.date}}</p> 
+        <slider floor={{timeline[0].date}} ceiling={{timeline[3].date}} step="50" precision="2" ng-model="item.date"></slider>
+    </li>
+	</ul> -->
+	<div id="timeline-box">
+		<h3>Life Events / Chronology</h3>
+	  <slider floor="0" ceiling={{timeline.length-1}} precision="0" translate="dateDisplay "ng-model="currentTime"></slider>
+	  <div id="timeline-body">
+		  <h4 id="timeline-title">{{timeline[currentTime].title}}</h4>
+		  <div id="timeline-image" ng-bind-html='timeline[currentTime].image'></div>
+	  	<div id="timeline-date">{{dateDisplay(currentTime)}}</div>
+	  	<div id="lifeline-snippet" ng-bind-html='timeline[currentTime].lifeline_snippet'></div>
+			<div id="in-his-words">{{ timeline[currentTime].chronological_addenda_snippet || "" }}</div>
+			
+		</div>
+	</div>
 </div>
-<div id="bio-by-michael" ng-bind-html='bioByMichael'>
-
-</div>
+<h3>Biography by Michael Schumacher</h3>
+<div id="bio-by-michael" ng-bind-html='bioByMichael'></div>

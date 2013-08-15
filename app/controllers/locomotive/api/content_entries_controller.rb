@@ -91,6 +91,47 @@ module Locomotive
 
         # Links page - 
 
+        # Timeline Photo - 
+        if params.has_key?(:timeline_photo)
+          # @timeline_id = params(:timeline_photo)
+          # get timeline id's geo, notables, and date
+          @geo = params[:tlgeo] || false
+          @notables = params[:tlnotable]
+          @date = params[:tldate]
+          
+          # # filter @content_entries on type = photo
+          @content_entries = @content_entries.select { |entry| entry.archive_type._slug == 'photography' }
+          @old_content_entries = @content_entries
+          # filter @content_entries on date +/- 3 years
+          if @date
+            @start_year = Date.strptime(@date, '%m/%d/%Y').year
+            @date_range = 3
+            @content_entries = @content_entries.select { |entry| entry[:date_item_was_created].year >= @start_year - @date_range and entry[:date_item_was_created].year <= @start_year + @date_range }
+          end
+          if @content_entries.length == 0
+            @content_entries = @old_content_entries
+            if @geo
+              @content_entries = @content_entries.select { |entry| !!entry.geo.index{ |g| g._slug == @geo } }
+            end
+          end
+          if @content_entries.length == 0
+            @content_entries = @old_content_entries
+            if @notable
+              @content_entries = @content_entries.select { |entry| !!entry.notable.index{ |g| g._slug == @notable } }
+            end
+          end
+
+          # get first content entry, grab photo url, and send over
+          @new_content_entries = []
+          @content_entries.each{ |entry|
+            entry = {
+                      "title" => entry.title, 
+                      "file_slash_image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '300x300#')
+                    }
+            @new_content_entries.push(entry)
+          }
+          @content_entries = @new_content_entries[0]
+        end
         respond_with @content_entries
       end
     end
