@@ -1,6 +1,9 @@
 defaults: &defaults
-  host: localhost
-  port: 27017
+  host: dharma.mongohq.com
+  port: 10060
+  username: ag-admin
+  password: ag-pw-vortexSutra1
+  database: app17225840
   # slaves:
   #   - host: slave1.local
   #     port: 27018
@@ -10,7 +13,14 @@ defaults: &defaults
 development:
   # <<: *defaults
   # database: locomotive_dev
-  uri: "mongodb://ag-admin:ag-pw-vortexSutra1@dharma.mongohq.com:10060/app17225840"
+  sessions:
+    default:
+      # host: dharma.mongohq.com
+      # port: 10060
+      # username: ag-admin
+      # password: ag-pw-vortexSutra1
+      # database: app17225840
+      uri: "mongodb://ag-admin:ag-pw-vortexSutra1@dharma.mongohq.com:10060/app17225840"
   
 test:
   <<: *defaults
@@ -32,4 +42,5 @@ production:
   # uri: <%= ENV['MONGOHQ_URL'] %>
 
   # bushido (mongohq_url will also work)
-  uri: "mongodb://ag-admin:ag-pw-vortexSutra1@dharma.mongohq.com:10060/app17225840"
+  default:
+    uri: "mongodb://ag-admin:ag-pw-vortexSutra1@dharma.mongohq.com:10060/app17225840"

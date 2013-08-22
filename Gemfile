@@ -3,8 +3,10 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '3.2.13'
-gem 'locomotive_cms', '~> 2.0.1', :require => 'locomotive/engine'
-gem 'locomotive-heroku', '~> 0.0.2', :require => 'locomotive/heroku'
+gem 'multi_json', '~> 1.7.3'
+gem 'excon', '~> 0.23.0'
+gem 'locomotive_cms', '~> 2.2.3', :require => 'locomotive/engine'
+gem 'locomotive-heroku', '~> 0.1.0', :require => 'locomotive/heroku'
 gem 'thin', :group => 'production'
 gem 'html5-rails'
 
