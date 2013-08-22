@@ -1,8 +1,15 @@
 module Locomotive
   module Api
     class ContentEntriesController < BaseController
+      load_and_authorize_resource({
+        class:                Locomotive::ContentEntry,
+        through:              :content_type,
+        through_association:  :entries,
+        find_by:              :find_by_id_or_permalink
+      })
+
       def index
-        @content_entries = @content_entries.order([content_type.order_by_definition])
+        @content_entries = @content_entries.order_by([content_type.order_by_definition])
         # geo
         if params.has_key?(:geo)
           @content_entries = @content_entries.select { |entry| !!entry.geo.index{ |g| g._slug == params[:geo] } }
