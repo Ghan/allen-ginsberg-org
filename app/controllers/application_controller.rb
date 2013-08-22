@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 	end
 
 	def get_token
-		@token = Locomotive::Account.create_api_token(AllenGinsbergOrg, 'ghanpatel@gmail.com', 'ag-vortexSutra1')
+		# @token = Locomotive::Account.create_api_token(AllenGinsbergOrg, 'ghanpatel@gmail.com', 'ag-vortexSutra1', )
 	end
 
 end
