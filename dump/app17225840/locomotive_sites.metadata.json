@@ -1,0 +1,1 @@
+{ "options" : { "create" : "locomotive_sites" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "app17225840.locomotive_sites", "name" : "_id_" } ] }

@@ -63,11 +63,15 @@ module Locomotive
           @new_content_entries = []
           @content_entries.each{ |entry|
             entry = { "id" => entry.id, 
+                      "slug" => entry._slug,
                       "type" => entry.type._slug,
                       "name" => entry.name, 
                       "publisher" => entry.publisher,
                       "date" => entry.date,
-                      "thumbnail_image" => entry.thumbnail_image.url
+                       # "notable" => entry.notable,
+                      # "geo" => entry.geo,
+                      # "misc_tag" => entry.misc_tag,
+                      "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200')
                     }
             @new_content_entries.push(entry)
           }
@@ -81,7 +85,7 @@ module Locomotive
             entry = { "id" => entry.id, 
                       "archive_type" => entry.archive_type._slug,
                       "title" => entry.title, 
-                      "file_slash_image" => entry.file_slash_image.url,
+                      "file_slash_image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '600x200'),
                       "date" => entry.date_item_was_created
                     }
             @new_content_entries.push(entry)
@@ -133,6 +137,16 @@ module Locomotive
           @content_entries = @new_content_entries[0]
         end
         respond_with @content_entries
+      end
+
+      def show
+        if @content_type.slug == 'published_work'
+          @image = Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(@content_entry.thumbnail_image.url || "/nothing.jpg"), '500x500')
+          @new_content_entry = { "content" => @content_entry, "image" => @image }
+          @content_entry = @new_content_entry
+          # puts @content_entry
+        end
+        respond_with @content_entry, status: @content_entry ? :ok : :not_found
       end
     end
   end

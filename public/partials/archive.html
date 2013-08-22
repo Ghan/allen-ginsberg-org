@@ -1,0 +1,46 @@
+<h2>Archive</h2>
+
+<div id="archive-index">
+	<h3>Photography</h3>
+	<div class="scroll-box">
+		<ul>
+	    <li ng-repeat="item in archive.photography">
+	        <a ng-bind-html="item.image" href="#/archive/photography/{{item.id}}"></a>
+	    </li>
+	  </ul>
+	</div>
+	<h3>Art</h3>
+	<div class="scroll-box">
+		<ul>
+	    <li ng-repeat="item in archive.art">
+	        <a ng-bind-html="item.image" href="#archive/art/{{item.id}}"></a>
+	    </li>
+	  </ul>
+	</div>
+	<h3>Documents</h3>
+	<div class="scroll-box">
+		<ul>
+	    <li ng-repeat="item in archive.document">
+	        <a ng-bind-html="item.image" href="#/archive/document/{{item.id}}"></a>
+	    </li>
+	  </ul>
+	</div>
+	<h3>Lectures</h3>
+	<div class="scroll-box">
+		<ul>
+	    <li ng-repeat="item in archive.lecture">
+	        <a ng-bind-html="item.image" href="#/archive/lecture/{{item.id}}"></a>
+	    </li>
+	  </ul>
+	</div>
+	<h3>Transcripts</h3>
+	<div class="scroll-box">
+		<ul>
+	    <li ng-repeat="item in archive.transcript">
+	        <a ng-bind-html="item.image" href="#/archive/transcript/{{item.id}}"></a>
+	    </li>
+	  </ul>
+	</div>
+	
+	
+</div>

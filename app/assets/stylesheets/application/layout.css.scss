@@ -13,6 +13,9 @@ body {
 		max-width:1500px;		
 	}
 }
+.selected{
+	font-weight:bold;
+}
 
 
 // Header ======================= //
@@ -55,6 +58,24 @@ body {
 		}
 	}
 }
+
+
+// Archive Page =============== //
+#archive-index{
+	.scroll-box{
+		overflow-x: scroll;
+	}
+	ul{
+		width:17000px;
+		li{
+			list-style-type: none;
+			display:inline-block;
+			vertical-align: top;
+			padding: 0 5px;
+		}
+	}
+}
+
 
 // Angular-Slider
 slider{display:inline-block;position:relative;height:7px;width:100%;margin:25px 5px 25px 5px;vertical-align:middle;}

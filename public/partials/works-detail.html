@@ -1,0 +1,24 @@
+<h2>Published Works</h2>
+<ul>
+  <li class="ng-class: {selected: workType=='book'}"><a href="#/works/book" alt="Books">Books</a></li>
+  <li class="ng-class: {selected: workType=='audio-recording'}"><a href="#/works/audio-recording" alt="Audio/Discography">Audio/Discography</a></li>
+  <li class="ng-class: {selected: workType=='film'}"><a href="#/works/film" alt="Film">Film</a></li>
+</ul>
+	
+<div id="works-detail">
+  <div>{{work[workId].name}}</div>
+  <div>{{work[workId].publisher}}</div>
+  <div>{{work[workId].date}}</div>
+  <div>{{work[workId].amazon_slash_itunes_url}}</div>
+  <div ng-bind-html="work[workId].image"></div>
+  <div ng-bind-html='work[workId].description'></div>
+  <div similarwork id='work[workId].id' notable='work[workId].notable' geo='work[workId].geo' misc='work[workId].misc'></div> 
+  <div ng-if="work[workId].archive_items">
+    Items in the archive: 
+      <ul>
+        <li ng-repeat="item in work[workId].archive_items">
+          {{item}} <br />
+        </li>
+      </ul>
+  </div>
+</div>

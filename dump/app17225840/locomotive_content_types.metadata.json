@@ -1,0 +1,1 @@
+{ "options" : { "create" : "locomotive_content_types" }, "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "app17225840.locomotive_content_types", "name" : "_id_" } ] }
