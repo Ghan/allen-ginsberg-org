@@ -1,3 +1,11 @@
-<p>This is the partial for view 2.</p>
-<p>
-</p>
+<h2>Blog</h2>
+
+<div class="blog-post-snippet" ng-repeat="item in blog.items">
+	<div>{{ item.updated | date:'mediumDate' }}</div>
+	<h3><a href="#/announcements/{{item.id}}" title="Visit Blog Post">{{item.title}}</a></h3>
+	<div class="post-content" ng-bind-html="item.content"></div>
+</div>
+<div id="blog-nav-box">
+	<div ng-if="blog.prevPageToken"><a ng-click="swapPage(blog.prevPageToken)" href title="Next Blog Posts"><< Previous Page</a></div>
+	<div ng-if="blog.nextPageToken"><a ng-click="swapPage(blog.nextPageToken)" href title="Next Blog Posts">Next Page >></a></div>
+</div>

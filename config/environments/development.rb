@@ -22,6 +22,11 @@ AllenGinsbergOrg::Application.configure do
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 
+  # REDIS
+  # config.action_dispatch.rack_cache = {
+  #   metastore:   "redis://redistogo:720ecf0341dfca9cf980f80ed6be9b38@koi.redistogo.com:9427/1/metastore",
+  #   entitystore: "redis://redistogo:720ecf0341dfca9cf980f80ed6be9b38@koi.redistogo.com:9427/1/entitystore"
+  # }
 
   # Do not compress assets
   config.assets.compress = false

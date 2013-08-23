@@ -61,6 +61,11 @@ AllenGinsbergOrg::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
+  # REDIS
+  # config.action_dispatch.rack_cache = {
+  #   metastore:   "redis://redistogo:720ecf0341dfca9cf980f80ed6be9b38@koi.redistogo.com:9427/1/metastore",
+  #   entitystore: "redis://redistogo:720ecf0341dfca9cf980f80ed6be9b38@koi.redistogo.com:9427/1/entitystore"
+  # }
 
   # email
   config.action_mailer.delivery_method = :smtp

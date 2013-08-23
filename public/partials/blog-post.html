@@ -1,0 +1,5 @@
+<h2>{{post.title}}</h2>
+<div>{{ post.updated | date:'mediumDate' }}</div>
+<div ng-bind-html="post.content"></div>
+<div class="labels">Labels: <span ng-repeat="label in post.labels">{{label}}, </span></div>
+<div class="comments"><a href="{{post.url}}#comment-form" alt="View/Leave comments" target="_blank">{{post.replies.totalItems}} comments</a></div>

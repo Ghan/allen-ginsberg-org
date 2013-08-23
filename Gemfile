@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rails', '3.2.13'
+# gem 'redis-rails'
 gem 'multi_json', '~> 1.7.3'
 gem 'excon', '~> 0.23.0'
 gem 'locomotive_cms', '~> 2.2.3', :require => 'locomotive/engine'

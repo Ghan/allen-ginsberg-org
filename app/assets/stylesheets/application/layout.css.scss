@@ -30,6 +30,23 @@ body {
 	}
 }
 
+// Blog Page ==================== //
+
+.blog-post-snippet{
+	width:48%;
+	display:inline-block;
+	vertical-align:top;
+	margin:1%;
+	margin-bottom:20px;
+	img{
+		max-width:100%;
+	}
+	.post-content{
+		height:500px;
+		overflow-y:scroll;
+	}
+}
+
 
 // Biography Page =============== //
 
