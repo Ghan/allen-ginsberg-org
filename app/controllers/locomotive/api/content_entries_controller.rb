@@ -101,6 +101,18 @@ module Locomotive
         end
 
         # Links page - 
+        if params.has_key?(:links_page)
+          @new_content_entries = []
+          @content_entries.each{ |entry|
+            entry = { "id" => entry.id, 
+                      # "category" => entry.category,
+                      "title" => entry.title,
+                      "url" => entry.url
+            }
+            @new_content_entries.push(entry)
+          }
+          @content_entries = @new_content_entries
+        end
 
         # Timeline Photo - 
         if params.has_key?(:timeline_photo)
@@ -147,11 +159,17 @@ module Locomotive
       end
 
       def show
+        # work detail
         if @content_type.slug == 'published_work'
           @image = Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(@content_entry.thumbnail_image.url || "/nothing.jpg"), '500x500')
           @new_content_entry = { "content" => @content_entry, "image" => @image }
           @content_entry = @new_content_entry
-          # puts @content_entry
+        end
+        #archive item
+        if @content_type.slug == 'archive_items'
+          @image = Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(@content_entry.file_slash_image.url || "/nothing.jpg"), '1200x1200')
+          @new_content_entry = { "content" => @content_entry, "image" => @image }
+          @content_entry = @new_content_entry
         end
         respond_with @content_entry, status: @content_entry ? :ok : :not_found
       end
