@@ -12,6 +12,20 @@
   <div>{{work[workId].amazon_slash_itunes_url}}</div>
   <div ng-bind-html="work[workId].image"></div>
   <div ng-bind-html='work[workId].description'></div>
+  <div>Geos:
+          <ul>
+            <li ng-repeat="geo in work[workId].geo">
+              {{geo}}
+            </li>
+          </ul>
+        </div>
+        <div>Notables:
+          <ul>
+            <li ng-repeat="notable in work[workId].notable">
+              {{notable}}
+            </li>
+          </ul>
+        </div>
   <div similarwork id='work[workId].id' notable='work[workId].notable' geo='work[workId].geo' misc='work[workId].misc'></div> 
   <div ng-if="work[workId].archive_items">
     Items in the archive: 

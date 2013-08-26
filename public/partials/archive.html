@@ -4,7 +4,7 @@
 	<h3>Photography</h3>
 	<div class="scroll-box">
 		<ul>
-	    <li ng-repeat="item in archive.photography">
+	    <li ng-repeat="item in archive.photography.slice(0, 4)">
 	        <a ng-bind-html="item.image" href="#/archive/photography/{{item.id}}"></a>
 	    </li>
 	  </ul>
@@ -12,7 +12,7 @@
 	<h3>Art</h3>
 	<div class="scroll-box">
 		<ul>
-	    <li ng-repeat="item in archive.art">
+	    <li ng-repeat="item in archive.art.slice(0, 4)">
 	        <a ng-bind-html="item.image" href="#archive/art/{{item.id}}"></a>
 	    </li>
 	  </ul>

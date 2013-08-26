@@ -28,6 +28,10 @@ AllenGinsbergOrg::Application.configure do
   #   entitystore: "redis://redistogo:720ecf0341dfca9cf980f80ed6be9b38@koi.redistogo.com:9427/1/entitystore"
   # }
 
+  # Memcached
+  config.perform_caching = true
+  config.cache_store = :dalli_store
+
   # Do not compress assets
   config.assets.compress = false
 

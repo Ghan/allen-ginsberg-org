@@ -1,1 +1,12 @@
-{{links}}
+<h2>Links</h2>
+
+<div id="links">
+	<div ng-repeat="(cat, links) in linksData">
+		<h3>{{cat}}</h3>
+		<ul>
+			<li ng-repeat="link in links">
+				<a href="{{link.url}}" title="{{link.title}}" target="_blank">{{link.title}}</a><span ng-if="link.description"> - <span ng-bind-html="link.description"></span></span>
+			</li>
+		</ul>
+	</div>
+</div>

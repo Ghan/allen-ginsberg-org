@@ -67,6 +67,10 @@ AllenGinsbergOrg::Application.configure do
   #   entitystore: "redis://redistogo:720ecf0341dfca9cf980f80ed6be9b38@koi.redistogo.com:9427/1/entitystore"
   # }
 
+  # Memcached
+  config.perform_caching = true
+  config.cache_store = :dalli_store
+
   # email
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

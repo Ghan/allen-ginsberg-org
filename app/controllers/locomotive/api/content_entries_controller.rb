@@ -52,6 +52,7 @@ module Locomotive
 
         # Timeline - id, date, lifeline_snippet, chronological_addenda_snippet, title, geo, notables  
         if params.has_key?(:timeline)
+          Rails.cache.clear
           @new_content_entries = []
           @content_entries.each{ |entry|
             entry = { "id" => entry.id, 
@@ -67,51 +68,94 @@ module Locomotive
 
         # Published Work index - id, type, name, publisher, date, thumbnail_image
         if params.has_key?(:works_index)
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            entry = { "id" => entry.id, 
-                      "slug" => entry._slug,
-                      "type" => entry.type._slug,
-                      "name" => entry.name, 
-                      "publisher" => entry.publisher,
-                      "date" => entry.date,
-                       # "notable" => entry.notable,
-                      # "geo" => entry.geo,
-                      # "misc_tag" => entry.misc_tag,
-                      "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200')
-                    }
-            @new_content_entries.push(entry)
-          }
-          @content_entries = @new_content_entries
+          in_cache = Rails.cache.read("works_index/"+params[:work_type])
+          if in_cache
+            works_data = in_cache
+            message = "hit"
+          else
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              entry = { "id" => entry.id, 
+                        "slug" => entry._slug,
+                        "type" => entry.type._slug,
+                        "name" => entry.name, 
+                        "publisher" => entry.publisher,
+                        "date" => entry.date,
+                        # "notable" => entry.notable,
+                        # "geo" => entry.geo,
+                        # "misc_tag" => entry.misc_tag,
+                        "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200')
+                      }
+              @new_content_entries.push(entry)
+            }
+            works_data = @new_content_entries
+            message = "miss"
+            
+            Rails.cache.write("works_index/"+params[:work_type], works_data)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => works_data
+              }
         end
 
         # Archive Items index - id, title, archive_type, file_slash_image
         if params.has_key?(:archive_index)
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            entry = { "id" => entry.id, 
-                      "archive_type" => entry.archive_type._slug,
-                      "title" => entry.title, 
-                      "file_slash_image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '600x200'),
-                      "date" => entry.date_item_was_created
-                    }
-            @new_content_entries.push(entry)
-          }
-          @content_entries = @new_content_entries
+          in_cache = Rails.cache.read("archive_index")
+          if in_cache
+            archive_data = in_cache
+            message = "hit"
+          else
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              entry = { "id" => entry.id, 
+                        "archive_type" => entry.archive_type._slug,
+                        "title" => entry.title, 
+                        "file_slash_image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '600x200'),
+                        "date" => entry.date_item_was_created
+                      }
+              @new_content_entries.push(entry)
+            }
+            archive_data = @new_content_entries
+            message = "miss"
+            
+            Rails.cache.write("archive_index", archive_data)
+          end
+
+          @content_entries = {
+              "cache" => message,
+              "data" => archive_data
+              }
         end
 
         # Links page - 
         if params.has_key?(:links_page)
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            entry = { "id" => entry.id, 
-                      # "category" => entry.category,
-                      "title" => entry.title,
-                      "url" => entry.url
+          in_cache = Rails.cache.read("links_page")
+          if in_cache
+            links_data = in_cache
+            message = "hit"
+          else
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              @description = ( entry.description || "" )
+              entry = { "id" => entry.id, 
+                        "category" => entry.category.category,
+                        "title" => entry.title,
+                        "description" => @description,
+                        "url" => entry.url
+              }
+              @new_content_entries.push(entry)
             }
-            @new_content_entries.push(entry)
-          }
-          @content_entries = @new_content_entries
+            links_data = @new_content_entries
+            message = "miss"
+            
+            Rails.cache.write("links_page", links_data)
+          end
+
+          @content_entries = {
+              "cache" => message,
+              "data" => links_data
+              }
         end
 
         # Timeline Photo - 
