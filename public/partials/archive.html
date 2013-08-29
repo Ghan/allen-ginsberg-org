@@ -3,43 +3,53 @@
 <div id="archive-index">
 	<h3>Photography</h3>
 	<div class="scroll-box">
+		<div class="previous" ng-click="photoIndex = photoIndex - 1">&larr;&larr;</div>
 		<ul>
-	    <li ng-repeat="item in archive.photography.slice(0, 4)">
-	        <a ng-bind-html="item.image" href="#/archive/photography/{{item.id}}"></a>
+	    <li ng-repeat="item in archive.photography.slice(photoIndex*page, photoIndex*page+page)">
+	        <a ng-bind-html="item.image" href="#/archive/photography/{{item.slug}}"></a>
 	    </li>
 	  </ul>
+	  <div class="next" ng-click="photoIndex = photoIndex + 1" ng-init="photoIndex = 0">&rarr;&rarr;</div>
 	</div>
 	<h3>Art</h3>
 	<div class="scroll-box">
+		<div class="previous" ng-click="artIndex = artIndex - 1">&larr;&larr;</div>
 		<ul>
-	    <li ng-repeat="item in archive.art.slice(0, 4)">
-	        <a ng-bind-html="item.image" href="#archive/art/{{item.id}}"></a>
+	    <li ng-repeat="item in archive.art.slice(artIndex*page, artIndex*page+page)">
+	        <a ng-bind-html="item.image" href="#archive/art/{{item.slug}}"></a>
 	    </li>
 	  </ul>
+	  <div class="next" ng-click="artIndex = artIndex + 1" ng-init="artIndex = 0">&rarr;&rarr;</div>
 	</div>
 	<h3>Documents</h3>
 	<div class="scroll-box">
+		<div class="previous" ng-click="docIndex = docIndex - 1">&larr;&larr;</div>
 		<ul>
-	    <li ng-repeat="item in archive.document">
-	        <a ng-bind-html="item.image" href="#/archive/document/{{item.id}}"></a>
+	    <li ng-repeat="item in archive.document.slice(docIndex*page, docIndex*page+page)">
+	        <a ng-bind-html="item.image" href="#/archive/document/{{item.slug}}"></a>
 	    </li>
 	  </ul>
+	  <div class="next" ng-click="docIndex = docIndex + 1" ng-init="docIndex = 0">&rarr;&rarr;</div>
 	</div>
 	<h3>Lectures</h3>
 	<div class="scroll-box">
+		<div class="previous" ng-click="lectureIndex = lectureIndex - 1">&larr;&larr;</div>
 		<ul>
-	    <li ng-repeat="item in archive.lecture">
-	        <a ng-bind-html="item.image" href="#/archive/lecture/{{item.id}}"></a>
+	    <li ng-repeat="item in archive.lecture.slice(lectureIndex*page, lectureIndex*page+page)">
+	        <a ng-bind-html="item.image" href="#/archive/lecture/{{item.slug}}"></a>
 	    </li>
 	  </ul>
+	  <div class="next" ng-click="lectureIndex = lectureIndex + 1" ng-init="lectureIndex = 0">&rarr;&rarr;</div>
 	</div>
 	<h3>Transcripts</h3>
 	<div class="scroll-box">
+		<div class="previous" ng-click="transcriptIndex = transcriptIndex - 1">&larr;&larr;</div>
 		<ul>
-	    <li ng-repeat="item in archive.transcript">
-	        <a ng-bind-html="item.image" href="#/archive/transcript/{{item.id}}"></a>
+	    <li ng-repeat="item in archive.transcript.slice(transcriptIndex*page, transcriptIndex*page+page)">
+	        <a ng-bind-html="item.image" href="#/archive/transcript/{{item.slug}}"></a>
 	    </li>
 	  </ul>
+	  <div class="next" ng-click="transcriptIndex = transcriptIndex + 1" ng-init="transcriptIndex = 0">&rarr;&rarr;</div>
 	</div>
 	
 	

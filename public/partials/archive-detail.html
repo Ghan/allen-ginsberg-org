@@ -1,20 +1,46 @@
-<div id="nav-back">
-	<a href="#/archive" title="Browse Archive">Browse Archive</a>
-</div>
-<div id="left-side">
-	<div id="image-main">
-		<div ng-bind-html="item.image"></div>
+<div id="archive-detail">
+	<div id="nav-back">
+		<a href="#/archive" title="Browse Archive">Browse Archive</a>
 	</div>
-	<div id="similar-content">
-		similar content here
+	<div id="left-side">
+		<div id="image-main">
+			<div ng-if="item.image" ng-bind-html="item.image"></div>
+			<div ng-if="item.no_file" ng-bind-html="item.no_file"></div>
+		</div>
+		<div id="loading-similar-content" ng-if="!finishedLoadingSimilarContent">Loading Similar Archive Content...</div>
+		<div class="clearfix"></div>
+		<div id="similar-content" ng-if="finishedLoadingSimilarContent">
+			Similar Items in the Archive
+			<ul>
+				<li ng-repeat="i in similarArchiveItems">
+					<a href="#/archive/{{i.archive_type}}/{{i.slug}}" title="{{i.title}} ({{i.archive_type}})"><img src="http://allen-ginsberg-org.herokuapp.com{{i.image}}" alt="{{i.title}} ({{i.archive_type}})" /></a>
+				</li>
+			</ul>
+		</div>
 	</div>
-</div>
-<div id="right-side">
-	<div id="content-detail">
-		<h4>{{item.title}}</h4>
-		<div ng-bind-html="item.description"></div>
-	</div>
-	<div id="biography-box">
-		At this time here
+	<div id="right-side">
+		<div id="content-detail">
+			<h4>{{item.title}}</h4>
+			<div ng-bind-html="item.description"></div>
+		</div>
+		<div id="biography-box" ng-if="finishedLoadingAtThisTime">At this time: 
+			<ul>
+				<li ng-repeat="t in atThisTime">
+					<h4>{{t.title}}, {{t.date | date: 'yyyy'}}</h4>
+					<div ng-bind-html="t.lifeline_snippet"></div>
+				</li>
+			</ul>
+			<a href="#/biography">View more in the Timeline.</a>
+		</div>
+		<div ng-if="item.published_in">
+			<div ng-if="finishedLoadingPublishedIn">
+		    Published In: 
+		    <ul>
+		      <li ng-repeat="p in formattedPublishedIn">
+		      	<a href="#/works/{{p.type}}/{{p.slug}}" title="{{p.name}}"><img src="http://allen-ginsberg-org.herokuapp.com{{p.imageThumb}}" alt="{{p.name}}" /></a>
+		      </li>
+		    </ul>
+		  </div>
+		</div>
 	</div>
 </div>

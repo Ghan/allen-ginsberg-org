@@ -1,5 +1,5 @@
 <h2>Published Works</h2>
-<ul>
+<ul id="works-menu">
 	<li class="ng-class: {selected: workType=='book'}"><a href="#/works/book" alt="Books">Books</a></li>
 	<li class="ng-class: {selected: workType=='audio-recording'}"><a href="#/works/audio-recording" alt="Audio/Discography">Audio/Discography</a></li>
 	<li class="ng-class: {selected: workType=='film'}"><a href="#/works/film" alt="Film">Film</a></li>
@@ -9,9 +9,9 @@
 	<ul>
     <li ng-repeat="item in work[workType]">
       <div>
-      	<h4><a href="#/works/{{workType}}/{{item.id}}/{{item.slug}}" alt="{{item.name}}">{{item.name}}</a></h4>
-      	<div>{{item.publisher}}, {{item.date}}</div>
-        <div ng-bind-html="item.image"></div>
+        <a href="#/works/{{workType}}/{{item.slug}}" alt="{{item.name}}"><div ng-bind-html="item.image"></div></a>
+      	<h4>{{item.name}}</h4>
+      	<div>{{item.publisher}}<br />{{item.date}}</div>
     </li>
   </ul>
 </div>

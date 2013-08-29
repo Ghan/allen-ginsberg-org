@@ -11,13 +11,13 @@
 	<div id="timeline-box">
 		<h3>Life Events / Chronology</h3>
 	  <slider floor="0" ceiling={{timeline.length-1}} precision="0" translate="dateDisplay "ng-model="currentTime"></slider>
-	  <div id="timeline-body">
+	  <div ng-if="!finishedLoadingTimeline">Loading Timeline, please wait.</div>
+	  <div id="timeline-body" ng-if="finishedLoadingTimeline">
 		  <h4 id="timeline-title">{{timeline[currentTime].title}}</h4>
 		  <div id="timeline-image" ng-bind-html='timeline[currentTime].image'></div>
 	  	<div id="timeline-date">{{dateDisplay(currentTime)}}</div>
 	  	<div id="lifeline-snippet" ng-bind-html='timeline[currentTime].lifeline_snippet'></div>
 			<div id="in-his-words">{{ timeline[currentTime].chronological_addenda_snippet || "" }}</div>
-			
 		</div>
 	</div>
 </div>

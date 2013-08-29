@@ -10,44 +10,187 @@ module Locomotive
 
       def index
         @content_entries = @content_entries.order_by([content_type.order_by_definition])
-        # geo
-        if params.has_key?(:geo)
-          @content_entries = @content_entries.select { |entry| !!entry.geo.index{ |g| g._slug == params[:geo] } }
+
+        # At This Time (for Archive detail)
+        if params.has_key?(:at_this_time)
+          @date = Date.strptime(params[:at_this_time], '%m/%d/%Y').year
+          @date_range = 2
+          
+          @new_content_entries = []
+          @content_entries.each{ |entry| 
+            if entry[:date].year >= @date - @date_range and entry[:date].year <= @date + @date_range
+              add = {
+                "id" => entry.id, 
+                "title" =>  entry.title,
+                "date" => entry.date,
+                "lifeline_snippet" => entry.lifeline_snippet,
+                "slug" => entry._slug
+                }
+              @new_content_entries.push(add)
+            end
+          }
+          @content_entries = @new_content_entries.slice(0, 3)
         end
-        # notable
-        if params.has_key?(:notable)
-          @content_entries = @content_entries.select { |entry| !!entry.notable.index{ |g| g._slug == params[:notable] } }
+
+        # get published work similar to geo, notable, or date
+        if params.has_key?(:similar_work)
+          @geo = params[:geo]
+          @notable = params[:notable]
+          @date = Date.strptime(params[:date], '%m/%d/%Y').year
+          @date_range = 5
+
+          @new_content_entries = []
+          @content_entries.each{ |entry|
+            unless entry.geo.empty?
+              entry.geo.each{ |g|
+                if g._slug == @geo
+                  add = {
+                    "id" => entry.id, 
+                    "name" =>  entry.name,
+                    "type" => entry.type._slug,
+                    "slug" => entry._slug,
+                    "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200#')
+                  }
+                  @new_content_entries.push(add)
+                end
+              }
+            end
+            unless entry.notable.empty?
+              entry.notable.each{ |n|
+                if n._slug == @notable
+                  add = {
+                    "id" => entry.id, 
+                    "name" =>  entry.name,
+                    "type" => entry.type._slug,
+                    "slug" => entry._slug,
+                    "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200#')
+                  }
+                  @new_content_entries.push(add)
+                end
+              }
+            end
+            if entry[:date].year >= @date - @date_range and entry[:date].year <= @date + @date_range
+              add = {
+                "id" => entry.id, 
+                "name" =>  entry.name,
+                "type" => entry.type._slug,
+                "slug" => entry._slug,
+                "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200#')
+              }
+              @new_content_entries.push(add)
+            end
+          }
+          @content_entries = @new_content_entries.slice(0, 10)
         end
-        # misc_tag
-        if params.has_key?(:misc_tag)
-          @content_entries = @content_entries.select { |entry| !!entry.notable.index{ |g| g._slug == params[:notable] } }
+
+        # Items in Archive (Publish Work detail)
+        if params.has_key?(:items_in_archive)
+          @items = params[:items_in_archive].split("|")
+
+          @new_content_entries = []
+          @content_entries.each{ |entry|
+            @items.each{ |i|
+              if entry._slug == i
+                item = { "id" => entry.id,
+                        "slug" => entry._slug,
+                        "archive_type" => entry.archive_type._slug,
+                        "title" => entry.title, 
+                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '100x100#')
+                      }
+                @new_content_entries.push(item)
+              end
+            }
+          }
+          @content_entries = @new_content_entries
         end
-        # date range 
-        if params.has_key?(:date)
-          @start_year = Date.strptime(params[:date], '%m/%d/%Y').year
-          if params.has_key?(:end_date)
-            @end_year = Date.strptime(params[:end_date], '%m/%d/%Y').year
-          else
-            @end_year = @start_year
-          end
-          if params.has_key?(:date_range)
-            @date_range = params[:date_range].to_i
-          else
-            @date_range = 3
-          end
-          @content_entries = @content_entries.select { |entry| entry[:date].year >= @start_year - @date_range and entry[:date].year <= @end_year + @date_range }
+
+        # Published In (Archive Items detail)
+        if params.has_key?(:published_in)
+          @items = params[:published_in].split("|")
+
+          @new_content_entries = []
+          @content_entries.each{ |entry|
+            @items.each{ |i|
+              if entry._slug == i
+                item = {
+                    "id" => entry.id, 
+                    "name" =>  entry.name,
+                    "type" => entry.type._slug,
+                    "slug" => entry._slug,
+                    "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200#')
+                  }
+                @new_content_entries.push(item)
+              end
+            }
+          }
+          @content_entries = @new_content_entries
         end
+
+        # Similar Items in Archive (Archive Detail)
+        if params.has_key?(:similar_archive_items)
+          @geo = params[:geo]
+          @notable = params[:notable]
+          @misc = params[:misc]
+          @date = Date.strptime(params[:date], '%m/%d/%Y').year
+          @date_range = 5
+
+          @new_content_entries = []
+          @content_entries.each{ |entry|
+            unless entry.geo.empty?
+              entry.geo.each{ |g|
+                if g._slug == @geo
+                  add = { "id" => entry.id,
+                        "slug" => entry._slug,
+                        "archive_type" => entry.archive_type._slug,
+                        "title" => entry.title, 
+                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '100x100#')
+                      }
+                  @new_content_entries.push(add)
+                end
+              }
+            end
+            unless entry.notable.empty?
+              entry.notable.each{ |n|
+                if n._slug == @notable
+                  add = { "id" => entry.id,
+                        "slug" => entry._slug,
+                        "archive_type" => entry.archive_type._slug,
+                        "title" => entry.title, 
+                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '200x200#')
+                      }
+                  @new_content_entries.push(add)
+                end
+              }
+            end
+            unless entry.misc_tags.empty?
+              entry.notable.each{ |m|
+                if m._slug == @misc
+                  add = { "id" => entry.id,
+                        "slug" => entry._slug,
+                        "archive_type" => entry.archive_type._slug,
+                        "title" => entry.title, 
+                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '200x200#')
+                      }
+                  @new_content_entries.push(add)
+                end
+              }
+            end
+            if entry[:date_item_was_created].year >= @date - @date_range and entry[:date_item_was_created].year <= @date + @date_range
+              add = { "id" => entry.id,
+                        "slug" => entry._slug,
+                        "archive_type" => entry.archive_type._slug,
+                        "title" => entry.title, 
+                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '200x200#')
+                      }
+              @new_content_entries.push(add)
+            end
+          }
+          @content_entries = @new_content_entries.slice(0, 6)
+        end
+
         # publish work type
         if params.has_key?(:work_type)
           @content_entries = @content_entries.select { |entry| entry.type._slug == params[:work_type] }
-        end
-        # archive type
-        if params.has_key?(:archive_type)
-          @content_entries = @content_entries.select { |entry| entry.archive_type._slug == params[:archive_type] }
-        end
-        # link type
-        if params.has_key?(:link_type)
-          # @content_entries = @content_entries.select { |entry| entry.type._slug == params[:link_type] }
         end
 
         # Timeline - id, date, lifeline_snippet, chronological_addenda_snippet, title, geo, notables  
@@ -84,14 +227,14 @@ module Locomotive
                         # "notable" => entry.notable,
                         # "geo" => entry.geo,
                         # "misc_tag" => entry.misc_tag,
-                        "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200')
+                        "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '250x300')
                       }
               @new_content_entries.push(entry)
             }
             works_data = @new_content_entries
             message = "miss"
             
-            Rails.cache.write("works_index/"+params[:work_type], works_data)
+            Rails.cache.write("works_index/"+params[:work_type], works_data, expires_in: 0)
           end
           @content_entries = {
               "cache" => message,
@@ -108,7 +251,8 @@ module Locomotive
           else
             @new_content_entries = []
             @content_entries.each{ |entry|
-              entry = { "id" => entry.id, 
+              entry = { "id" => entry.id,
+                        "slug" => entry._slug, 
                         "archive_type" => entry.archive_type._slug,
                         "title" => entry.title, 
                         "file_slash_image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '600x200'),
@@ -119,7 +263,7 @@ module Locomotive
             archive_data = @new_content_entries
             message = "miss"
             
-            Rails.cache.write("archive_index", archive_data)
+            Rails.cache.write("archive_index", archive_data, expires_in: 0)
           end
 
           @content_entries = {
@@ -149,7 +293,7 @@ module Locomotive
             links_data = @new_content_entries
             message = "miss"
             
-            Rails.cache.write("links_page", links_data)
+            Rails.cache.write("links_page", links_data, expires_in: 0)
           end
 
           @content_entries = {

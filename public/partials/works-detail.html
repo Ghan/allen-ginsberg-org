@@ -1,38 +1,36 @@
 <h2>Published Works</h2>
-<ul>
+<ul id="works-menu">
   <li class="ng-class: {selected: workType=='book'}"><a href="#/works/book" alt="Books">Books</a></li>
   <li class="ng-class: {selected: workType=='audio-recording'}"><a href="#/works/audio-recording" alt="Audio/Discography">Audio/Discography</a></li>
   <li class="ng-class: {selected: workType=='film'}"><a href="#/works/film" alt="Film">Film</a></li>
 </ul>
 	
 <div id="works-detail">
-  <div>{{work[workId].name}}</div>
-  <div>{{work[workId].publisher}}</div>
-  <div>{{work[workId].date}}</div>
-  <div>{{work[workId].amazon_slash_itunes_url}}</div>
-  <div ng-bind-html="work[workId].image"></div>
-  <div ng-bind-html='work[workId].description'></div>
-  <div>Geos:
-          <ul>
-            <li ng-repeat="geo in work[workId].geo">
-              {{geo}}
-            </li>
-          </ul>
-        </div>
-        <div>Notables:
-          <ul>
-            <li ng-repeat="notable in work[workId].notable">
-              {{notable}}
-            </li>
-          </ul>
-        </div>
-  <div similarwork id='work[workId].id' notable='work[workId].notable' geo='work[workId].geo' misc='work[workId].misc'></div> 
-  <div ng-if="work[workId].archive_items">
+  <div id="works-detail-main">
+    <div id="works-detail-img" ng-bind-html="work[workId].image"></div>
+    <h3>{{work[workId].name}}</h3>
+    <div>{{work[workId].publisher}}</div>
+    <div>{{work[workId].date}}</div>
+    <div><a href="{{work[workId].amazon_slash_itunes_url}}" target="_blank" title="Purchase">PURCHASE >></a></div>
+    <div ng-bind-html='work[workId].description'></div>
+    <div id="items-in-archive" ng-if="formattedItemsInArchive.length > 0">
     Items in the archive: 
       <ul>
-        <li ng-repeat="item in work[workId].archive_items">
-          {{item}} <br />
+        <li ng-repeat="item in formattedItemsInArchive">
+          <a href="#/archive/{{item.archive_type}}/{{item.slug}}" title="{{item.title}} ({{item.archive_type}})"><img src="http://allen-ginsberg-org.herokuapp.com{{item.image}}" alt="{{item.title}} ({{item.archive_type}})" /></a>
         </li>
       </ul>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div id="loading-similar" ng-if="!finishedLoadingSimilarWorks">Finding similar published works...</div>
+  <div id="works-detail-sidebar" ng-if="finishedLoadingSimilarWorks">
+    <div id="similar-work">Similar Work:
+      <ul>
+        <li ng-repeat="s in similarWorks">
+          <div ng-bind-html='s.link'></div>
+        </li>
+      </ul>
+    </div> 
   </div>
 </div>
