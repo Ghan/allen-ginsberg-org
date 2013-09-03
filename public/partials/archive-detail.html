@@ -5,7 +5,7 @@
 	<div id="left-side">
 		<div id="image-main">
 			<div ng-if="item.image" ng-bind-html="item.image"></div>
-			<div ng-if="item.no_file" ng-bind-html="item.no_file"></div>
+			<div id="no-file-box" ng-if="item.no_file" ng-bind-html="item.no_file"></div>
 		</div>
 		<div id="loading-similar-content" ng-if="!finishedLoadingSimilarContent">Loading Similar Archive Content...</div>
 		<div class="clearfix"></div>
@@ -22,6 +22,13 @@
 		<div id="content-detail">
 			<h4>{{item.title}}</h4>
 			<div ng-bind-html="item.description"></div>
+		</div>
+		<div id="other-class" ng-if="otherClass.length > 0">
+			Other Lectures in this Series
+			<ul>
+				<li ng-repeat="c in otherClass">
+					<a href="#/archive/{{c.archive_type}}/{{c.slug}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
+				</li>
 		</div>
 		<div id="biography-box" ng-if="atThisTime.length > 0">At this time: 
 			<ul>

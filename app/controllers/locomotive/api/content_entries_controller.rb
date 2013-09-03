@@ -49,7 +49,7 @@ module Locomotive
                     "name" =>  entry.name,
                     "type" => entry.type._slug,
                     "slug" => entry._slug,
-                    "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200#')
+                    "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '200x200#') : "/assets/blank.png")
                   }
                   @new_content_entries.push(add)
                 end
@@ -63,7 +63,7 @@ module Locomotive
                     "name" =>  entry.name,
                     "type" => entry.type._slug,
                     "slug" => entry._slug,
-                    "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200#')
+                    "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '200x200#') : "/assets/blank.png")
                   }
                   @new_content_entries.push(add)
                 end
@@ -75,7 +75,7 @@ module Locomotive
                 "name" =>  entry.name,
                 "type" => entry.type._slug,
                 "slug" => entry._slug,
-                "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200#')
+                "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '200x200#') : "/assets/blank.png")
               }
               @new_content_entries.push(add)
             end
@@ -117,7 +117,7 @@ module Locomotive
                     "name" =>  entry.name,
                     "type" => entry.type._slug,
                     "slug" => entry._slug,
-                    "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '200x200#')
+                    "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '200x200#') : "/assets/blank.png")
                   }
                 @new_content_entries.push(item)
               end
@@ -128,6 +128,7 @@ module Locomotive
 
         # Similar Items in Archive (Archive Detail)
         if params.has_key?(:similar_archive_items)
+          @id = params[:id]
           @geo = params[:geo]
           @notable = params[:notable]
           @misc = params[:misc]
@@ -143,7 +144,7 @@ module Locomotive
                         "slug" => entry._slug,
                         "archive_type" => entry.archive_type._slug,
                         "title" => entry.title, 
-                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '100x100#')
+                        "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
                       }
                   @new_content_entries.push(add)
                 end
@@ -156,7 +157,7 @@ module Locomotive
                         "slug" => entry._slug,
                         "archive_type" => entry.archive_type._slug,
                         "title" => entry.title, 
-                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '200x200#')
+                        "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
                       }
                   @new_content_entries.push(add)
                 end
@@ -169,7 +170,7 @@ module Locomotive
                         "slug" => entry._slug,
                         "archive_type" => entry.archive_type._slug,
                         "title" => entry.title, 
-                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '200x200#')
+                        "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
                       }
                   @new_content_entries.push(add)
                 end
@@ -180,12 +181,30 @@ module Locomotive
                         "slug" => entry._slug,
                         "archive_type" => entry.archive_type._slug,
                         "title" => entry.title, 
-                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '200x200#')
+                        "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
                       }
               @new_content_entries.push(add)
             end
           }
           @content_entries = @new_content_entries.slice(0, 6)
+        end
+
+        # Other Classes in Series
+        if params.has_key?(:other_class_list)
+          @id = params[:other_class_list]
+          @new_content_entries = []
+          @content_entries.each{ |entry|
+            if entry.is_this_a_lecture_and_part_of_a_class_which_one_id == @id
+              puts entry.is_this_a_lecture_and_part_of_a_class_which_one_id
+              entry = { "id" => entry.id,
+                        "slug" => entry._slug,
+                        "archive_type" => entry.archive_type._slug,
+                        "title" => entry.title
+                      }
+              @new_content_entries.push(entry)
+            end
+          }
+          @content_entries = @new_content_entries
         end
 
         # publish work type
@@ -227,7 +246,7 @@ module Locomotive
                         # "notable" => entry.notable,
                         # "geo" => entry.geo,
                         # "misc_tag" => entry.misc_tag,
-                        "imageThumb" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url || "/nothing.jpg"), '250x300')
+                        "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '250x300') : "/assets/blank.png")
                       }
               @new_content_entries.push(entry)
             }
@@ -257,12 +276,7 @@ module Locomotive
                           "title" => entry.title, 
                           "date" => entry.date_item_was_created
                           }
-              new_entry.merge!(:file_slash_image => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '600x200') : "/assets/blank.png"))
-              # if !entry.file_slash_image.url
-              #   new_entry.merge!(:file_slash_image => "/blank.png")
-              # else
-              #   new_entry.merge!(:file_slash_image => (Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '600x200')|| "/nothing.jpg")
-              # end
+              new_entry.merge!(:file_slash_image => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '200x200#') : "/assets/blank.png"))
               @new_content_entries.push(new_entry)
             }
             archive_data = @new_content_entries
@@ -355,14 +369,12 @@ module Locomotive
       def show
         # work detail
         if @content_type.slug == 'published_work'
-          @image = Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(@content_entry.thumbnail_image.url || "/nothing.jpg"), '500x500')
-          @new_content_entry = { "content" => @content_entry, "image" => @image }
+          @new_content_entry = { "content" => @content_entry, "image" => (@content_entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(@content_entry.thumbnail_image.url), '400x600') : "/assets/blank.png") }
           @content_entry = @new_content_entry
         end
         #archive item
         if @content_type.slug == 'archive_items'
-          @image = Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(@content_entry.file_slash_image.url || "/nothing.jpg"), '1200x1200')
-          @new_content_entry = { "content" => @content_entry, "image" => @image }
+          @new_content_entry = { "content" => @content_entry, "image" => (@content_entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(@content_entry.file_slash_image.url), '1000x1000') : "/assets/blank.png") }
           @content_entry = @new_content_entry
         end
         respond_with @content_entry, status: @content_entry ? :ok : :not_found

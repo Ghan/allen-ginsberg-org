@@ -135,6 +135,11 @@ body {
 		overflow-x: scroll;
 		width:100%;
 		position:relative;
+		li{
+			width:200px;
+			height:200px;
+			background:grey;
+		}
 	}
 	.previous{
 		position:absolute;
@@ -154,8 +159,16 @@ body {
 			list-style-type: none;
 			display:inline-block;
 			vertical-align: top;
-			padding: 0 5px;
+			margin: 0 5px;
 		}
+	}
+	.lecture-box{
+		background:rgb(230,230,230);
+		height:140px;
+		width:180px;
+		padding:50px 10px 10px 10px;
+		display:inline-block;
+		vertical-align: top;
 	}
 }
 
@@ -179,6 +192,9 @@ body {
 				vertical-align: top;
 				margin-right:5px;
 			}
+		}
+		#no-file-box{
+			font-family:serif;
 		}
 	}
 	#right-side{
