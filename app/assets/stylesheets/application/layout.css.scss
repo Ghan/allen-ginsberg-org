@@ -188,6 +188,19 @@ body {
 	}
 }
 
+// Links Page =============== //
+.link-cat{
+	width:30%;
+	display:inline-block;
+	vertical-align: top;
+	margin-right:1%;
+	ul{
+		height:400px;
+		overflow-y:scroll;
+	}
+	border: 1px solid #DDD;
+	padding:1%;
+}
 
 // Angular-Slider
 slider{display:inline-block;position:relative;height:7px;width:100%;margin:25px 5px 25px 5px;vertical-align:middle;}
