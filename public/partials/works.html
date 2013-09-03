@@ -4,8 +4,11 @@
 	<li class="ng-class: {selected: workType=='audio-recording'}"><a href="#/works/audio-recording" alt="Audio/Discography">Audio/Discography</a></li>
 	<li class="ng-class: {selected: workType=='film'}"><a href="#/works/film" alt="Film">Film</a></li>
 </ul>
-	
-<div id="works-index">
+
+<div ng-if="!work[workType]">
+  Loading Published Works ({{workType}})...
+</div>	
+<div id="works-index" ng-if="work[workType]">
 	<ul>
     <li ng-repeat="item in work[workType]">
       <div>

@@ -1,6 +1,9 @@
 <h2>Archive</h2>
 
-<div id="archive-index">
+<div ng-if="!finishedLoadingArchive">
+	Loading Archive...
+</div>
+<div id="archive-index" ng-if="finishedLoadingArchive">
 	<h3>Photography</h3>
 	<div class="scroll-box">
 		<div class="previous" ng-click="photoIndex = photoIndex - 1">&larr;&larr;</div>
