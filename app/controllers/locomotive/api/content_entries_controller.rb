@@ -14,7 +14,7 @@ module Locomotive
         # At This Time (for Archive detail)
         if params.has_key?(:at_this_time)
           @date = Date.strptime(params[:at_this_time], '%m/%d/%Y').year
-          @date_range = 2
+          @date_range = 0
           
           @new_content_entries = []
           @content_entries.each{ |entry| 

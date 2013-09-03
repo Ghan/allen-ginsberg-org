@@ -23,7 +23,7 @@
 			<h4>{{item.title}}</h4>
 			<div ng-bind-html="item.description"></div>
 		</div>
-		<div id="biography-box" ng-if="finishedLoadingAtThisTime">At this time: 
+		<div id="biography-box" ng-if="atThisTime.length > 0">At this time: 
 			<ul>
 				<li ng-repeat="t in atThisTime">
 					<h4>{{t.title}}, {{t.date | date: 'yyyy'}}</h4>
