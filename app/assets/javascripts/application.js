@@ -9,7 +9,7 @@
 //= require h5bp
 //= require ../../../lib/assets/javascripts/main.js
 //= require ../../../lib/assets/javascripts/angular.min.js
-//= require ../../../lib/assets/angular/angular-sanitize.min.js
+//= require ../../../lib/assets/javascripts/angular-sanitize.min.js
 //= require ../../../lib/assets/javascripts/angular-slider.js
 //= require ../../../lib/assets/javascripts/angular-route.js
 //= require ../../../lib/assets/javascripts/app.js
