@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # config.cache_store = :redis_store, "redis://redistogo:720ecf0341dfca9cf980f80ed6be9b38@koi.redistogo.com:9427/0/cache", { expires_in: 9000.minutes }
 
   def index
-  	@title = "Marqueed - Simple image collaboration and markup tool. Share, annotate and discuss images."
+  	@title = "Allen Ginsberg site, by the Allen Ginsberg Project."
 	end
 
 	def get_token
