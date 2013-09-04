@@ -14,32 +14,32 @@ module Locomotive
 
         # Archive Items index - id, title, archive_type, file_slash_image
         if params.has_key?(:archive_index)
-          # in_cache = Rails.cache.read("archive_index")
-          # if in_cache
-          #   archive_data = in_cache
-          #   message = "hit"
-          # else
-          #   @new_content_entries = []
-          #   @content_entries.each{ |entry|
-          #     new_entry = { "id" => entry.id,
-          #                 "slug" => entry._slug, 
-          #                 "archive_type" => entry.archive_type._slug,
-          #                 "title" => entry.title, 
-          #                 "date" => entry.date_item_was_created
-          #                 }
-          #     new_entry.merge!(:file_slash_image => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '200x200#') : "/assets/blank.png"))
-          #     @new_content_entries.push(new_entry)
-          #   }
-          #   archive_data = @new_content_entries
-          #   message = "miss"
+          in_cache = Rails.cache.read("archive_index")
+          if false
+            archive_data = in_cache
+            message = "hit"
+          else
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              new_entry = { "id" => entry.id,
+                          "slug" => entry._slug, 
+                          "archive_type" => entry.archive_type._slug,
+                          "title" => entry.title, 
+                          "date" => entry.date_item_was_created
+                          }
+              new_entry.merge!(:file_slash_image => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '200x200#') : "/assets/blank.png"))
+              @new_content_entries.push(new_entry)
+            }
+            archive_data = @new_content_entries
+            message = "miss"
             
-          #   Rails.cache.write("archive_index", archive_data, expires_in: 0)
-          # end
+            Rails.cache.write("archive_index", archive_data, expires_in: 0)
+          end
 
-          # @content_entries = {
-          #     "cache" => message,
-          #     "data" => archive_data
-          #     }
+          @content_entries = {
+              "cache" => message,
+              "data" => archive_data
+              }
         end
 
         respond_with @content_entries
