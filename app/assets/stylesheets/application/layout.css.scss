@@ -30,6 +30,30 @@ body {
 	}
 }
 
+// Homepage ==================== //
+
+#homepage{
+	.jump-box{
+		width:250px;
+		height:250px;
+		display:inline-block;
+		margin:3%;
+		vertical-align: top;
+	}
+	#photo-archive{
+		background: url(http://allen-ginsberg-org.herokuapp.com/assets/photo-archive.jpg);
+	}
+	#browse-lectures{
+		background: url(http://allen-ginsberg-org.herokuapp.com/assets/lectures.jpg);
+	}
+	#published-work{
+		background: url(http://allen-ginsberg-org.herokuapp.com/assets/published-works.jpg);
+	}
+	#shop-merch{
+		background: url(http://allen-ginsberg-org.herokuapp.com/assets/merch.jpg);
+	}
+}
+
 // Blog Page ==================== //
 
 .blog-post-snippet{
