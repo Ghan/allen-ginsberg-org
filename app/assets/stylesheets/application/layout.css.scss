@@ -46,7 +46,7 @@ body {
 		position:absolute;
 		display: inline-block;
 		vertical-align: top;
-		background:url(../watermark-fish.jpg) 0% 30% no-repeat;
+		background:url(../assets/watermark-fish.jpg) 0% 30% no-repeat;
 		#quote-text{
 			font-size: 2em;
 			font-style: italic;
@@ -67,16 +67,16 @@ body {
 		vertical-align: top;
 	}
 	#photo-archive{
-		background: url(../photo-archive.jpg) 50% 50%;
+		background: url(../assets/photo-archive.jpg) 50% 50%;
 	}
 	#browse-lectures{
-		background: url(../lectures.jpg) 50% 50%;
+		background: url(../assets/lectures.jpg) 50% 50%;
 	}
 	#published-work{
-		background: url(../published-works.jpg) 50% 50%;
+		background: url(../assets/published-works.jpg) 50% 50%;
 	}
 	#shop-merch{
-		background: url(../merch.jpg) 50% 50%;
+		background: url(../assets/merch.jpg) 50% 50%;
 	}
 	.box-text{
 		position: absolute;
