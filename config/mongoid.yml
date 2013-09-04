@@ -50,7 +50,7 @@ production:
   # database: <%= ENV['MONGOID_DATABASE'] %>
 
   # heroku
-  # uri: <%= ENV['MONGOHQ_URL'] %>
+  uri: "mongodb://ag-admin:ag-pw-vortexSutra1@dharma.mongohq.com:10060/app17225840"
 
   # bushido (mongohq_url will also work)
   sessions:
