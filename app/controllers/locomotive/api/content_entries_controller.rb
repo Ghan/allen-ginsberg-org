@@ -15,7 +15,7 @@ module Locomotive
         # Archive Items index - id, title, archive_type, file_slash_image
         if params.has_key?(:archive_index)
           in_cache = Rails.cache.read("archive_index")
-          if in_cache and false
+          if false
             archive_data = in_cache
             message = "hit"
           else
