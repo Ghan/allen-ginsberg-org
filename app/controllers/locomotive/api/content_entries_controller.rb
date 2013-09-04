@@ -40,7 +40,6 @@ module Locomotive
           #     "cache" => message,
           #     "data" => archive_data
           #     }
-          puts "in here!"
         end
 
         respond_with @content_entries
