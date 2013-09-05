@@ -26,7 +26,9 @@ body {
 	}
 }
 .selected{
-	font-weight:bold;
+	a{
+		color:$bold-font;
+	}
 }
 
 
@@ -47,14 +49,16 @@ body {
 
 	li {
   	display: inline;
-  	padding-right: 0.3em;
+  	padding-right: 20px;
   	a{
   		text-decoration:none;
   		&:hover{
-  			background:yellow;
+  			background:$like-white;
   		}
   	}
   	a.active{
+  		background:$like-white;
+  		font-family:$bold-font;
   	}
 	}
 }
@@ -78,7 +82,7 @@ body {
 		position:absolute;
 		display: inline-block;
 		vertical-align: top;
-		background:url(../assets/watermark-fish.jpg) 0% 30% no-repeat;
+		background:url(../watermark-fish.jpg) 0% 30% no-repeat;
 		#quote-text{
 			font-size: 2em;
 			font-style: italic;
@@ -97,18 +101,23 @@ body {
 		display:inline-block;
 		margin:2%;
 		vertical-align: top;
+		&:hover{
+			.box-text{
+				color:$light;
+			}
+		}
 	}
 	#photo-archive{
-		background: url(../assets/photo-archive.jpg) 50% 50%;
+		background: url(../photo-archive.jpg) 50% 50%;
 	}
 	#browse-lectures{
-		background: url(../assets/lectures.jpg) 50% 50%;
+		background: url(../lectures.jpg) 50% 50%;
 	}
 	#published-work{
-		background: url(../assets/published-works.jpg) 50% 50%;
+		background: url(../published-works.jpg) 50% 50%;
 	}
 	#shop-merch{
-		background: url(../assets/merch.jpg) 50% 50%;
+		background: url(../merch.jpg) 50% 50%;
 	}
 	.box-text{
 		position: absolute;
@@ -126,11 +135,13 @@ body {
 // Blog Page ==================== //
 
 .blog-post-snippet{
-	width:48%;
-	display:inline-block;
-	vertical-align:top;
-	margin:1%;
-	margin-bottom:20px;
+	width: 45%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 1%;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	padding: 10px;
 	img{
 		max-width:100%;
 	}
@@ -138,6 +149,10 @@ body {
 		height:500px;
 		overflow-y:scroll;
 	}
+}
+#blog-nav-box{
+	padding:20px 0;
+	text-align:center;
 }
 
 
@@ -171,6 +186,7 @@ body {
 
 // Works Page =============== //
 #works-menu{
+	text-transform:uppercase;
 	padding:0;
 	li{
 		list-style-type:none;
