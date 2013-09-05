@@ -51,6 +51,9 @@ module AllenGinsbergOrg
     # from locomotive cms docs
     config.assets.initialize_on_precompile = false
 
+    # Dragonfly on Heroku
+    config.middleware.insert 0, 'Dragonfly::Middleware', :images
+
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
     # like if you have constraints or database-specific column types
