@@ -7,11 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="container">
-
-		<%= yield %>
-
+	<div id="header">
+		<div id="logo">
+			Allen Ginsberg
+		</div>
+		<ul id="main-menu" class="menu">
+	    <li><a href="#/">Home</a></li>
+	    <li><a href="#/announcements">Announcements</a></li>
+	    <li><a href="#/biography">Biography</a></li>
+	    <li><a href="#/works">Published Works</a></li>
+	    <li><a href="#/archive">Archive</a></li>
+	    <li><a href="http://allenginsberg.sandbag.uk.com/Store/DisplayItems.html" target="_blank">Merchandise<span class="ext-link">(ext)</span></a></li>
+	    <li><a href="#/links">Links</a></li>
+	  </ul>
 	</div>
+	<%= yield %>
 	<div id="footer">
 		<div id="sitemap">Site Links
 			<ul>
