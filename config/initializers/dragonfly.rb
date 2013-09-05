@@ -7,7 +7,8 @@ app = Dragonfly[:images]
 app.configure_with(:rails)
 app.configure_with(:imagemagick)
 
-if Rails.env.production?
+if true 
+	# Rails.env.production?
   app.configure do |c|
     c.datastore = Dragonfly::DataStorage::S3DataStore.new(
       :bucket_name => 'allenginsberg',

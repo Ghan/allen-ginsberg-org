@@ -274,7 +274,8 @@ module Locomotive
                           "slug" => entry._slug, 
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
-                          "date" => entry.date_item_was_created
+                          "date" => entry.date_item_was_created,
+                          "original_file" => ( entry.file_slash_image.url || "none.png" )
                           }
               new_entry.merge!(:file_slash_image => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '200x200#') : "/assets/blank.png"))
               @new_content_entries.push(new_entry)
