@@ -70,9 +70,9 @@ AllenGinsbergOrg::Application.configure do
   # Memcached
   config.perform_caching = true
   config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"].split(","), {
-    :username        => ENV["MEMCACHIER_USERNAME"],¬
-    :password        => ENV["MEMCACHIER_PASSWORD"],¬
-    :value_max_bytes => 5242880 # 5MB¬
+    :username        => ENV["MEMCACHIER_USERNAME"],
+    :password        => ENV["MEMCACHIER_PASSWORD"],
+    :value_max_bytes => 5242880 # 5MB
   }
 
   # email
