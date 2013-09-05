@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   def index
   	@title = "Allen Ginsberg site, by the Allen Ginsberg Project."
+  	@appPath = "http://localhost:8080/"
+  	if Rails.env.production?
+	  	@appPath = "http://allen-ginsberg-org.herokuapp.com/"
+	  end
 	end
 
 	def get_token
