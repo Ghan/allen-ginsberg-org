@@ -26,7 +26,7 @@ module Locomotive
               @new_content_entries.push(new_entry)
             }
             archive_data = @new_content_entries
-            message = "miss"
+            message = "new"
 
           @content_entries = {
               "cache" => message,
