@@ -41,12 +41,6 @@ AllenGinsbergOrg::Application.configure do
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
-  client = Dalli::Client.new
-  config.action_dispatch.rack_cache = {
-    :metastore    => client,
-    :entitystore  => client,
-    :allow_reload => false
-  }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -75,7 +69,11 @@ AllenGinsbergOrg::Application.configure do
 
   # Memcached
   config.perform_caching = true
-  config.cache_store = :dalli_store
+  config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"].split(","), {
+    :username        => ENV["MEMCACHIER_USERNAME"],¬
+    :password        => ENV["MEMCACHIER_PASSWORD"],¬
+    :value_max_bytes => 5242880 # 5MB¬
+  }
 
   # email
   config.action_mailer.delivery_method = :smtp
