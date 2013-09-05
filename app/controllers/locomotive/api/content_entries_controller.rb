@@ -14,11 +14,6 @@ module Locomotive
 
         # Archive Items index - id, title, archive_type, file_slash_image
         if params.has_key?(:archive_index)
-          in_cache = Rails.cache.read("archive_index")
-          if false
-            archive_data = in_cache
-            message = "hit"
-          else
             @new_content_entries = []
             @content_entries.each{ |entry|
               new_entry = { "id" => entry.id,
@@ -32,8 +27,6 @@ module Locomotive
             }
             archive_data = @new_content_entries
             message = "miss"
-            
-            Rails.cache.write("archive_index", archive_data, expires_in: 0)
           end
 
           @content_entries = {
