@@ -27,7 +27,6 @@ module Locomotive
             }
             archive_data = @new_content_entries
             message = "miss"
-          end
 
           @content_entries = {
               "cache" => message,
