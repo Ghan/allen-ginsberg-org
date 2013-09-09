@@ -1,6 +1,6 @@
 <div id="archive-detail">
 	<div id="nav-back">
-		<a href="#/archive" title="Browse Archive">Browse Archive</a>
+		<a href="#/archive" title="Browse Archive"><span id="back-arrow"></span>Back to Archive</a>
 	</div>
 	<div id="left-side">
 		<div id="image-main">
@@ -10,8 +10,8 @@
 		<div id="loading-similar-content" ng-if="!finishedLoadingSimilarContent">Loading Similar Archive Content...</div>
 		<div class="clearfix"></div>
 		<div id="similar-content" ng-if="finishedLoadingSimilarContent">
-			Similar Items in the Archive
 			<ul>
+				<li id="similar-content-title">Also in the Archive</li>
 				<li ng-repeat="i in similarArchiveItems">
 					<a href="#/archive/{{i.archive_type}}/{{i.slug}}" title="{{i.title}} ({{i.archive_type}})"><img src="http://allen-ginsberg-org.herokuapp.com{{i.image}}" alt="{{i.title}} ({{i.archive_type}})" /></a>
 				</li>
@@ -20,7 +20,7 @@
 	</div>
 	<div id="right-side">
 		<div id="content-detail">
-			<h4>{{item.title}}</h4>
+			<h2>{{item.title}}</h2>
 			<div ng-bind-html="item.description"></div>
 		</div>
 		<div id="other-class" ng-if="otherClass.length > 0">
@@ -30,7 +30,8 @@
 					<a href="#/archive/{{c.archive_type}}/{{c.slug}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
 				</li>
 		</div>
-		<div id="biography-box" ng-if="atThisTime.length > 0">At this time: 
+		<div id="biography-box" ng-if="atThisTime.length > 0">
+			<span class="title">At this time</span> 
 			<ul>
 				<li ng-repeat="t in atThisTime">
 					<h4>{{t.title}}, {{t.date | date: 'yyyy'}}</h4>
@@ -39,12 +40,12 @@
 			</ul>
 			<a href="#/biography">View more in the Timeline.</a>
 		</div>
-		<div ng-if="item.published_in">
+		<div id="published-in" ng-if="item.published_in">
 			<div ng-if="finishedLoadingPublishedIn">
-		    Published In: 
+		    <span class="title">Published In</span>
 		    <ul>
 		      <li ng-repeat="p in formattedPublishedIn">
-		      	<a href="#/works/{{p.type}}/{{p.slug}}" title="{{p.name}}"><img src="http://allen-ginsberg-org.herokuapp.com{{p.imageThumb}}" alt="{{p.name}}" /></a>
+		      	<a href="#/works/{{p.type}}/{{p.slug}}" title="{{p.name}}"><img src="http://allen-ginsberg-org.herokuapp.com{{p.imageThumb}}" alt="{{p.name}}" /><br />{{p.name}}</a>
 		      </li>
 		    </ul>
 		  </div>

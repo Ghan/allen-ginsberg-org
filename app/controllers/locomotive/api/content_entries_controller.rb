@@ -186,7 +186,7 @@ module Locomotive
               @new_content_entries.push(add)
             end
           }
-          @content_entries = @new_content_entries.slice(0, 6)
+          @content_entries = @new_content_entries.slice(0, 5)
         end
 
         # Other Classes in Series
