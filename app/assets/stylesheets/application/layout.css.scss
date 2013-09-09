@@ -496,13 +496,26 @@ body {
 	width:30%;
 	display:inline-block;
 	vertical-align: top;
-	margin-right:1%;
-	ul{
-		height:400px;
+	margin:1%;
+	padding:0;
+	&:hover{
+		.link-title{
+			background:lighten($hover, 10%);	
+			color:$black;	
+		}
+	}
+	.link-title{
+		padding: 1em 10px;
+		font-size: 1.5em;
+		height: 1.7em;	
+	}
+	.link-list{
+		height:250px;
+		padding:0 10px 10px 10px;
 		overflow-y:scroll;
+		margin:0;
 	}
 	border: $border-style;
-	padding:1%;
 }
 
 
