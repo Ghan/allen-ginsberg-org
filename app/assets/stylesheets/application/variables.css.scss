@@ -15,18 +15,28 @@ $font-size: 16px;
 $bold-font: "ProximaNova Sb", Helvetica, sans-serif;
 
 // Base colors
-$dark: #1C2130;
-$medium: #028F76;
-$light: #B3E099;
-$like-white: #FFEAAD;
-$accent: #D14334;
+$link: #6B7882;
+$hover: #79A6BC;
+$accent: #FFC160;
+$accent2: #F19C62;
+$gray: #74645C;
+$light-gray: #E6E6E6;
+$black:#222;
 
-$link-color: $medium;
-$link-hover-color: $light;
-$link-visited-color: $dark;
+$link-color: $link;
+$link-hover-color: $hover;
+$link-visited-color: darken( $link, 10% ) ;
+$menu-font-color: $gray;
+$menu-background-color: $light-gray;
+$menu-hover-color: $black;
+$menu-hover-background: $accent2;
+$menu-active-color: $black;
+$menu-active-background: $accent;
 $selected-font-color: #fff;
-$selected-background-color: #ff5e99;
+$selected-background-color: $hover;
 $invalid-background-color: #f0dddd;
+$border-style: 2px solid lighten($hover, 10%);
+$quote-text-color: $gray;
 
 // FONTS 
 // @font-face {

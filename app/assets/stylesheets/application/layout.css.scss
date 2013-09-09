@@ -11,54 +11,72 @@ body {
 	font-family: $font-family;
 	font-size: $font-size;
 	line-height: $line-height;
-	#container{
+	color:$black;
+	.container{
 		max-width:1500px;		
 		margin: 0 2%;
 	}
+	p{
+		margin: 0 0 1em;
+		text-align: justify;
+	}
+	h2{
+	}
 	a{
 		color:$link-color;
+		text-decoration:none;
 		&:hover{
 			color:$link-hover-color;
+			text-decoration:underline;
 		}
 		&:visited{
 			color:$link-visited-color;
 		}
 	}
+	.main-box{
+		min-height:300px
+	}
 }
 .selected{
 	a{
-		color:$bold-font;
+		font-family:$bold-font;
 	}
 }
 
 
 // Header ======================= //
 #header{
-	padding:0 2%;
-	border-bottom: 1px solid #ccc;
-	margin:1.5em 0;
+	margin-top:1em;
+	margin-bottom:1em;
 }
 #logo{
 	font-size:3em;
 	line-height:1.2em;
+	padding: 10px 0;
+}
+#main-menu-box{
+	background:$menu-background-color;
 }
 .menu {
   list-style: none;
   margin:0;
-  padding: 0 0 0.5em;
+  padding: 0;
 
 	li {
-  	display: inline;
-  	padding-right: 20px;
+		display:inline-block;
   	a{
+  		display: inline-block;
   		text-decoration:none;
+  		padding: .25em 10px;
+  		color: $menu-font-color;
   		&:hover{
-  			background:$like-white;
+  			background:$menu-hover-background;
+  			color: $menu-hover-color;
   		}
   	}
   	a.active{
-  		background:$like-white;
-  		font-family:$bold-font;
+  		color: $menu-active-color;
+  		background:$menu-active-background;
   	}
 	}
 }
@@ -87,6 +105,7 @@ body {
 			font-size: 2em;
 			font-style: italic;
 			padding: 75px 10% 0px;
+			color:$quote-text-color;
 		}
 		#quote-source{
 			text-align: right;
@@ -103,7 +122,7 @@ body {
 		vertical-align: top;
 		&:hover{
 			.box-text{
-				color:$light;
+				color:$link-hover-color;
 			}
 		}
 	}
@@ -135,24 +154,87 @@ body {
 // Blog Page ==================== //
 
 .blog-post-snippet{
-	width: 45%;
+	width: 47%;
 	display: inline-block;
 	vertical-align: top;
 	margin: 1%;
 	margin-bottom: 20px;
-	border: 1px solid #ccc;
-	padding: 10px;
+	border: $border-style;
+	padding: 0;
+	&:hover{
+		.post-header{
+			background:lighten($hover,10%);
+			color:$black;
+		}
+		.post-date{
+			text-decoration:none;
+			color:$black;
+		}
+		.post-title{
+			color:$black;
+		}
+	}
 	img{
 		max-width:100%;
+		height:auto;
+	}
+	.post-header{
+		padding:10px;
+		height: 5em;
+		.post-date{
+			text-decoration:none;
+			text-align:right;
+			color:$black;
+		}
+		.post-title{
+			font-size:1.35em;
+			&:hover{
+			}
+		}
 	}
 	.post-content{
 		height:500px;
 		overflow-y:scroll;
+		padding:10px;
 	}
 }
 #blog-nav-box{
 	padding:20px 0;
 	text-align:center;
+	.right-arrow{
+		width: 19px;
+		height: 19px;
+		background: url(../sprite.png) 268px 474px;
+		display: inline-block;
+		position: relative;
+		top: 4px;
+	}
+	.left-arrow{
+		width: 19px;
+		height: 19px;
+		background: url(../sprite.png) 293px 474px;
+		display: inline-block;
+		position: relative;
+		top: 4px;	
+	}
+	#next-link:hover{
+		a{
+			color: $hover;
+			text-decoration: none;
+		}
+		.right-arrow{
+			background: url(../sprite.png) 218px 475px;
+		}
+	}
+	#prev-link:hover{
+		a{
+			color:$hover;
+			text-decoration:none;
+		}
+		.left-arrow{
+			background: url(../sprite.png) 243px 475px;	
+		}
+	}
 }
 
 
@@ -160,7 +242,7 @@ body {
 
 #timeline-box{
 	height: 330px;
-	border: 1px solid rgb(226, 226, 226);
+	border: $border-style;
 	padding: 0 20px;
 	slider{
 		margin-top:30px;
@@ -188,50 +270,143 @@ body {
 #works-menu{
 	text-transform:uppercase;
 	padding:0;
+	margin-left:20px;
 	li{
 		list-style-type:none;
 		display: inline-block;
 		vertical-align: top;
 		padding-right:20px;
+		a{
+			color:$link;
+			&:hover{
+				color:$accent;
+			}
+		}
+	}
+	li.selected a{
+		color:$accent2;
 	}
 }
 #works-index{
 	ul{
 		padding:0;
 	}
+	.work-item-box{
+		border: 2px solid white;
+		padding:10px;
+		.work-item-name{
+			font-size:1.2em;
+		}
+		.work-publisher{
+			font-size:.8em;
+		}
+		.work-image-box img{
+			width:100%;
+			height:auto;
+		}
+	}
+	.work-link{
+		&:hover{
+			.work-item-box{
+				border:$border-style;
+			}
+		}
+		text-decoration: none;
+	}
 	li{
+		text-align:center;
 		list-style-type: none;
 		display:inline-block;
 		vertical-align: top;
-		width:260px;
+		width:20%;
 		margin:10px;
 		padding:10px;
+		.work-image-box{
+
+		}
 	}
 }
 #works-detail{
 	#works-detail-img{
 		float:right;
+		padding:0 0 30px 30px;
+	}
+	.work-detail-date{
+		margin-bottom:1.25em;
+	}
+	.work-detail-purchase a{
+		font-family:"Futura", "ProximaNova Rg", "Helvetica", sans-serif;
+		font-size:2em;
+		display:block;
+		float: right;
+		border: 2px solid $accent2;
+		height: 44px;
+		width: 250px;
+		text-align: center;
+		&:hover{
+			border:2px solid $accent;
+			background: $accent;
+			color:$black;
+			text-decoration: none;
+		}
+		#amazon-sprite{
+			height: 31px;
+			width: 36px;
+			background: url(../sprite.png) 460px 356px;
+			display: inline-block;
+			position: relative;
+			top: 4px;
+			margin-right: 5px;
+		}
 	}
 	#items-in-archive{
+		margin-top:20px;
 		ul{
 			padding:0;
+			margin:0;
 		}
 		li{
 			list-style-type: none;
 			display:inline-block;
 			vertical-align: top;
 			padding:5px;
+		}
+		#items-in-archive-text{
+			vertical-align: middle;
+			font-size: 2em;
+			width: 100px;
+			text-align: center;
+			line-height: 1em;
 		}
 	}
+	#works-detail-sidebar{
+		border: $border-style;
+		padding: 10px;
+		margin-top:2em;
+	}
 	#similar-work{
+		width:100%;
+		overflow-x: scroll;
 		ul{
 			padding:0;
+			margin:0;
+			min-width:1150px;
 		}
 		li{
 			list-style-type: none;
 			display:inline-block;
 			vertical-align: top;
 			padding:5px;
+			img{
+				width:100px;
+				height:auto;
+			}
+		}
+		#similar-work-text{
+			vertical-align: middle;
+			font-size: 2em;
+			width: 100px;
+			text-align: center;
 		}
 	}
 }
@@ -326,7 +501,7 @@ body {
 		height:400px;
 		overflow-y:scroll;
 	}
-	border: 1px solid #DDD;
+	border: $border-style;
 	padding:1%;
 }
 
@@ -334,7 +509,7 @@ body {
 // Footer =============== //
 #footer{
 	background:#f5f5f5;
-	border-top:1px solid #ccc;
+	border-top: $border-style;
 	padding:20px 10px 10px 35%;
 	margin-top:10px;
 	font-size:.8em;

@@ -1,9 +1,18 @@
-<div class="blog-post-snippet" ng-repeat="item in blog.items">
-	<div>{{ item.updated | date:'mediumDate' }}</div>
-	<h3><a href="#/announcements/{{item.id}}" title="Visit Blog Post">{{item.title}}</a></h3>
-	<div class="post-content" ng-bind-html="item.content"></div>
-</div>
-<div id="blog-nav-box">
-	<span ng-if="blog.prevPageToken"><a ng-click="swapPage(blog.prevPageToken)" href title="Next Blog Posts"><< Previous Page</a> |</span> 
-	<span ng-if="blog.nextPageToken"><a ng-click="swapPage(blog.nextPageToken)" href title="Next Blog Posts">Next Page >></a></span>
+<div id="announcements-page">
+	<div id="loading-announcements" ng-if="!finishedLoadingAnnouncements">Loading blog posts...</div>
+	<div id="announcements" ng-if="finishedLoadingAnnouncements">
+		<div class="blog-post-snippet" ng-repeat="item in blog.items">
+			<a href="#/blog/{{item.id}}" title="Visit blog post: {{item.title}}">
+				<div class="post-header">
+					<div class="post-date">{{ item.updated | date:'mediumDate' }}</div>
+					<div class="post-title">{{item.title}}</div>
+				</div>
+			</a>
+			<div class="post-content" ng-bind-html="item.content"></div>
+		</div>
+		<div id="blog-nav-box">
+			<span id="prev-link" ng-if="blog.prevPageToken"><a ng-click="swapPage(blog.prevPageToken, 'prev')" href title="Return to latest posts"><span class="left-arrow"></span> Back to Top</a>  |  </span> 
+			<span id="next-link" ng-if="blog.nextPageToken"><a ng-click="swapPage(blog.nextPageToken, 'next')" href title="Next Blog Posts">Older Posts <span class="right-arrow"></span></a></span>
+		</div>
+	</div>
 </div>

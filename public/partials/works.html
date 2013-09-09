@@ -9,11 +9,14 @@
 </div>	
 <div id="works-index" ng-if="work[workType]">
 	<ul>
-    <li ng-repeat="item in work[workType]">
-      <div>
-        <a href="#/works/{{workType}}/{{item.slug}}" alt="{{item.name}}"><div ng-bind-html="item.image"></div></a>
-      	<h4>{{item.name}}</h4>
-      	<div>{{item.publisher}}<br />{{item.date}}</div>
+    <li class="work-item" ng-repeat="item in work[workType]">
+      <a class="work-link" href="#/works/{{workType}}/{{item.slug}}" alt="{{item.name}}">
+        <div class="work-item-box">
+          <div class="work-image-box" ng-bind-html="item.image"></div>
+          <div class="work-item-name">{{item.name}}</div>
+          <div class="work-publisher">{{item.publisher}}<br />{{item.date | date: mediumDate }}</div>
+        </div>
+      </a>
     </li>
   </ul>
 </div>
