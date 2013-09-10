@@ -17,7 +17,7 @@
         <li id="items-in-archive-text">Items In Archive</li>
         <li ng-repeat="item in formattedItemsInArchive">
           <a href="#/archive/{{item.archive_type}}/{{item.slug}}" title="{{item.title}} ({{item.archive_type}})">
-            <img src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https://allenginsberg.s3.amazonaws.com{{item.image}}&container=focus&resize_w=100&resize_h=100&refresh=2592000" alt="{{item.title}} ({{item.archive_type}})" />
+            <img src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url={{item.image}}&container=focus&resize_w=100&resize_h=100&refresh=2592000" alt="{{item.title}} ({{item.archive_type}})" />
           </a>
         </li>
       </ul>
