@@ -53,6 +53,9 @@ body {
 	font-size:3em;
 	line-height:1.2em;
 	padding: 10px 0;
+	width: 60%;
+	display:inline-block;
+	vertical-align:top;
 }
 #main-menu-box{
 	background:$menu-background-color;
@@ -82,6 +85,37 @@ body {
 }
 #main-menu{
 	font-size:1.5em;
+}
+#social-links{
+	width:35%;
+	display:inline-block;
+	vertical-align:top;
+	text-align:right;
+	div{
+		display:inline-block;
+		vertical-align:top;
+		width:64px;
+		height:64px;
+		cursor:pointer;
+	}
+	#facebook-icon{
+		background:url(./sprite.png) -404px 108px;
+		&:hover{
+			background:url(./sprite.png) -166px 109px;
+		}
+	}
+	#twitter-icon{
+		background:url(./sprite.png) -324px 109px;
+		&:hover{
+			background:url(./sprite.png) -87px 109px;
+		}
+	}
+	#email-icon{
+		background:url(./sprite.png) -245px 108px;
+		&:hover{
+			background:url(./sprite.png) -5px 108px;
+		}
+	}
 }
 
 // Homepage ==================== //
