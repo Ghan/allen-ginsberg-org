@@ -13,7 +13,8 @@ if true
     c.datastore = Dragonfly::DataStorage::S3DataStore.new(
       :bucket_name => 'allenginsberg',
       :access_key_id => ENV['S3_KEY'],
-      :secret_access_key => ENV['S3_SECRET']
+      :secret_access_key => ENV['S3_SECRET'],
+      :region => 'us-west-2'
     )
     # trial
     # c.url_host = 'http://allen-ginsberg-org.herokuapp.com'
@@ -50,6 +51,7 @@ if true
   #   c.region = 'us-west-2'                        # defaults to 'us-east-1'
   #   # c.storage_headers = {'some' => 'thing'}       # defaults to {'x-amz-acl' => 'public-read'}
   #   # c.url_scheme = 'https'                        # defaults to 'http'  
+  #   # c.url_host = 'some.custom.host'               # defaults to "<bucket_name>.s3.amazonaws.com"
   # end
 end
 

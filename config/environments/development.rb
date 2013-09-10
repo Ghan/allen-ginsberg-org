@@ -29,12 +29,12 @@ AllenGinsbergOrg::Application.configure do
   # }
 
   # Memcached
-  config.perform_caching = true
-  config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"], {
-    :username        => ENV["MEMCACHIER_USERNAME"],
-    :password        => ENV["MEMCACHIER_PASSWORD"],
-    :value_max_bytes => 5242880 # 5MB
-  }
+  # config.perform_caching = true
+  # config.cache_store = :dalli_store, ENV["MEMCACHIER_SERVERS"], {
+  #   :username        => ENV["MEMCACHIER_USERNAME"],
+  #   :password        => ENV["MEMCACHIER_PASSWORD"],
+  #   :value_max_bytes => 5242880 # 5MB
+  # }
   # Do not compress assets
   config.assets.compress = false
 
