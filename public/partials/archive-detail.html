@@ -13,7 +13,9 @@
 			<ul>
 				<li id="similar-content-title">Also in the Archive</li>
 				<li ng-repeat="i in similarArchiveItems">
-					<a href="#/archive/{{i.archive_type}}/{{i.slug}}" title="{{i.title}} ({{i.archive_type}})"><img src="http://allen-ginsberg-org.herokuapp.com{{i.image}}" alt="{{i.title}} ({{i.archive_type}})" /></a>
+					<a href="#/archive/{{i.archive_type}}/{{i.slug}}" title="{{i.title}} ({{i.archive_type}})">
+						<img src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https://allenginsberg.s3.amazonaws.com{{i.image}}&container=focus&resize_w=100&resize_h=100&refresh=2592000" alt="{{i.title}} ({{i.archive_type}})" />
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -45,7 +47,11 @@
 		    <span class="title">Published In</span>
 		    <ul>
 		      <li ng-repeat="p in formattedPublishedIn">
-		      	<a href="#/works/{{p.type}}/{{p.slug}}" title="{{p.name}}"><img src="http://allen-ginsberg-org.herokuapp.com{{p.imageThumb}}" alt="{{p.name}}" /><br />{{p.name}}</a>
+		      	<a href="#/works/{{p.type}}/{{p.slug}}" title="{{p.name}}">
+		      		<div class="published-in-image-box">
+			      		<img src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https://allenginsberg.s3.amazonaws.com{{p.imageThumb}}&container=focus&resize_w=200&refresh=2592000" alt="{{p.name}}" />
+			      	</div>
+		      		<br />{{p.name}}</a>
 		      </li>
 		    </ul>
 		  </div>

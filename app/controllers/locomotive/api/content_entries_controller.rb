@@ -67,7 +67,7 @@ module Locomotive
                       "name" =>  entry.name,
                       "type" => entry.type._slug,
                       "slug" => entry._slug,
-                      "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
+                      "imageThumb" => (entry.thumbnail_image.url ? entry.thumbnail_image.url : "/assets/blank.png")
                     }
                     @new_content_entries.push(add)
                   end
@@ -81,7 +81,7 @@ module Locomotive
                       "name" =>  entry.name,
                       "type" => entry.type._slug,
                       "slug" => entry._slug,
-                      "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
+                      "imageThumb" => (entry.thumbnail_image.url ? entry.thumbnail_image.url : "/assets/blank.png")
                     }
                     @new_content_entries.push(add)
                   end
@@ -93,7 +93,7 @@ module Locomotive
                   "name" =>  entry.name,
                   "type" => entry.type._slug,
                   "slug" => entry._slug,
-                  "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
+                  "imageThumb" => (entry.thumbnail_image.url ? entry.thumbnail_image.url : "/assets/blank.png")
                 }
                 @new_content_entries.push(add)
               end
@@ -126,7 +126,7 @@ module Locomotive
                           "slug" => entry._slug,
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
-                          "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '100x100#')
+                          "image" => (entry.file_slash_image.url || "/nothing.jpg")
                         }
                   @new_content_entries.push(item)
                 end
@@ -161,7 +161,7 @@ module Locomotive
                       "name" =>  entry.name,
                       "type" => entry.type._slug,
                       "slug" => entry._slug,
-                      "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '200x200#') : "/assets/blank.png")
+                      "imageThumb" => (entry.thumbnail_image.url ? entry.thumbnail_image.url : "/assets/blank.png")
                     }
                   @new_content_entries.push(item)
                 end
@@ -201,7 +201,7 @@ module Locomotive
                           "slug" => entry._slug,
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
-                          "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
+                          "image" => (entry.file_slash_image.url ? entry.file_slash_image.url : "/assets/blank.png")
                         }
                     @new_content_entries.push(add)
                   end
@@ -214,7 +214,7 @@ module Locomotive
                           "slug" => entry._slug,
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
-                          "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
+                          "image" => (entry.file_slash_image.url ? entry.file_slash_image.url : "/assets/blank.png")
                         }
                     @new_content_entries.push(add)
                   end
@@ -227,7 +227,7 @@ module Locomotive
                           "slug" => entry._slug,
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
-                          "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
+                          "image" => (entry.file_slash_image.url ? entry.file_slash_image.url : "/assets/blank.png")
                         }
                     @new_content_entries.push(add)
                   end
@@ -238,7 +238,7 @@ module Locomotive
                           "slug" => entry._slug,
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
-                          "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
+                          "image" => (entry.file_slash_image.url ? entry.file_slash_image.url : "/assets/blank.png")
                         }
                 @new_content_entries.push(add)
               end

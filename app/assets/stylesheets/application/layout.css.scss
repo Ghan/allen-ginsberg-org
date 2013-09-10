@@ -408,6 +408,14 @@ body {
 			width: 100px;
 			text-align: center;
 		}
+		.similar-work-img-box{
+			width:100px;
+			height:100px;
+			overflow:hidden;
+			img{
+				margin-top:-20px;
+			}
+		}
 	}
 }
 
@@ -553,7 +561,17 @@ body {
 				li{
 					list-style-type:none;
 					width:240px;
-					text-align:center
+					text-align:center;
+					padding-bottom:20px;
+					.published-in-image-box{
+						margin:0 auto;
+						width:200px;
+						height:200px;
+						overflow:hidden;
+						img{
+							margin-top:-50px;
+						}
+					}
 				}
 			}
 		}
