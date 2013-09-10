@@ -12,7 +12,8 @@ if Rails.env.production?
     c.datastore = Dragonfly::DataStorage::S3DataStore.new(
       :bucket_name => 'allenginsberg',
       :access_key_id => 'AKIAIGVAQZAGNRCVPQJA',
-      :secret_access_key => '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'
+      :secret_access_key => '3rf92usuiOZjZMcc6VWSBfghVHIyMlzR/UWWlwOD',
+      :region => 'us-west-2'
     )
     # trial
     # c.url_host = 'http://allen-ginsberg-org.herokuapp.com'
