@@ -100,7 +100,7 @@ body {
 		position:absolute;
 		display: inline-block;
 		vertical-align: top;
-		background:url(../watermark-fish.jpg) 0% 30% no-repeat;
+		background:url(./watermark-fish.jpg) 0% 30% no-repeat;
 		#quote-text{
 			font-size: 2em;
 			font-style: italic;
@@ -127,16 +127,16 @@ body {
 		}
 	}
 	#photo-archive{
-		background: url(../photo-archive.jpg) 50% 50%;
+		background: url(./photo-archive.jpg) 50% 50%;
 	}
 	#browse-lectures{
-		background: url(../lectures.jpg) 50% 50%;
+		background: url(./lectures.jpg) 50% 50%;
 	}
 	#published-work{
-		background: url(../published-works.jpg) 50% 50%;
+		background: url(./published-works.jpg) 50% 50%;
 	}
 	#shop-merch{
-		background: url(../merch.jpg) 50% 50%;
+		background: url(./merch.jpg) 50% 50%;
 	}
 	.box-text{
 		position: absolute;
@@ -204,7 +204,7 @@ body {
 	.right-arrow{
 		width: 19px;
 		height: 19px;
-		background: url(../sprite.png) 268px 474px;
+		background: url(./sprite.png) 268px 474px;
 		display: inline-block;
 		position: relative;
 		top: 4px;
@@ -212,7 +212,7 @@ body {
 	.left-arrow{
 		width: 19px;
 		height: 19px;
-		background: url(../sprite.png) 293px 474px;
+		background: url(./sprite.png) 293px 474px;
 		display: inline-block;
 		position: relative;
 		top: 4px;	
@@ -223,7 +223,7 @@ body {
 			text-decoration: none;
 		}
 		.right-arrow{
-			background: url(../sprite.png) 218px 475px;
+			background: url(./sprite.png) 218px 475px;
 		}
 	}
 	#prev-link:hover{
@@ -232,7 +232,7 @@ body {
 			text-decoration:none;
 		}
 		.left-arrow{
-			background: url(../sprite.png) 243px 475px;	
+			background: url(./sprite.png) 243px 475px;	
 		}
 	}
 }
@@ -352,7 +352,7 @@ body {
 		#amazon-sprite{
 			height: 31px;
 			width: 36px;
-			background: url(../sprite.png) 460px 356px;
+			background: url(./sprite.png) 460px 356px;
 			display: inline-block;
 			position: relative;
 			top: 4px;
@@ -451,9 +451,9 @@ body {
 		top:0;
 		width:70px;
 		height:200px;
-		background: url(../sprite.png) 448px 312px;
+		background: url(./sprite.png) 448px 312px;
 		&:hover{
-			background: url(../sprite.png) 240px 312px;
+			background: url(./sprite.png) 240px 312px;
 			cursor: pointer;
 		}
 	}
@@ -463,9 +463,9 @@ body {
 		top:0;
 		height:200px;
 		width:70px;
-		background: url(../sprite.png) 360px 312px;
+		background: url(./sprite.png) 360px 312px;
 		&:hover{
-			background: url(../sprite.png) 152px 312px;
+			background: url(./sprite.png) 152px 312px;
 			cursor:pointer;
 		}
 	}
@@ -492,7 +492,7 @@ body {
 		height: 10px;
 		width: 14px;
 		display: inline-block;
-		background: url(../sprite.png) 450px 470px;
+		background: url(./sprite.png) 450px 470px;
 	}
 	#left-side{
 		#image-main{
