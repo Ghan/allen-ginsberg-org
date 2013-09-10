@@ -126,7 +126,7 @@ module Locomotive
                           "slug" => entry._slug,
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
-                          "image" => (entry.file_slash_image.url || "/nothing.jpg")
+                          "image" => (entry.file_slash_image.url || "/assets/blank.png")
                         }
                   @new_content_entries.push(item)
                 end
