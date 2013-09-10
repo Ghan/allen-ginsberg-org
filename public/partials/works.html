@@ -9,6 +9,7 @@
   <img src="./assets/spinning-fish.gif" alt="loading, please wait" />
 </div>	
 <div id="works-index" ng-if="work[workType]">
+  <div ng-repeat="i in work[workType]">{{i.imageThumb}}</div>
 	<ul>
     <li class="work-item" ng-repeat="item in work[workType]">
       <a class="work-link" href="#/works/{{workType}}/{{item.slug}}" alt="{{item.name}}">

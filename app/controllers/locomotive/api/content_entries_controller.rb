@@ -334,7 +334,7 @@ module Locomotive
                         "name" => entry.name, 
                         "publisher" => entry.publisher,
                         "date" => entry.date,
-                        "original_image" => (entry.thumbnail_image.url ? entry.thumbnail_image.url : "none.png")
+                        "original_image" => (entry.thumbnail_image.url ? entry.thumbnail_image.url : "/assets/blank.png")
                         # "notable" => entry.notable,
                         # "geo" => entry.geo,
                         # "misc_tag" => entry.misc_tag,
