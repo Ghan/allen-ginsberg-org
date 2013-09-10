@@ -1,5 +1,5 @@
 <div id="announcements-page">
-	<div id="loading-announcements" ng-if="!finishedLoadingAnnouncements">Loading blog posts...</div>
+	<div id="loading-announcements" ng-if="!finishedLoadingAnnouncements">Loading blog posts...<img src="./assets/spinning-fish.gif" alt="loading, please wait" /></div>
 	<div id="announcements" ng-if="finishedLoadingAnnouncements">
 		<div class="blog-post-snippet" ng-repeat="item in blog.items">
 			<a href="#/blog/{{item.id}}" title="Visit blog post: {{item.title}}">

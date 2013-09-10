@@ -1,5 +1,5 @@
 
-<div id="links-loading" ng-if="!finishedLoadingLinks">Loading Links...</div>
+<div id="links-loading" ng-if="!finishedLoadingLinks">Loading Links...<img src="./assets/spinning-fish.gif" alt="loading, please wait" /></div>
 <div id="links" ng-if="finishedLoadingLinks">
 	<div class='link-cat' ng-repeat="(cat, links) in linksData">
 		<div class="link-title">{{cat}}</div>
