@@ -9,12 +9,12 @@
   <img src="./assets/spinning-fish.gif" alt="loading, please wait" />
 </div>	
 <div id="works-index" ng-if="work[workType]">
-  <div ng-repeat="i in work[workType]">{{i.imageThumb}}</div>
 	<ul>
     <li class="work-item" ng-repeat="item in work[workType]">
       <a class="work-link" href="#/works/{{workType}}/{{item.slug}}" alt="{{item.name}}">
         <div class="work-item-box">
           <div class="work-image-box">
+            {{item.original_image}}
             <img src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url={{item.original_image}}&container=focus&resize_w=250&refresh=2592000" alt='{{item.name}}'/>
           </div>
           <div class="work-item-name">{{item.name}}</div>
