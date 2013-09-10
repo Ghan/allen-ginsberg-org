@@ -338,7 +338,7 @@ module Locomotive
                         # "notable" => entry.notable,
                         # "geo" => entry.geo,
                         # "misc_tag" => entry.misc_tag,
-                        "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url(entry.thumbnail_image.url, '250x300') : "/assets/blank.png")
+                        # "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url(entry.thumbnail_image.url, '250x300') : "/assets/blank.png")
                         # "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.scaled_image_url("https://allenginsberg.s3.amazonaws.com"+entry.thumbnail_image.url, '250x300') : "/assets/blank.png")
                         # "imageThumb" => "https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url ? entry.thumbnail_image.url : "/assets/blank.png")
                       }
