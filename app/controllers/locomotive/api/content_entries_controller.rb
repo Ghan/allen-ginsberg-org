@@ -13,198 +13,276 @@ module Locomotive
 
         # At This Time (for Archive detail)
         if params.has_key?(:at_this_time)
-          @date = Date.strptime(params[:at_this_time], '%m/%d/%Y').year
-          @date_range = 0
-          
-          @new_content_entries = []
-          @content_entries.each{ |entry| 
-            if entry[:date].year >= @date - @date_range and entry[:date].year <= @date + @date_range
-              add = {
-                "id" => entry.id, 
-                "title" =>  entry.title,
-                "date" => entry.date,
-                "lifeline_snippet" => entry.lifeline_snippet,
-                "slug" => entry._slug
-                }
-              @new_content_entries.push(add)
-            end
-          }
-          @content_entries = @new_content_entries.slice(0, 3)
+          in_cache = Rails.cache.read("at_this_time/"+params[:at_this_time])
+          if in_cache
+            at_this_time_data = in_cache
+            message = "hit"
+          else
+            @date = Date.strptime(params[:at_this_time], '%m/%d/%Y').year
+            @date_range = 0
+            
+            @new_content_entries = []
+            @content_entries.each{ |entry| 
+              if entry[:date].year >= @date - @date_range and entry[:date].year <= @date + @date_range
+                add = {
+                  "id" => entry.id, 
+                  "title" =>  entry.title,
+                  "date" => entry.date,
+                  "lifeline_snippet" => entry.lifeline_snippet,
+                  "slug" => entry._slug
+                  }
+                @new_content_entries.push(add)
+              end
+            }
+            at_this_time_data = @new_content_entries.slice(0, 3)
+            message = "miss"
+            
+            Rails.cache.write("at_this_time/"+params[:at_this_time], at_this_time_data, expires_in: 0)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => at_this_time_data
+              }
         end
 
         # get published work similar to geo, notable, or date
         if params.has_key?(:similar_work)
-          @geo = params[:geo]
-          @notable = params[:notable]
-          @date = Date.strptime(params[:date], '%m/%d/%Y').year
-          @date_range = 5
+          in_cache = Rails.cache.read("similar_work/"+params[:geo]+"/"+params[:notable]+"/"+params[:date])
+          if in_cache
+            similar_work_data = in_cache
+            message = "hit"
+          else
+            @geo = params[:geo]
+            @notable = params[:notable]
+            @date = Date.strptime(params[:date], '%m/%d/%Y').year
+            @date_range = 5
 
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            unless entry.geo.empty?
-              entry.geo.each{ |g|
-                if g._slug == @geo
-                  add = {
-                    "id" => entry.id, 
-                    "name" =>  entry.name,
-                    "type" => entry.type._slug,
-                    "slug" => entry._slug,
-                    "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
-                  }
-                  @new_content_entries.push(add)
-                end
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              unless entry.geo.empty?
+                entry.geo.each{ |g|
+                  if g._slug == @geo
+                    add = {
+                      "id" => entry.id, 
+                      "name" =>  entry.name,
+                      "type" => entry.type._slug,
+                      "slug" => entry._slug,
+                      "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
+                    }
+                    @new_content_entries.push(add)
+                  end
+                }
+              end
+              unless entry.notable.empty?
+                entry.notable.each{ |n|
+                  if n._slug == @notable
+                    add = {
+                      "id" => entry.id, 
+                      "name" =>  entry.name,
+                      "type" => entry.type._slug,
+                      "slug" => entry._slug,
+                      "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
+                    }
+                    @new_content_entries.push(add)
+                  end
+                }
+              end
+              if entry[:date].year >= @date - @date_range and entry[:date].year <= @date + @date_range
+                add = {
+                  "id" => entry.id, 
+                  "name" =>  entry.name,
+                  "type" => entry.type._slug,
+                  "slug" => entry._slug,
+                  "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
+                }
+                @new_content_entries.push(add)
+              end
+            }
+            similar_work_data = @new_content_entries.slice(0, 9)
+            message = "miss"
+            
+            Rails.cache.write("similar_work/"+params[:geo]+"/"+params[:notable]+"/"+params[:date], similar_work_data, expires_in: 0)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => similar_work_data
               }
-            end
-            unless entry.notable.empty?
-              entry.notable.each{ |n|
-                if n._slug == @notable
-                  add = {
-                    "id" => entry.id, 
-                    "name" =>  entry.name,
-                    "type" => entry.type._slug,
-                    "slug" => entry._slug,
-                    "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
-                  }
-                  @new_content_entries.push(add)
-                end
-              }
-            end
-            if entry[:date].year >= @date - @date_range and entry[:date].year <= @date + @date_range
-              add = {
-                "id" => entry.id, 
-                "name" =>  entry.name,
-                "type" => entry.type._slug,
-                "slug" => entry._slug,
-                "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '100x100#') : "/assets/blank.png")
-              }
-              @new_content_entries.push(add)
-            end
-          }
-          @content_entries = @new_content_entries.slice(0, 10)
         end
 
         # Items in Archive (Publish Work detail)
         if params.has_key?(:items_in_archive)
-          @items = params[:items_in_archive].split("|")
+          in_cache = Rails.cache.read("items_in_archive/"+params[:items_in_archive])
+          if in_cache
+            items_in_archive_data = in_cache
+            message = "hit"
+          else
+            @items = params[:items_in_archive].split("|")
 
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            @items.each{ |i|
-              if entry._slug == i
-                item = { "id" => entry.id,
-                        "slug" => entry._slug,
-                        "archive_type" => entry.archive_type._slug,
-                        "title" => entry.title, 
-                        "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '100x100#')
-                      }
-                @new_content_entries.push(item)
-              end
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              @items.each{ |i|
+                if entry._slug == i
+                  item = { "id" => entry.id,
+                          "slug" => entry._slug,
+                          "archive_type" => entry.archive_type._slug,
+                          "title" => entry.title, 
+                          "image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '100x100#')
+                        }
+                  @new_content_entries.push(item)
+                end
+              }
             }
-          }
-          @content_entries = @new_content_entries
+            items_in_archive_data = @new_content_entries
+            message = "miss"
+            
+            Rails.cache.write("items_in_archive/"+params[:items_in_archive], items_in_archive_data, expires_in: 0)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => items_in_archive_data
+              }
         end
 
         # Published In (Archive Items detail)
         if params.has_key?(:published_in)
-          @items = params[:published_in].split("|")
+          in_cache = Rails.cache.read("published_in/"+params[:published_in])
+          if in_cache
+            published_in_data = in_cache
+            message = "hit"
+          else
+            @items = params[:published_in].split("|")
 
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            @items.each{ |i|
-              if entry._slug == i
-                item = {
-                    "id" => entry.id, 
-                    "name" =>  entry.name,
-                    "type" => entry.type._slug,
-                    "slug" => entry._slug,
-                    "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '200x200#') : "/assets/blank.png")
-                  }
-                @new_content_entries.push(item)
-              end
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              @items.each{ |i|
+                if entry._slug == i
+                  item = {
+                      "id" => entry.id, 
+                      "name" =>  entry.name,
+                      "type" => entry.type._slug,
+                      "slug" => entry._slug,
+                      "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '200x200#') : "/assets/blank.png")
+                    }
+                  @new_content_entries.push(item)
+                end
+              }
             }
-          }
-          @content_entries = @new_content_entries
+            published_in_data = @new_content_entries
+            message = "miss"
+            
+            Rails.cache.write("published_in/"+params[:published_in], published_in_data, expires_in: 0)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => published_in_data
+              }
         end
 
         # Similar Items in Archive (Archive Detail)
         if params.has_key?(:similar_archive_items)
-          @id = params[:id]
-          @geo = params[:geo]
-          @notable = params[:notable]
-          @misc = params[:misc]
-          @date = Date.strptime(params[:date], '%m/%d/%Y').year
-          @date_range = 5
+          in_cache = Rails.cache.read("similar_archive_items/"+params[:id])
+          if in_cache
+            similar_archive_items_data = in_cache
+            message = "hit"
+          else
+            @id = params[:id]
+            @geo = params[:geo]
+            @notable = params[:notable]
+            @misc = params[:misc]
+            @date = Date.strptime(params[:date], '%m/%d/%Y').year
+            @date_range = 4
 
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            unless entry.geo.empty?
-              entry.geo.each{ |g|
-                if g._slug == @geo
-                  add = { "id" => entry.id,
-                        "slug" => entry._slug,
-                        "archive_type" => entry.archive_type._slug,
-                        "title" => entry.title, 
-                        "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
-                      }
-                  @new_content_entries.push(add)
-                end
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              unless entry.geo.empty?
+                entry.geo.each{ |g|
+                  if g._slug == @geo
+                    add = { "id" => entry.id,
+                          "slug" => entry._slug,
+                          "archive_type" => entry.archive_type._slug,
+                          "title" => entry.title, 
+                          "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
+                        }
+                    @new_content_entries.push(add)
+                  end
+                }
+              end
+              unless entry.notable.empty?
+                entry.notable.each{ |n|
+                  if n._slug == @notable
+                    add = { "id" => entry.id,
+                          "slug" => entry._slug,
+                          "archive_type" => entry.archive_type._slug,
+                          "title" => entry.title, 
+                          "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
+                        }
+                    @new_content_entries.push(add)
+                  end
+                }
+              end
+              unless entry.misc_tags.empty?
+                entry.notable.each{ |m|
+                  if m._slug == @misc
+                    add = { "id" => entry.id,
+                          "slug" => entry._slug,
+                          "archive_type" => entry.archive_type._slug,
+                          "title" => entry.title, 
+                          "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
+                        }
+                    @new_content_entries.push(add)
+                  end
+                }
+              end
+              if entry[:date_item_was_created].year >= @date - @date_range and entry[:date_item_was_created].year <= @date + @date_range
+                add = { "id" => entry.id,
+                          "slug" => entry._slug,
+                          "archive_type" => entry.archive_type._slug,
+                          "title" => entry.title, 
+                          "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
+                        }
+                @new_content_entries.push(add)
+              end
+            }
+            similar_archive_items_data = @new_content_entries.slice(0, 5)
+            message = "miss"
+            
+            Rails.cache.write("similar_archive_items/"+params[:id], similar_archive_items_data, expires_in: 0)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => similar_archive_items_data
               }
-            end
-            unless entry.notable.empty?
-              entry.notable.each{ |n|
-                if n._slug == @notable
-                  add = { "id" => entry.id,
-                        "slug" => entry._slug,
-                        "archive_type" => entry.archive_type._slug,
-                        "title" => entry.title, 
-                        "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
-                      }
-                  @new_content_entries.push(add)
-                end
-              }
-            end
-            unless entry.misc_tags.empty?
-              entry.notable.each{ |m|
-                if m._slug == @misc
-                  add = { "id" => entry.id,
-                        "slug" => entry._slug,
-                        "archive_type" => entry.archive_type._slug,
-                        "title" => entry.title, 
-                        "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
-                      }
-                  @new_content_entries.push(add)
-                end
-              }
-            end
-            if entry[:date_item_was_created].year >= @date - @date_range and entry[:date_item_was_created].year <= @date + @date_range
-              add = { "id" => entry.id,
-                        "slug" => entry._slug,
-                        "archive_type" => entry.archive_type._slug,
-                        "title" => entry.title, 
-                        "image" => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '100x100#') : "/assets/blank.png")
-                      }
-              @new_content_entries.push(add)
-            end
-          }
-          @content_entries = @new_content_entries.slice(0, 5)
         end
 
         # Other Classes in Series
         if params.has_key?(:other_class_list)
-          @id = params[:other_class_list]
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            if entry.is_this_a_lecture_and_part_of_a_class_which_one_id == @id
-              puts entry.is_this_a_lecture_and_part_of_a_class_which_one_id
-              entry = { "id" => entry.id,
-                        "slug" => entry._slug,
-                        "archive_type" => entry.archive_type._slug,
-                        "title" => entry.title
-                      }
-              @new_content_entries.push(entry)
-            end
-          }
-          @content_entries = @new_content_entries
+          in_cache = Rails.cache.read("other_class_list/"+params[:other_class_list])
+          if in_cache
+            other_class_list_data = in_cache
+            message = "hit"
+          else
+            @id = params[:other_class_list]
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              if entry.is_this_a_lecture_and_part_of_a_class_which_one_id == @id
+                # puts entry.is_this_a_lecture_and_part_of_a_class_which_one_id
+                entry = { "id" => entry.id,
+                          "slug" => entry._slug,
+                          "archive_type" => entry.archive_type._slug,
+                          "title" => entry.title
+                        }
+                @new_content_entries.push(entry)
+              end
+            }
+            other_class_list_data = @new_content_entries
+            message = "miss"
+            
+            Rails.cache.write("other_class_list/"+params[:other_class_list], other_class_list_data, expires_in: 0)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => other_class_list_data
+              }
         end
 
         # publish work type
@@ -214,18 +292,31 @@ module Locomotive
 
         # Timeline - id, date, lifeline_snippet, chronological_addenda_snippet, title, geo, notables  
         if params.has_key?(:timeline)
-          Rails.cache.clear
-          @new_content_entries = []
-          @content_entries.each{ |entry|
-            entry = { "id" => entry.id, 
-                      "date" => entry.date, 
-                      "lifeline_snippet" => entry.lifeline_snippet,
-                      "chronological_addenda_snippet" => entry.chronological_addenda_snippet,
-                      "title" => entry.title
-                    }
-            @new_content_entries.push(entry)
-          }
-          @content_entries = @new_content_entries
+          # Rails.cache.clear
+          in_cache = Rails.cache.read("timeline")
+          if in_cache
+            timeline_data = in_cache
+            message = "hit"
+          else
+            @new_content_entries = []
+            @content_entries.each{ |entry|
+              entry = { "id" => entry.id, 
+                        "date" => entry.date, 
+                        "lifeline_snippet" => entry.lifeline_snippet,
+                        "chronological_addenda_snippet" => entry.chronological_addenda_snippet,
+                        "title" => entry.title
+                      }
+              @new_content_entries.push(entry)
+            }
+            timeline_data = @new_content_entries
+            message = "miss"
+            
+            Rails.cache.write("timeline", timeline_data, expires_in: 0)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => timeline_data
+              }
         end
 
         # Published Work index - id, type, name, publisher, date, thumbnail_image
@@ -321,48 +412,6 @@ module Locomotive
               "data" => links_data
               }
         end
-
-        # # Timeline Photo - 
-        # if params.has_key?(:timeline_photo)
-        #   # @timeline_id = params(:timeline_photo)
-        #   # get timeline id's geo, notables, and date
-        #   @geo = params[:tlgeo] || false
-        #   @notables = params[:tlnotable]
-        #   @date = params[:tldate]
-          
-        #   # # filter @content_entries on type = photo
-        #   @content_entries = @content_entries.select { |entry| entry.archive_type._slug == 'photography' }
-        #   @old_content_entries = @content_entries
-        #   # filter @content_entries on date +/- 3 years
-        #   if @date
-        #     @start_year = Date.strptime(@date, '%m/%d/%Y').year
-        #     @date_range = 3
-        #     @content_entries = @content_entries.select { |entry| entry[:date_item_was_created].year >= @start_year - @date_range and entry[:date_item_was_created].year <= @start_year + @date_range }
-        #   end
-        #   if @content_entries.length == 0
-        #     @content_entries = @old_content_entries
-        #     if @geo
-        #       @content_entries = @content_entries.select { |entry| !!entry.geo.index{ |g| g._slug == @geo } }
-        #     end
-        #   end
-        #   if @content_entries.length == 0
-        #     @content_entries = @old_content_entries
-        #     if @notable
-        #       @content_entries = @content_entries.select { |entry| !!entry.notable.index{ |g| g._slug == @notable } }
-        #     end
-        #   end
-
-        #   # get first content entry, grab photo url, and send over
-        #   @new_content_entries = []
-        #   @content_entries.each{ |entry|
-        #     entry = {
-        #               "title" => entry.title, 
-        #               "file_slash_image" => Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url || "/nothing.jpg"), '300x300#')
-        #             }
-        #     @new_content_entries.push(entry)
-        #   }
-        #   @content_entries = @new_content_entries[0]
-        # end
 
         respond_with @content_entries
       end
