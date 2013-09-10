@@ -13,7 +13,9 @@
     <li class="work-item" ng-repeat="item in work[workType]">
       <a class="work-link" href="#/works/{{workType}}/{{item.slug}}" alt="{{item.name}}">
         <div class="work-item-box">
-          <!-- <div class="work-image-box" ng-bind-html="item.image"></div> -->
+          <div class="work-image-box">
+            <img src="https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?url=https://allenginsberg.s3.amazonaws.com{{item.original_image}}&container=focus&resize_w=250&refresh=2592000" title='{{item.name}}'/>
+          </div>
           <div class="work-item-name">{{item.name}}</div>
           <div class="work-publisher">{{item.publisher}}<br />{{item.date | date: mediumDate }}</div>
         </div>
