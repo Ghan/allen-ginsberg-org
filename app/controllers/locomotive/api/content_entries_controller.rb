@@ -321,11 +321,11 @@ module Locomotive
 
         # Published Work index - id, type, name, publisher, date, thumbnail_image
         if params.has_key?(:works_index)
-          in_cache = Rails.cache.read("works_index/"+params[:work_type])
-          if in_cache
-            works_data = in_cache
-            message = "hit"
-          else
+          # in_cache = Rails.cache.read("works_index/"+params[:work_type])
+          # if in_cache
+          #   works_data = in_cache
+          #   message = "hit"
+          # else
             @new_content_entries = []
             @content_entries.each{ |entry|
               entry = { "id" => entry.id, 
@@ -338,14 +338,16 @@ module Locomotive
                         # "geo" => entry.geo,
                         # "misc_tag" => entry.misc_tag,
                         "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url), '250x300') : "/assets/blank.png")
+                        # "imageThumb" => (entry.thumbnail_image.url ? Locomotive::Dragonfly.fetch("https://allenginsberg.s3.amazonaws.com"+entry.thumbnail_image.url).thumb('250x300').url : "/assets/blank.png")
+                        # "imageThumb" => "https://allenginsberg.s3.amazonaws.com"+(entry.thumbnail_image.url ? entry.thumbnail_image.url : "/assets/blank.png")
                       }
               @new_content_entries.push(entry)
             }
             works_data = @new_content_entries
             message = "miss"
             
-            Rails.cache.write("works_index/"+params[:work_type], works_data, expires_in: 0)
-          end
+          #   Rails.cache.write("works_index/"+params[:work_type], works_data, expires_in: 0)
+          # end
           @content_entries = {
               "cache" => message,
               "data" => works_data
