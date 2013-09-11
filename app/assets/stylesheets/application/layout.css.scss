@@ -188,10 +188,10 @@ body {
 // Blog Page ==================== //
 
 .blog-post-snippet{
-	width: 47%;
+	width: 31%;
 	display: inline-block;
 	vertical-align: top;
-	margin: 1%;
+	margin: 0.5%;
 	margin-bottom: 20px;
 	border: $border-style;
 	padding: 0;
@@ -209,7 +209,7 @@ body {
 		}
 	}
 	img{
-		max-width:100%;
+		width:100%;
 		height:auto;
 	}
 	.post-header{
@@ -227,7 +227,7 @@ body {
 		}
 	}
 	.post-content{
-		height:500px;
+		height:350px;
 		overflow-y:scroll;
 		padding:10px;
 	}
