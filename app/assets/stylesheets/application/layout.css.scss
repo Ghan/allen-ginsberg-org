@@ -46,6 +46,10 @@ body {
 	text-align:center;
 	color: $accent2;
 }
+.missing{
+	width: 100%;
+	height: auto;
+}
 
 // Blockquote //
 blockquote {
@@ -514,75 +518,37 @@ blockquote p {
 
 
 // Archive Page =============== //
+#archive-menu{
+	text-transform:uppercase;
+	padding:0;
+	margin-left:20px;
+	li{
+		list-style-type:none;
+		display: inline-block;
+		vertical-align: top;
+		padding-right:20px;
+		a{
+			color:$link;
+			&:hover{
+				color:$accent;
+			}
+		}
+	}
+	li.selected a{
+		color:$accent2;
+	}
+}
 #archive-index{
-	h2{
-		text-transform: uppercase;
-		padding-top:1.25em;
-		text-align:center;
-	}
-	.scroll-box{
-		overflow-x: hidden;
-		overflow-y:hidden;
-		width:100%;
-		position:relative;
-		height:200px;
-		ul{
-			margin: 0 6.5%;
-			padding: 0px;
-			vertical-align: middle;
-			width:100%;
-			position: absolute;
-			top: 50%;
-			margin-top: -8.5%;
-		}
-		li{
-			width:17%;
-			height:200px;
-			overflow:hidden;
-			background:grey;
-			text-align:center;
-			img{
-				min-width:100%;
-				min-height:100%;
-				margin-left: -25%;
-				position:relative;
-			}
-			img.missing{
-				margin-left:0px;
-			}
-		}
-	}
-	.previous{
-		position:absolute;
-		left:0;
-		top:0;
-		width:70px;
-		height:200px;
-		background: url(#{$urlBase}sprite.png) 495px 372px;
-		&:hover{
-			background: url(#{$urlBase}sprite.png) 343px 372px;
-			cursor: pointer;
-		}
-	}
-	.next{
-		position:absolute;
-		right:0;
-		top:0;
-		height:200px;
-		width:70px;
-		background: url(#{$urlBase}sprite.png) 425px 372px;
-		&:hover{
-			background: url(#{$urlBase}sprite.png) 272px 372px;
-			cursor:pointer;
-		}
-	}
 	ul{
-		max-width: 2000px;
+		margin:0;
+		padding:0;
 		li{
 			list-style-type: none;
 			display:inline-block;
 			vertical-align: top;
-			margin: 0 0.25%;
+			margin: 0.5%;
+			width: 19%;
+			position:relative;
 		}
 	}
 	.lecture-box{
@@ -591,6 +557,35 @@ blockquote p {
 		padding:50px 10px 10px 10px;
 		display:inline-block;
 		vertical-align: top;
+	}
+	.archive-image-box{
+		background-size: cover;
+		-moz-background-size:cover;
+	  -webkit-background-size: cover; 
+	  -o-background-size: cover;
+		background: no-repeat 50% 50%;
+		position:relative;
+		border:2px solid white;
+		width: 100%;
+		padding-bottom: 100%;
+		&:hover{
+			.archive-item-label{
+				display:block;
+			}
+			border: $border-style;
+		}
+		.archive-item-label{
+			position:absolute;
+			bottom:0;
+			left:0;
+			padding:3%;
+			width:94%;
+			background:black;
+			background:lighten($hover, 10%);
+			color:$black;
+			text-decoration:none;
+			display:none;
+		}
 	}
 }
 

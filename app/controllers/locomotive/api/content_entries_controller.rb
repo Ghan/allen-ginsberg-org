@@ -285,11 +285,6 @@ module Locomotive
               }
         end
 
-        # publish work type
-        if params.has_key?(:work_type)
-          @content_entries = @content_entries.select { |entry| entry.type._slug == params[:work_type] }
-        end
-
         # Timeline - id, date, lifeline_snippet, chronological_addenda_snippet, title, geo, notables  
         if params.has_key?(:timeline)
           # Rails.cache.clear
@@ -320,6 +315,10 @@ module Locomotive
         end
 
         # Published Work index - id, type, name, publisher, date, thumbnail_image
+        if params.has_key?(:work_type)
+          @content_entries = @content_entries.select { |entry| entry.type._slug == params[:work_type] }
+        end
+
         if params.has_key?(:works_index)
           in_cache = Rails.cache.read("works_index/"+params[:work_type])
           if in_cache
@@ -356,8 +355,12 @@ module Locomotive
         end
 
         # Archive Items index - id, title, archive_type, file_slash_image
+        if params.has_key?(:arch_type)
+          @content_entries = @content_entries.select { |entry| entry.archive_type._slug == params[:arch_type] }
+        end
+
         if params.has_key?(:archive_index)
-          in_cache = Rails.cache.read("archive_index")
+          in_cache = Rails.cache.read("archive_index"+params[:arch_type])
           if in_cache
             archive_data = in_cache
             message = "hit"
@@ -378,7 +381,7 @@ module Locomotive
             archive_data = @new_content_entries
             message = "miss"
             
-            Rails.cache.write("archive_index", archive_data, expires_in: 0)
+            Rails.cache.write("archive_index"+params[:arch_type], archive_data, expires_in: 0)
           end
 
           @content_entries = {
