@@ -237,6 +237,7 @@ blockquote p {
 		.post-date{
 			text-decoration:none;
 			color:$black;
+
 		}
 		.post-title{
 			color:$black;
@@ -254,9 +255,11 @@ blockquote p {
 			text-decoration:none;
 			text-align:right;
 			color:$black;
+			font-size:.8em;
 		}
 		.post-title{
 			font-size:1.35em;
+			line-height:1.1em;
 			&:hover{
 			}
 		}
