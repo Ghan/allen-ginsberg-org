@@ -4,9 +4,8 @@
 	<li class="ng-class: {selected: workType=='film'}"><a href="#/works/film" alt="Film">Film</a></li>
 </ul>
 
-<div ng-if="!work[workType]">
-  Loading Published Works ({{workType}})...
-  <img src="./assets/spinning-fish.gif" alt="loading, please wait" />
+<div class="loading-page" ng-if="!work[workType]">
+  Loading Archive...<br /><img src="./assets/spinning-fish.gif" alt="loading, please wait" />
 </div>	
 <div id="works-index" ng-if="work[workType]">
 	<ul>
