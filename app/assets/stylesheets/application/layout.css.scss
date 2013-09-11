@@ -122,22 +122,28 @@ blockquote p {
 		height:64px;
 		cursor:pointer;
 	}
-	#facebook-icon{
-		background:url(./sprite.png) -404px 108px;
+	#blogger-icon{
+		background:url(#{$urlBase}sprite.png)  413px 95px;
 		&:hover{
-			background:url(./sprite.png) -166px 109px;
+			background:url(#{$urlBase}sprite.png) 495px 95px;
+		}		
+	}
+	#facebook-icon{
+		background:url(#{$urlBase}sprite.png) 96px 168px;
+		&:hover{
+			background:url(#{$urlBase}sprite.png) 334px 169px;
 		}
 	}
 	#twitter-icon{
-		background:url(./sprite.png) -324px 109px;
+		background:url(#{$urlBase}sprite.png) 176px 169px;
 		&:hover{
-			background:url(./sprite.png) -87px 109px;
+			background:url(#{$urlBase}sprite.png) 413px 169px;
 		}
 	}
 	#email-icon{
-		background:url(./sprite.png) -245px 108px;
+		background:url(#{$urlBase}sprite.png) 255px 168px;
 		&:hover{
-			background:url(./sprite.png) -5px 108px;
+			background:url(#{$urlBase}sprite.png) 495px 168px;
 		}
 	}
 }
@@ -158,7 +164,7 @@ blockquote p {
 		position:absolute;
 		display: inline-block;
 		vertical-align: top;
-		background:url(./watermark-fish.jpg) 0% 30% no-repeat;
+		background:url(#{$urlBase}watermark-fish.jpg) 0% 30% no-repeat;
 		#quote-text{
 			font-size: 2em;
 			font-style: italic;
@@ -185,16 +191,16 @@ blockquote p {
 		}
 	}
 	#photo-archive{
-		background: url(./photo-archive.jpg) 50% 50%;
+		background: url(#{$urlBase}photo-archive.jpg) 50% 50%;
 	}
 	#browse-lectures{
-		background: url(./lectures.jpg) 50% 50%;
+		background: url(#{$urlBase}lectures.jpg) 50% 50%;
 	}
 	#published-work{
-		background: url(./published-works.jpg) 50% 50%;
+		background: url(#{$urlBase}published-works.jpg) 50% 50%;
 	}
 	#shop-merch{
-		background: url(./merch.jpg) 50% 50%;
+		background: url(#{$urlBase}merch.jpg) 50% 50%;
 	}
 	.box-text{
 		position: absolute;
@@ -263,7 +269,7 @@ blockquote p {
 	.right-arrow{
 		width: 19px;
 		height: 19px;
-		background: url(./sprite.png) 268px 474px;
+		background: url(#{$urlBase}sprite.png) 268px 534px;
 		display: inline-block;
 		position: relative;
 		top: 4px;
@@ -271,7 +277,7 @@ blockquote p {
 	.left-arrow{
 		width: 19px;
 		height: 19px;
-		background: url(./sprite.png) 293px 474px;
+		background: url(#{$urlBase}sprite.png) 293px 534px;
 		display: inline-block;
 		position: relative;
 		top: 4px;	
@@ -282,7 +288,7 @@ blockquote p {
 			text-decoration: none;
 		}
 		.right-arrow{
-			background: url(./sprite.png) 218px 475px;
+			background: url(#{$urlBase}sprite.png) 218px 535px;
 		}
 	}
 	#prev-link:hover{
@@ -291,7 +297,7 @@ blockquote p {
 			text-decoration:none;
 		}
 		.left-arrow{
-			background: url(./sprite.png) 243px 475px;	
+			background: url(#{$urlBase}sprite.png) 243px 535px;	
 		}
 	}
 }
@@ -411,7 +417,7 @@ blockquote p {
 		#amazon-sprite{
 			height: 31px;
 			width: 36px;
-			background: url(./sprite.png) 460px 356px;
+			background: url(#{$urlBase}sprite.png) 460px 416px;
 			display: inline-block;
 			position: relative;
 			top: 4px;
@@ -525,9 +531,9 @@ blockquote p {
 		top:0;
 		width:70px;
 		height:200px;
-		background: url(./sprite.png) 448px 312px;
+		background: url(#{$urlBase}sprite.png) 495px 372px;
 		&:hover{
-			background: url(./sprite.png) 240px 312px;
+			background: url(#{$urlBase}sprite.png) 343px 372px;
 			cursor: pointer;
 		}
 	}
@@ -537,9 +543,9 @@ blockquote p {
 		top:0;
 		height:200px;
 		width:70px;
-		background: url(./sprite.png) 360px 312px;
+		background: url(#{$urlBase}sprite.png) 425px 372px;
 		&:hover{
-			background: url(./sprite.png) 152px 312px;
+			background: url(#{$urlBase}sprite.png) 272px 372px;
 			cursor:pointer;
 		}
 	}
@@ -566,7 +572,7 @@ blockquote p {
 		height: 10px;
 		width: 14px;
 		display: inline-block;
-		background: url(./sprite.png) 450px 470px;
+		background: url(#{$urlBase}sprite.png) 490px 530px;
 	}
 	#left-side{
 		#image-main{
@@ -677,7 +683,7 @@ blockquote p {
 #footer{
 	background:#f5f5f5;
 	border-top: $border-style;
-	padding:20px 10px 10px 40%;
+	padding:20px 10px 10% 40%;
 	margin-top:10px;
 	font-size:.8em;
 	ul{
@@ -704,6 +710,13 @@ blockquote p {
 	width:20%;
 	margin-right:2%;
 }
+#footer>#allen-watermark{
+	width:0px;
+}
+// 	height:200px;
+// 	width:200px;
+// 	background: url(#{$urlBase}sprite.png) no-repeat 500px 500px;
+// }
 #footer>#sitemap{
 	width:50%;
 }
@@ -828,7 +841,7 @@ slider span.bubble.limit{color:#808080}
 	    -webkit-border-radius:8px;
 	    -moz-border-radius:8px;
 	    border-radius:8px;
-	    background:#FFE6E6 url(../img/cancel_48.png) no-repeat 405px center;
+	    background:#FFE6E6 url(#{$urlBase}img/cancel_48.png) no-repeat 405px center;
 	    display:none;
 	}
 
@@ -858,7 +871,7 @@ slider span.bubble.limit{color:#808080}
 	    -webkit-border-radius:8px;
 	    -moz-border-radius:8px;
 	    border-radius:8px;
-	    background:#D3EDD3 url(../img/accepted_48.png) no-repeat 405px center;
+	    background:#D3EDD3 url(#{$urlBase}img/accepted_48.png) no-repeat 405px center;
 	    font-weight:bold;
 	    display:none;
 	}

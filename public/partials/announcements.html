@@ -4,7 +4,7 @@
 	</div>
 	<div id="announcements" ng-if="finishedLoadingAnnouncements">
 		<div class="blog-post-snippet" ng-repeat="item in blog.items">
-			<a href="#/blog/{{item.id}}" title="Visit blog post: {{item.title}}">
+			<a href="{{item.url}}" target="_blank" title="Visit blog post: {{item.title}}">
 				<div class="post-header">
 					<div class="post-date">{{ item.updated | date:'mediumDate' }}</div>
 					<div class="post-title">{{item.title}}</div>
