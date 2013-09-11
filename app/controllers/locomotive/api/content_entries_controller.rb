@@ -45,7 +45,7 @@ module Locomotive
               }
         end
 
-        # get published work similar to geo, notable, or date
+        # Similar Work - get published work similar to geo, notable, or date
         if params.has_key?(:similar_work)
           in_cache = Rails.cache.read("similar_work/"+params[:geo]+"/"+params[:notable]+"/"+params[:date])
           if in_cache
@@ -98,7 +98,7 @@ module Locomotive
                 @new_content_entries.push(add)
               end
             }
-            similar_work_data = @new_content_entries.slice(0, 9)
+            similar_work_data = @new_content_entries.slice(0, 3)
             message = "miss"
             
             Rails.cache.write("similar_work/"+params[:geo]+"/"+params[:notable]+"/"+params[:date], similar_work_data, expires_in: 0)

@@ -13,7 +13,7 @@ body {
 	line-height: $line-height;
 	color:$black;
 	.container{
-		max-width:1500px;		
+		max-width:1280px;		
 		margin: 0 2%;
 	}
 	p{
@@ -391,7 +391,56 @@ blockquote p {
 		}
 	}
 }
+
+
 #works-detail{
+	#works-detail-sidebar{
+		float: right;
+		width: 150px;
+		margin: 3.3em 2% 0 4%;
+		#similar-work{
+			border: $border-style;
+			width:100%;
+			overflow-x: scroll;
+			&:hover{
+				#similar-work-text{
+					background: $hover;
+				}
+			}
+			ul{
+				padding:0;
+				margin:0;
+				text-align: center;
+			}
+			li{
+				list-style-type: none;
+				display:inline-block;
+				vertical-align: top;
+				padding: 0 10px 10px;
+				img{
+					width: 100%;
+					height: auto;
+				}
+			}
+			#similar-work-text{
+				padding: 10px;
+				font-size: 1em;
+				text-transform: uppercase;
+				text-align: center;
+			}
+			.similar-work-img-box{
+				width:100%;
+				height:auto;
+				overflow:hidden;
+				img{
+					margin-top:0px;
+				}
+			}
+		}
+	}
+	#title-box{
+
+	}
 	#works-detail-img{
 		float:right;
 		padding:0 0 30px 30px;
@@ -429,57 +478,35 @@ blockquote p {
 		ul{
 			padding:0;
 			margin:0;
+			display: inline-block;
+			border: 2px solid white;
+			&:hover{
+				#items-in-archive-text{
+					background: $accent;
+				}
+				border:2px solid $accent;
+			}
 		}
 		li{
 			list-style-type: none;
 			display:inline-block;
 			vertical-align: top;
-			padding:5px;
+			margin: 3px;
+			width: 60px;
+			height: 60px;
+			overflow: hidden;
+			img{
+				margin-left: -25%;
+			}
 		}
 		#items-in-archive-text{
 			vertical-align: middle;
-			font-size: 2em;
-			width: 100px;
+			font-size: 1.8em;
+			width: 130px;
 			text-align: center;
 			line-height: 1em;
-		}
-	}
-	#works-detail-sidebar{
-		border: $border-style;
-		padding: 10px;
-		margin-top:2em;
-	}
-	#similar-work{
-		width:100%;
-		overflow-x: scroll;
-		ul{
-			padding:0;
-			margin:0;
-			min-width:1150px;
-		}
-		li{
-			list-style-type: none;
-			display:inline-block;
-			vertical-align: top;
-			padding:5px;
-			img{
-				width:100px;
-				height:auto;
-			}
-		}
-		#similar-work-text{
-			vertical-align: middle;
-			font-size: 2em;
-			width: 100px;
-			text-align: center;
-		}
-		.similar-work-img-box{
-			width:100px;
-			height:100px;
-			overflow:hidden;
-			img{
-				margin-top:0px;
-			}
+			margin: 0;
+			padding: 5px;
 		}
 	}
 }
