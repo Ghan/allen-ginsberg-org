@@ -775,6 +775,19 @@ slider span.bubble.limit{color:#808080}
 // CONTACT FORM ================ //
 
 #contact-page{
+	div{
+		width:29%;
+		padding-bottom:100%;
+		padding:0px 2% 30px;
+		display:inline-block;
+		vertical-align: top;
+	}
+	p{
+		text-align:left;
+	}
+
+
+
 	#contact-form {
 	    background-color:#F2F7F9;
 	    width:465px;
