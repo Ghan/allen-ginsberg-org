@@ -11,6 +11,7 @@ gem 'locomotive_cms', '~> 2.2.3', :require => 'locomotive/engine'
 gem 'locomotive-heroku', '~> 0.1.0', :require => 'locomotive/heroku'
 gem 'thin', :group => 'production'
 gem 'html5-rails'
+gem 'newrelic_rpm'
 
 # Gems used only for assets and not required
 # in production environments by default.
