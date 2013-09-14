@@ -1,7 +1,14 @@
+<ul id="archive-menu">
+	<li class="ng-class: {selected: archType=='photography'}"><a href="#/archive/photography" alt="Photography">Photography</a></li>
+	<li class="ng-class: {selected: archType=='art'}"><a href="#/archive/art" alt="Art">Art</a></li>
+	<li class="ng-class: {selected: archType=='document'}"><a href="#/archive/document" alt="Document">Document</a></li>
+	<li class="ng-class: {selected: archType=='lecture'}"><a href="#/archive/lecture" alt="Lecture">Lecture</a></li>
+</ul>
+
 <div id="archive-detail">
-	<div id="nav-back">
+	<!-- <div id="nav-back">
 		<a href="#/archive" title="Browse Archive"><span id="back-arrow"></span>Back to Archive</a>
-	</div>
+	</div> -->
 	<div id="left-side">
 		<div id="image-main">
 			<div ng-if="item.image" ng-bind-html="item.image">Loading image... </div>

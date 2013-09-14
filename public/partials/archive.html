@@ -5,13 +5,13 @@
 	<li class="ng-class: {selected: archType=='lecture'}"><a href="#/archive/lecture" alt="Lecture">Lecture</a></li>
 </ul>
 
-<div class="loading-page" ng-if="!finishedLoadingArchive">
+<div class="loading-page" ng-if="!archive[archType]">
 	Loading Archive...<br /><img src="./assets/spinning-fish.gif" alt="loading, please wait" />
 </div>
-<div id="archive-index" ng-if="finishedLoadingArchive">
+<div id="archive-index" ng-if="archive[archType]">
 	<ul>
     <li ng-repeat="item in archive[archType]">
-        <a ng-bind-html="item.image" href="#/archive/photography/{{item.slug}}"></a>
+        <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}"></a>
     </li>
   </ul>
 </div>
