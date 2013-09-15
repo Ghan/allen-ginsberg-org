@@ -243,7 +243,7 @@ module Locomotive
                 @new_content_entries.push(add)
               end
             }
-            similar_archive_items_data = @new_content_entries.slice(0, 5)
+            similar_archive_items_data = @new_content_entries.slice(0, 7)
             message = "miss"
             
             Rails.cache.write("similar_archive_items/"+params[:id], similar_archive_items_data, expires_in: 0)

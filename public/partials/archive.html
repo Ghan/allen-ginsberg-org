@@ -9,9 +9,26 @@
 	Loading Archive...<br /><img src="./assets/spinning-fish.gif" alt="loading, please wait" />
 </div>
 <div id="archive-index" ng-if="archive[archType]">
-	<ul>
+	<ul ng-if="archive[archType].length <= 15">
     <li ng-repeat="item in archive[archType]">
         <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}"></a>
     </li>
   </ul>
+	<div ng-if="archive[archType].length > 15">
+		<ul>
+			<li ng-repeat="item in archive[archType].slice(0,15)">
+	        <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}"></a>
+	    </li>
+	  </ul>
+		  <div id="click-for-more" class="ng-class: {clicked: viewAllClicked}" ng-click="viewAllClicked = true">
+		  	<span class="view-all-sprite"></span>
+		  	View All
+		  	<span class="view-all-sprite"></span>
+		  </div>
+		<ul ng-if="viewAllClicked">
+			<li ng-repeat="item in archive[archType].slice(15,archive[archType].length)">
+	        <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}"></a>
+	    </li>
+	  </ul>
+	</div>
 </div>

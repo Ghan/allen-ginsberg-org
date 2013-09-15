@@ -11,7 +11,10 @@
 	</div> -->
 	<div id="left-side">
 		<div id="image-main">
-			<div ng-if="item.image" ng-bind-html="item.image">Loading image... </div>
+			<div id="item-image" ng-if="item.image">
+				<div id="image-toolbox"><span ng-click="expand()" id="expand" class="ng-class:{expanded: expanded}">Expand</span> <span id="next-image" ng-click="nextImage()">Next Image</span></div>
+				<div ng-bind-html="item.image">Loading image... </div>
+			</div>
 			<div id="no-file-box" ng-if="item.no_file" ng-bind-html="item.no_file"></div>
 		</div>
 		<div id="loading-similar-content" ng-if="!finishedLoadingSimilarContent">Loading Similar Archive Content...</div>

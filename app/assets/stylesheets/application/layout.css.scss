@@ -601,6 +601,28 @@ blockquote p {
 			display:none;
 		}
 	}
+	#click-for-more{
+		text-align: center;
+		text-transform: uppercase;
+		color:$hover;
+		font-size:1.3em;
+		cursor:pointer;
+		.view-all-sprite{
+			width:32px;
+			height:32px;
+			display:inline-block;
+			vertical-align: top;
+			position:relative;
+			background: url(#{$urlBase}sprite.png) 384px 541px;
+		}
+		&:hover{
+			color:$black;
+			background:lighten($hover, 10%);
+		}
+	}
+	.clicked{
+		display:none;
+	}
 }
 
 #archive-detail{
@@ -612,8 +634,35 @@ blockquote p {
 	}
 	#left-side{
 		#image-main{
-			img{
-				width:100%;
+			#item-image{
+				position:relative;
+				&:hover{
+					#image-toolbox{
+						display:block;
+					}
+				}
+				#image-toolbox{
+					display:none;
+					position:absolute;
+					top:0;
+					left:0;
+					padding:1%;
+					width:98%;
+					text-align:right;
+					background:black;
+					background:rgba(0,0,0,0.7);
+					font-size:0.8em;
+					color:#f5f5f5;
+					#expand{
+						color:green;
+					}
+					.expanded{
+						color:red !important;
+					}
+				}
+				img{
+					width:100%;
+				}				
 			}
 		}
 		width:58%;
@@ -621,24 +670,32 @@ blockquote p {
 		vertical-align: top;
 		margin-right:2%;
 		#similar-content{
-			border:$border-style;
+			border:2px solid white;
 			margin-top:20px;
+			display:inline-block;
+			&:hover{
+				border:2px solid $accent;
+				#similar-content-title{
+					background: $accent;
+					color:$black;
+				}
+			}
 			#similar-content-title{
-				width: 100px;
-				font-size: 1.5em;
+				width: 60px;
+				font-size: 1em;
 				text-align: center;
+				line-height: 1.25em;
 			}
 			ul{
 				padding:0;
-				margin: 5px;
+				margin: 0;
 			}
 			li{
 				display: inline-block;
 				vertical-align: top;
-				margin-right: 1.5%;
-				width: 15%;
+				padding:5px;
 				img{
-					width:100px;
+					width:60px;
 				}
 			}
 		}
@@ -668,16 +725,15 @@ blockquote p {
 				padding:0;
 				li{
 					list-style-type:none;
-					width:240px;
+					display:inline-block;
+					vertical-align: top;
+					width:150px;
 					text-align:center;
-					padding-bottom:20px;
+					padding: 0 10px 10px;
 					.published-in-image-box{
 						margin:0 auto;
-						width:200px;
-						height:200px;
 						overflow:hidden;
 						img{
-							margin-top:-50px;
 						}
 					}
 				}
