@@ -12,7 +12,10 @@
 	<div id="left-side">
 		<div id="image-main">
 			<div id="item-image" ng-if="item.image">
-				<div id="image-toolbox"><span ng-click="expand()" id="expand" class="ng-class:{expanded: expanded}">Expand</span> <span id="next-image" ng-click="nextImage()">Next Image</span></div>
+				<div id="image-toolbox">
+					<span ng-click="expand()" id="expand" class="ng-class:{expanded: expanded}"><span id="expand-text">{{expandText}}</span><span id="expand-icon"></span></span>
+					<span id="next-image" ng-click="nextImage()">{{nextImageText}}</span>
+				</div>
 				<div ng-bind-html="item.image">Loading image... </div>
 			</div>
 			<div id="no-file-box" ng-if="item.no_file" ng-bind-html="item.no_file"></div>

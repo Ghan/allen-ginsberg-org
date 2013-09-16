@@ -646,18 +646,60 @@ blockquote p {
 					position:absolute;
 					top:0;
 					left:0;
-					padding:1%;
+					padding:5px 1%;
 					width:98%;
-					text-align:right;
 					background:black;
 					background:rgba(0,0,0,0.7);
 					font-size:0.8em;
 					color:#f5f5f5;
+					height:24px;
 					#expand{
-						color:green;
+						cursor:pointer;
+						position:absolute;
+						top:8px;
+						left:50%;
+						margin-left:-15px;
+						display:inline-block;
+						#expand-text{
+							
+						}
+						#expand-icon{
+							width:15px;
+							height:15px;
+							position:relative;
+							margin-left:5px;
+							top:1px;
+							display:inline-block;
+							background:url(#{$urlBase}sprite.png) 50px 448px;
+						}
+						&:hover{
+							#expand-icon{
+								background:url(#{$urlBase}sprite.png) 50px 467px;
+							}
+							#expand-text{
+								color:$accent;
+							}
+						}
 					}
 					.expanded{
-						color:red !important;
+						#expand-icon{
+							background:url(#{$urlBase}sprite.png) 34px 450px !important;
+						}
+						&:hover{
+							#expand-icon{
+								background:url(#{$urlBase}sprite.png) 34px 467px !important;		
+							}
+						}
+					}
+					#next-image{
+						cursor:pointer;
+						position:absolute;
+						top:9px;
+						right:10px;
+						display:inline-block;
+						&:hover{
+							color:$accent;
+						}
 					}
 				}
 				img{

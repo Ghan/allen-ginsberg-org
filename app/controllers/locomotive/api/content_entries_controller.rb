@@ -11,6 +11,30 @@ module Locomotive
       def index
         @content_entries = @content_entries.order_by([content_type.order_by_definition])
 
+        # Next Page (archive detail)
+        if params.has_key?(:next_page)
+
+          in_cache = Rails.cache.read("next_page/"+params[:next_page])
+          if in_cache
+            next_page_data = in_cache
+            message = "hit"
+          else
+            next_page_data = @content_entries[0]._slug
+            @content_entries.each_with_index { |(key,value),index| 
+              if key.id.to_s == params[:next_page]
+                next_page_data = @content_entries[index+1]._slug
+              end
+            }
+            message = "miss"
+            
+            Rails.cache.write("next_page/"+params[:next_page], next_page_data, expires_in: 0)
+          end
+          @content_entries = {
+              "cache" => message,
+              "data" => next_page_data
+              }
+        end
+
         # At This Time (for Archive detail)
         if params.has_key?(:at_this_time)
           in_cache = Rails.cache.read("at_this_time/"+params[:at_this_time])
