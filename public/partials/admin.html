@@ -1,0 +1,7 @@
+<div id="validate">
+	Password: <input ng-model="inputPW" />
+</div>
+<div ng-if="inputPW == password">
+	<h2>Admin Panel</h2>
+	<button ng-click="reset()">Reset Cache</button>{{status}}
+</div>

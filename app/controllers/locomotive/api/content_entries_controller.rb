@@ -11,6 +11,11 @@ module Locomotive
       def index
         @content_entries = @content_entries.order_by([content_type.order_by_definition])
 
+        if params.has_key?(:reset_cache)
+          Rails.cache.clear
+          @content_entries = "cleared"
+        end
+
         # At This Time (for Archive detail)
         if params.has_key?(:at_this_time)
           in_cache = Rails.cache.read("at_this_time/"+params[:at_this_time])
