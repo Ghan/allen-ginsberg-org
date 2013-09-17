@@ -5,7 +5,10 @@
 	<li class="ng-class: {selected: archType=='lecture'}"><a href="#/archive/lecture" alt="Lecture">Lecture</a></li>
 </ul>
 
-<div id="archive-detail">
+<div class="loading-page" ng-if="!archive[slug]">
+	Loading Archive...<br /><img src="./assets/spinning-fish.gif" alt="loading, please wait" />
+</div>
+<div id="archive-detail" ng-if="archive[slug]">
 	<!-- <div id="nav-back">
 		<a href="#/archive" title="Browse Archive"><span id="back-arrow"></span>Back to Archive</a>
 	</div> -->
