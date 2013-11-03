@@ -370,19 +370,39 @@ module Locomotive
             archive_data = in_cache
             message = "hit"
           else
-            @new_content_entries = []
-            @content_entries.each{ |entry|
-              puts entry.file_slash_image.url
-              new_entry = { "id" => entry.id,
+            @new_content_entries = {"none" => []}
+            if params[:arch_type] == "lecture"
+              @content_entries.each{ |entry|
+                series = ( entry.is_this_a_lecture_and_part_of_a_class_which_one || "none" )
+                new_entry = { "id" => entry.id,
                           "slug" => entry._slug, 
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
                           "date" => entry.date_item_was_created,
-                          "original_file" => ( entry.file_slash_image.url || "/assets/blank.png" )
+                          "original_file" => ( entry.file_slash_image.url || "/assets/blank.png" ),
+                          "lecture_series" => ( entry.is_this_a_lecture_and_part_of_a_class_which_one || "none" )
                           }
-              # new_entry.merge!(:file_slash_image => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '200x200#') : "/assets/blank.png"))
-              @new_content_entries.push(new_entry)
-            }
+                if @new_content_entries.has_key?(series)
+                  @new_content_entries[series].push(new_entry)
+                else
+                  @new_content_entries[series] = [new_entry]
+                end
+              }
+            else
+              @content_entries.each{ |entry|
+                new_entry = { "id" => entry.id,
+                            "slug" => entry._slug, 
+                            "archive_type" => entry.archive_type._slug,
+                            "title" => entry.title, 
+                            "date" => entry.date_item_was_created,
+                            "original_file" => ( entry.file_slash_image.url || "/assets/blank.png" ),
+                            "lecture_series" => ( entry.is_this_a_lecture_and_part_of_a_class_which_one || "none" )
+                            }
+                # new_entry.merge!(:file_slash_image => (entry.file_slash_image.url ? Locomotive::Dragonfly.resize_url("https://allenginsberg.s3.amazonaws.com"+(entry.file_slash_image.url), '200x200#') : "/assets/blank.png"))
+                @new_content_entries.push(new_entry)
+              }
+            end
+
             archive_data = @new_content_entries
             message = "miss"
             

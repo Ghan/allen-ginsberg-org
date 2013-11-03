@@ -16,10 +16,22 @@
 		<div id="image-main">
 			<div id="item-image" ng-if="item.image">
 				<div id="image-toolbox">
+					<!-- AddThis Button BEGIN -->
+					<div class="addthis_toolbox addthis_default_style ">
+					<a class="addthis_button_preferred_1"></a>
+					<a class="addthis_button_preferred_2"></a>
+					<a class="addthis_button_preferred_3"></a>
+					<a class="addthis_button_preferred_4"></a>
+					<a class="addthis_button_compact"></a>
+					<a class="addthis_counter addthis_bubble_style"></a>
+					</div>
+					<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ee03d5c2bb9570a"></script>
+					<!-- AddThis Button END -->
 					<span ng-click="expand()" id="expand" class="ng-class:{expanded: expanded}"><span id="expand-text">{{expandText}}</span><span id="expand-icon"></span></span>
-					<span id="next-image" ng-click="nextImage()">{{nextImageText}}</span>
+					<span ng-click="nextImage()" id="next-image">{{nextImageText}}</span>
 				</div>
-				<div ng-bind-html="item.image">Loading image... </div>
+				<div id="item-img-div" ng-bind-html="item.image">Loading image... </div>
 			</div>
 			<div id="no-file-box" ng-if="item.no_file" ng-bind-html="item.no_file"></div>
 		</div>
@@ -35,40 +47,43 @@
 		</div>
 	</div>
 	<div id="right-side">
-		<div id="content-detail">
+		<div id="content-scroll">
 			<h2>{{item.title}}</h2>
-			<div ng-bind-html="item.description"></div>
-		</div>
-		<div id="other-class" ng-if="otherClass.length > 0">
-			Other Lectures in this Series
-			<ul>
-				<li ng-repeat="c in otherClass">
-					<a href="#/archive/{{c.archive_type}}/{{c.slug}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
-				</li>
-		</div>
-		<div id="biography-box" ng-if="atThisTime.length > 0">
-			<span class="title">At this time</span> 
-			<ul>
-				<li ng-repeat="t in atThisTime">
-					<h4>{{t.title}}, {{t.date | date: 'yyyy'}}</h4>
-					<div ng-bind-html="t.lifeline_snippet"></div>
-				</li>
-			</ul>
-			<a href="#/biography">View more in the Timeline.</a>
-		</div>
-		<div id="published-in" ng-if="item.published_in">
-			<div ng-if="finishedLoadingPublishedIn">
-		    <span class="title">Published In</span>
-		    <ul>
-		      <li ng-repeat="p in formattedPublishedIn">
-		      	<a href="#/works/{{p.type}}/{{p.slug}}" title="{{p.name}}">
-		      		<div class="published-in-image-box" ng-bind-html="p.publishedInImage"></div>
-		      		<br />
-		      		{{p.name}}
-		      	</a>
-		      </li>
-		    </ul>
-		  </div>
-		</div>
-	</div>
+				<div id="content-detail">
+					<div ng-bind-html="item.description"></div>
+				</div>
+				<div id="other-class" ng-if="otherClass.length > 0">
+					Other Lectures in this Series
+					<ul>
+						<li ng-repeat="c in otherClass">
+							<a href="#/archive/{{c.archive_type}}/{{c.slug}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
+						</li>
+				</div>
+				<div id="biography-box" ng-if="atThisTime.length > 0">
+					<span class="title">At this time</span> 
+					<ul>
+						<li ng-repeat="t in atThisTime">
+							<h4>{{t.title}}, {{t.date | date: 'yyyy'}}</h4>
+							<div ng-bind-html="t.lifeline_snippet"></div>
+						</li>
+					</ul>
+					<a href="#/biography">View more in the Timeline.</a>
+				</div>
+				<div id="published-in" ng-if="item.published_in">
+					<div ng-if="finishedLoadingPublishedIn">
+				    <span class="title">Published In</span>
+				    <ul>
+				      <li ng-repeat="p in formattedPublishedIn">
+				      	<a href="#/works/{{p.type}}/{{p.slug}}" title="{{p.name}}">
+				      		<div class="published-in-image-box" ng-bind-html="p.publishedInImage"></div>
+				      		<br />
+				      		{{p.name}}
+				      	</a>
+				      </li>
+				    </ul>
+				  </div>
+				</div>
+			</div>
+		<div #id="scroll-for-more">Scroll for More</div>
+	</div><!--right side-->
 </div>

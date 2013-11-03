@@ -8,7 +8,15 @@
 <div class="loading-page" ng-if="!archive[archType]">
 	Loading Archive...<br /><img src="./assets/spinning-fish.gif" alt="loading, please wait" />
 </div>
-<div id="archive-index" ng-if="archive[archType]">
+<div id="archive-index" class="lectures" ng-if="archive[archType] && archType == 'lecture'">
+	<ul class="lecture-ul" ng-repeat="(key, data) in archive[archType]">
+		<h3>{{key}}</h3>
+		<li ng-repeat="item in data">
+			<a href="#/archive/{{archType}}/{{item.slug}}">{{item.title}}</a>
+    	</li>
+	</ul>
+</div>
+<div id="archive-index" ng-if="archive[archType] && archType != 'lecture'">
 	<ul ng-if="archive[archType].length <= 15">
     <li ng-repeat="item in archive[archType]">
         <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}"></a>
