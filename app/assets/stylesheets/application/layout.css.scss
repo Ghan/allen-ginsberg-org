@@ -568,9 +568,30 @@ blockquote p {
 			position:relative;
 		}
 	}
+	.lecture-series{
+		border: $border-style;
+		margin: 1%;
+		padding: 0;
+		width: 98%;
+		&:hover{
+			.link-title{
+				background:lighten($hover, 10%);	
+				color:$black;	
+			}
+		}
+		h3{
+			padding: 1em 10px;
+			font-size: 1.5em;
+			height: 1.7em;
+			background:#f5f5f5;	
+			margin: 0;
+		}
+	}
 	.lecture-ul{
 		margin: 0;
-		padding: 0;
+		padding: 0 20px;
+		max-height: 300px;
+		overflow-y: scroll;
 		li{
 			list-style-type: none;
 			display: block;

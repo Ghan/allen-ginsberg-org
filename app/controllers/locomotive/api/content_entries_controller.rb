@@ -370,17 +370,17 @@ module Locomotive
             archive_data = in_cache
             message = "hit"
           else
-            @new_content_entries = {"none" => []}
+            @new_content_entries = {"Miscellaneous" => []}
             if params[:arch_type] == "lecture"
               @content_entries.each{ |entry|
-                series = ( entry.is_this_a_lecture_and_part_of_a_class_which_one || "none" )
+                series = ( entry.is_this_a_lecture_and_part_of_a_class_which_one || "Miscellaneous" )
                 new_entry = { "id" => entry.id,
                           "slug" => entry._slug, 
                           "archive_type" => entry.archive_type._slug,
                           "title" => entry.title, 
                           "date" => entry.date_item_was_created,
                           "original_file" => ( entry.file_slash_image.url || "/assets/blank.png" ),
-                          "lecture_series" => ( entry.is_this_a_lecture_and_part_of_a_class_which_one || "none" )
+                          "lecture_series" => ( entry.is_this_a_lecture_and_part_of_a_class_which_one || "Miscellaneous" )
                           }
                 if @new_content_entries.has_key?(series)
                   @new_content_entries[series].push(new_entry)
