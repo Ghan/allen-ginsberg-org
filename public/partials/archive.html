@@ -19,12 +19,12 @@
 	</div>
 </div>
 <div id="archive-index" ng-if="archive[archType] && archType != 'lecture'">
-	<ul ng-if="archive[archType].length <= 15">
+	<ul ng-if="archive[archType].length <= 16">
     <li ng-repeat="item in archive[archType]">
         <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}"></a>
     </li>
   </ul>
-	<div ng-if="archive[archType].length > 15">
+	<div ng-if="archive[archType].length > 16">
 		<ul>
 			<li ng-repeat="item in archive[archType].slice(0,15)">
 	        <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}"></a>
