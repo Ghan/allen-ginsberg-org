@@ -370,8 +370,8 @@ module Locomotive
             archive_data = in_cache
             message = "hit"
           else
-            @new_content_entries = {"Miscellaneous" => []}
             if params[:arch_type] == "lecture"
+              @new_content_entries = {"Miscellaneous" => []}
               @content_entries.each{ |entry|
                 series = ( entry.is_this_a_lecture_and_part_of_a_class_which_one || "Miscellaneous" )
                 new_entry = { "id" => entry.id,
@@ -389,6 +389,7 @@ module Locomotive
                 end
               }
             else
+              @new_content_entries = []
               @content_entries.each{ |entry|
                 new_entry = { "id" => entry.id,
                             "slug" => entry._slug, 
