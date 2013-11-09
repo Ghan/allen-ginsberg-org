@@ -10,6 +10,157 @@
   // Style adjustments for viewports that meet the condition
 }
 
+// Tablet
+@media only screen and (max-width : 900px) {
+	#mini-menu{
+		display: inline-block;
+	}
+	#main-menu, #main-menu-box:active ul { 
+		z-index: 5;
+		display: none;
+		position: absolute;
+		padding: 1em;
+		background: #fff;
+		border: 3px solid #ddd;
+		left: 0;
+		top: 150px;
+		width: 200px;
+
+	}
+
+	#main-menu li {
+		text-align: center;
+		width: 100%;
+		margin: 5px 0;
+	}
+
+	#main-menu-box:hover{
+		ul {
+			display: block;
+		}
+	}
+
+	// Header
+	#logo{
+		width: 80%;
+	}
+	#social-links{
+		float: right;
+		width: auto;
+	}
+	#main-menu-box{
+		height: 64px;
+	}
+	// Home
+	#homepage {
+		#quote{
+			display: none;
+		}
+		#homepage-main-text {
+			width:98%;
+			margin-right: 0;
+		}
+		#jump-boxes{
+			text-align: center;
+		}
+		.jump-box{
+			width: 45%;
+			max-width: 250px;
+		}
+	}
+	// Blog
+	#announcements{
+		text-align: center;
+	}
+	.blog-post-snippet {
+		width: 80%;
+	}
+	.blog-post-snippet .post-content {
+		height: 450px;
+	}
+	// Biography
+
+	// Published Work
+	#works-index{
+		ul{
+			text-align: center;
+		}
+		li {
+			width: 40%;
+		}
+	} 
+
+	// Archive 
+	#archive-index ul li {
+		width: 28%;
+	}
+	#archive-detail {
+		#left-side{
+			width: 100%;
+		}
+		#right-side {
+			width: 95%;
+		}
+	}
+	#archive-detail #left-side #image-main #item-image #image-toolbox #expand {
+			display: none;
+		}
+	// Links
+	#links{
+		text-align: center;
+	}
+	.link-cat {
+		width: 75%;
+		text-align: left;
+	}
+
+	// Footer
+	#footer{
+		padding: 20px 10px 10%;
+	}
+
+}
+
+// Mobile
+@media only screen and (max-width : 480px) {
+	#logo{
+		width: 95%;
+	}
+	#works-index li {
+		width: 80%;
+	}
+	#works-detail #works-detail-img {
+		float: none;
+		padding: 0 0 20px 0;
+		img{
+			width: 100%;
+		}
+	}
+	#archive-index ul li {
+		width: 45%;
+	}
+	.link-cat{
+		margin: 5%;
+	}
+	#footer{
+		font-size: 1em;
+		div{
+			width: 100% !important;
+			text-align: center;
+			margin-bottom: 2em;
+		}
+	}
+	#footer ul {
+		display: block !important;
+		width: 100% !important;
+	}
+	#footer ul li ul{
+		padding: 0;
+	}
+}
+
+
+
 @media print,
        (-o-min-device-pixel-ratio: 5/4),
        (-webkit-min-device-pixel-ratio: 1.25),

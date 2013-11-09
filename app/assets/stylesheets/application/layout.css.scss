@@ -84,6 +84,28 @@ blockquote p {
 	width: 60%;
 	display:inline-block;
 	vertical-align:top;
+	img{
+		width: 100%;
+	}
+}
+#mini-menu{
+	font-size: 24px;
+	padding: 16px 2%;
+ 	cursor: pointer;
+ 	display: inline-block;
+
+	&:hover{
+		color: $menu-active-color;
+	 	background:$menu-active-background;
+	}
+
+	display: none;
+	&:after{
+		content: "";
+		background: url(../sprite.png) 382px 543px;
+		padding: 2px 15px;
+
+	}
 }
 #main-menu-box{
 	background:$menu-background-color;
@@ -412,6 +434,8 @@ blockquote p {
 
 
 #works-detail{
+	max-width: 1000px;
+	margin: 0 auto;
 	#works-detail-sidebar{
 		float: right;
 		width: 150px;
