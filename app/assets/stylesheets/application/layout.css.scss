@@ -335,9 +335,9 @@ blockquote p {
 // Biography Page =============== //
 
 #timeline-box{
-	height: 330px;
+	max-height: 550px;
 	border: $border-style;
-	padding: 0 20px;
+	padding: 0 20px 30px;
 	slider{
 		margin-top:30px;
 		.bubble{
@@ -348,8 +348,9 @@ blockquote p {
 	#timeline-body{
 		width:90%;
 		margin:0 5%;
-		height:180px;
-		overflow-y:scroll;
+		max-height:400px;
+		min-height: 250px;
+		overflow-y: auto;
 		#timeline-image{
 			float:right;
 			padding:0 0 10px 10px;
