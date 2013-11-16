@@ -800,6 +800,9 @@ blockquote p {
 		}
 		#no-file-box{
 			font-family:serif;
+			img{
+				width: 100%;
+			}
 		}
 	}
 	#right-side{
@@ -819,6 +822,9 @@ blockquote p {
 				li{
 					list-style-type: none;
 				}
+			}
+			img{
+				display: none;
 			}
 		}
 		.title{
