@@ -10,7 +10,7 @@
 <div id="works-index" ng-if="work[workType]">
 	<ul>
     <li class="work-item" ng-repeat="item in work[workType]">
-      <a class="work-link" href="#/works/{{workType}}/{{item.slug}}" alt="{{item.name}}">
+      <a class="work-link" href="#/works/{{workType}}/{{item.slug}}?id={{item.id}}" alt="{{item.name}}">
         <div class="work-item-box">
           <div class="work-image-box" ng-bind-html="item.image"></div>
           <div class="work-item-name">{{item.name}}</div>

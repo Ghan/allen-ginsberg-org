@@ -3,5 +3,16 @@
 </div>
 <div ng-if="inputPW == password">
 	<h2>Admin Panel</h2>
-	<button ng-click="reset()">Reset Cache</button>{{status}}
+	<section>
+		<h3>Reset Cache</h3>
+		<p>This will clear any saved data on the server. If you're having trouble seeing your updates, this could help.</p>
+		<button ng-click="reset()">Reset Cache</button>{{status}}
+		<p>If you still have trouble, click the "Flush" button at this link: <a href="https://analytics.memcachier.com/#21123:fa22795c07acd9981b7ee7514604982b085bfcd8:heroku" target="_blank">Memcachier Console</a>.</p>
+	</section>
+	<section>
+		<h3>Jump to Edit page</h3>
+		<p>Make sure you're logged into the backend, then copy the full URL of the page you want to edit and paste it below.</p>
+		<input type="text" ng-model="editpage" id="editpage" />
+		<button ng-click="getEditPage(editpage)">Get Edit Link</button>
+		<p ng-if="targetURL.length > 0"><a href="{{targetURL}}" target="_blank">Visit Edit Page</a></p>
 </div>

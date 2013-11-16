@@ -427,7 +427,9 @@ module Locomotive
             next_page_data = @content_entries[0]._slug
             @content_entries.each_with_index { |(key,value),index| 
               if key.id.to_s == params[:next_page]
-                next_page_data = @content_entries[index+1]._slug
+                next_page_data = {  "slug" => @content_entries[index+1]._slug,
+                                    "id" => @content_entries[index+1].id
+                                  }
               end
             }
             message = "miss"

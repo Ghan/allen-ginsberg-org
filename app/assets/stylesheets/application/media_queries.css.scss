@@ -159,6 +159,14 @@
 	}
 }
 
+@media only screen and (max-width : 390px) {
+	#social-links div {
+		width: 50px;
+	}
+	#mini-menu {
+		padding: 16px 0%;
+	}
+}
 
 
 @media print,

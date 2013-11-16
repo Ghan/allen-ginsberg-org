@@ -83,7 +83,7 @@ blockquote p {
 	padding: 0 0 10px 0;
 	width: 60%;
 	display:inline-block;
-	vertical-align:top;
+	vertical-align:middle;
 	img{
 		width: 100%;
 	}
@@ -139,7 +139,7 @@ blockquote p {
 #social-links{
 	width:35%;
 	display:inline-block;
-	vertical-align:top;
+	vertical-align:middle;
 	text-align:right;
 	div{
 		display:inline-block;
@@ -810,7 +810,7 @@ blockquote p {
 		border: 2px solid rgb(221, 221, 221);
 		padding: 2%;
 		#content-scroll{
-			overflow-y:scroll;
+			overflow-y: auto;
 		}
 		#biography-box{
 			ul{
