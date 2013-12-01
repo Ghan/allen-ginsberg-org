@@ -1,8 +1,8 @@
 <ul id="archive-menu">
-	<li class="ng-class: {selected: archType=='photography'}"><a href="#/archive/photography" alt="Photography">Photography</a></li>
-	<li class="ng-class: {selected: archType=='art'}"><a href="#/archive/art" alt="Art">Art</a></li>
-	<li class="ng-class: {selected: archType=='document'}"><a href="#/archive/document" alt="Document">Document</a></li>
-	<li class="ng-class: {selected: archType=='lecture'}"><a href="#/archive/lecture" alt="Lecture">Lecture</a></li>
+	<li class="ng-class: {selected: archType=='photography'}"><a href="#!/archive/photography" alt="Photography">Photography</a></li>
+	<li class="ng-class: {selected: archType=='art'}"><a href="#!/archive/art" alt="Art">Art</a></li>
+	<li class="ng-class: {selected: archType=='document'}"><a href="#!/archive/document" alt="Document">Document</a></li>
+	<li class="ng-class: {selected: archType=='lecture'}"><a href="#!/archive/lecture" alt="Lecture">Lecture</a></li>
 </ul>
 
 <div class="loading-page" ng-if="!archive[archType]">
@@ -13,7 +13,7 @@
 		<h3>{{key}}</h3>
 		<ul class="lecture-ul">
 			<li ng-repeat="item in data">
-				<a href="#/archive/{{archType}}/{{item.slug}}?id={{item.id}}">{{item.title}}</a>
+				<a href="#!/archive/{{archType}}/{{item.slug}}?id={{item.id}}">{{item.title}}</a>
 	    	</li>
 	    </ul>
 	</div>
@@ -21,13 +21,13 @@
 <div id="archive-index" ng-if="archive[archType] && archType != 'lecture'">
 	<ul ng-if="archive[archType].length <= 16">
     <li ng-repeat="item in archive[archType]">
-        <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}?id={{item.id}}"></a>
+        <a ng-bind-html="item.image" href="#!/archive/{{archType}}/{{item.slug}}?id={{item.id}}"></a>
     </li>
   </ul>
 	<div ng-if="archive[archType].length > 16">
 		<ul>
 			<li ng-repeat="item in archive[archType].slice(0,16)">
-	        <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}?id={{item.id}}"></a>
+	        <a ng-bind-html="item.image" href="#!/archive/{{archType}}/{{item.slug}}?id={{item.id}}"></a>
 	    </li>
 	  </ul>
 		  <div id="click-for-more" class="ng-class: {clicked: viewAllClicked}" ng-click="viewAllClicked = true">
@@ -37,7 +37,7 @@
 		  </div>
 		<ul ng-if="viewAllClicked">
 			<li ng-repeat="item in archive[archType].slice(15,archive[archType].length)">
-	        <a ng-bind-html="item.image" href="#/archive/{{archType}}/{{item.slug}}?id={{item.id}}"></a>
+	        <a ng-bind-html="item.image" href="#!/archive/{{archType}}/{{item.slug}}?id={{item.id}}"></a>
 	    </li>
 	  </ul>
 	</div>

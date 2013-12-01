@@ -1,8 +1,8 @@
 <ul id="archive-menu">
-	<li class="ng-class: {selected: archType=='photography'}"><a href="#/archive/photography" alt="Photography">Photography</a></li>
-	<li class="ng-class: {selected: archType=='art'}"><a href="#/archive/art" alt="Art">Art</a></li>
-	<li class="ng-class: {selected: archType=='document'}"><a href="#/archive/document" alt="Document">Document</a></li>
-	<li class="ng-class: {selected: archType=='lecture'}"><a href="#/archive/lecture" alt="Lecture">Lecture</a></li>
+	<li class="ng-class: {selected: archType=='photography'}"><a href="#!/archive/photography" alt="Photography">Photography</a></li>
+	<li class="ng-class: {selected: archType=='art'}"><a href="#!/archive/art" alt="Art">Art</a></li>
+	<li class="ng-class: {selected: archType=='document'}"><a href="#!/archive/document" alt="Document">Document</a></li>
+	<li class="ng-class: {selected: archType=='lecture'}"><a href="#!/archive/lecture" alt="Lecture">Lecture</a></li>
 </ul>
 
 <div class="loading-page" ng-if="!archive[slug]">
@@ -10,7 +10,7 @@
 </div>
 <div id="archive-detail" ng-if="archive[slug]">
 	<!-- <div id="nav-back">
-		<a href="#/archive" title="Browse Archive"><span id="back-arrow"></span>Back to Archive</a>
+		<a href="#!/archive" title="Browse Archive"><span id="back-arrow"></span>Back to Archive</a>
 	</div> -->
 	<div id="left-side">
 		<div id="image-main">
@@ -56,7 +56,7 @@
 					Other Lectures in this Series
 					<ul>
 						<li ng-repeat="c in otherClass">
-							<a href="#/archive/{{c.archive_type}}/{{c.slug}}?id={{c.id}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
+							<a href="#!/archive/{{c.archive_type}}/{{c.slug}}?id={{c.id}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
 						</li>
 				</div>
 				<div id="biography-box" ng-if="atThisTime.length > 0 && archType != 'lecture'">
@@ -67,14 +67,14 @@
 							<div ng-bind-html="t.lifeline_snippet"></div>
 						</li>
 					</ul>
-					<a href="#/biography">View more in the Timeline.</a>
+					<a href="#!/biography">View more in the Timeline.</a>
 				</div>
 				<div id="published-in" ng-if="item.published_in">
 					<div ng-if="finishedLoadingPublishedIn">
 				    <span class="title">Published In</span>
 				    <ul>
 				      <li ng-repeat="p in formattedPublishedIn">
-				      	<a href="#/works/{{p.type}}/{{p.slug}}" title="{{p.name}}">
+				      	<a href="#!/works/{{p.type}}/{{p.slug}}" title="{{p.name}}">
 				      		<div class="published-in-image-box" ng-bind-html="p.publishedInImage"></div>
 				      		<br />
 				      		{{p.name}}

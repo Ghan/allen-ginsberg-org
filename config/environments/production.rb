@@ -87,4 +87,6 @@ AllenGinsbergOrg::Application.configure do
     :domain         => ENV['SENDGRID_DOMAIN']
   }
 
+  config.middleware.use Rack::Prerender
+
 end
