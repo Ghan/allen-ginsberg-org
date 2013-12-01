@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="gApp">
+<html lang="en" id="ng-app" ng-app="gApp">
 <head>
   <title>AllenGinsbergOrg</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--[if lte IE 8]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 	<a name="top"/><a>
