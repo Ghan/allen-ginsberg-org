@@ -269,8 +269,7 @@ module Locomotive
             @id = params[:other_class_list]
             @new_content_entries = []
             @content_entries.each{ |entry|
-              if entry.is_this_a_lecture_and_part_of_a_class_which_one_id == @id
-                # puts entry.is_this_a_lecture_and_part_of_a_class_which_one_id
+              if entry.is_this_a_lecture_and_part_of_a_class_which_one_id.to_s == @id
                 entry = { "id" => entry.id,
                           "slug" => entry._slug,
                           "archive_type" => entry.archive_type._slug,

@@ -15,7 +15,7 @@
 	<div id="left-side">
 		<div id="image-main">
 			<div id="item-image" ng-if="item.image">
-				<div id="image-toolbox">
+				<div ng-if="archType != 'lecture'"id="image-toolbox">
 					<!-- AddThis Button BEGIN -->
 					<div class="addthis_toolbox addthis_default_style ">
 					<a class="addthis_button_preferred_1"></a>
@@ -56,10 +56,10 @@
 					Other Lectures in this Series
 					<ul>
 						<li ng-repeat="c in otherClass">
-							<a href="#/archive/{{c.archive_type}}/{{c.slug}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
+							<a href="#/archive/{{c.archive_type}}/{{c.slug}}?id={{c.id}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
 						</li>
 				</div>
-				<div id="biography-box" ng-if="atThisTime.length > 0">
+				<div id="biography-box" ng-if="atThisTime.length > 0 && archType != 'lecture'">
 					<span class="title">At this time</span> 
 					<ul>
 						<li ng-repeat="t in atThisTime">

@@ -243,6 +243,9 @@ blockquote p {
 
 // Blog Page ==================== //
 
+#announcements{
+	text-align: center;
+}
 .blog-post-snippet{
 	width: 31%;
 	display: inline-block;
@@ -826,7 +829,11 @@ blockquote p {
 				}
 			}
 			img{
-				display: none;
+				width: 30%;
+				float: left;
+				padding-right: 5%;
+				opacity: 0.6;
+				height: auto;
 			}
 		}
 		.title{
