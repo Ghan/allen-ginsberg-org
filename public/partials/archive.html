@@ -10,9 +10,9 @@
 </div>
 <div id="archive-index" class="lectures" ng-if="archive[archType] && archType == 'lecture'">
 	<div class="lecture-series" ng-repeat="(key, data) in archive[archType]">
-		<h3>{{key}}</h3>
+		<h3>{{data.series}}</h3>
 		<ul class="lecture-ul">
-			<li ng-repeat="item in data">
+			<li ng-repeat="item in data.data">
 				<a href="#!/archive/{{archType}}/{{item.slug}}?id={{item.id}}">{{item.title}}</a>
 	    	</li>
 	    </ul>
