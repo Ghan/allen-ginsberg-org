@@ -498,15 +498,18 @@ blockquote p {
 	.work-detail-publisher{
 		height:20px;
 	}
+	.work-detail-purchase{
+		margin-bottom: 1em;
+	}
 	.work-detail-purchase a{
-		font-family:"Futura", "ProximaNova Rg", "Helvetica", sans-serif;
-		font-size:2em;
-		display:block;
-		float: right;
-		border: 2px solid $accent2;
-		height: 44px;
-		width: 250px;
-		text-align: center;
+		font-family: "Futura", "ProximaNova Rg", "Helvetica", sans-serif;
+		font-size: 1.25em;
+		display: block;
+		vertical-align: middle;
+		border: 2px solid #f19c62;
+		height: 30px;
+		width: 150px;
+		text-align: left;
 		&:hover{
 			border:2px solid $accent;
 			background: $accent;
@@ -514,13 +517,15 @@ blockquote p {
 			text-decoration: none;
 		}
 		#amazon-sprite{
-			height: 31px;
-			width: 36px;
-			background: url(#{$urlBase}sprite.png) 460px 416px;
+			height: 28px;
+			width: 35px;
+			background: url(../sprite.png) 458px 415px;
 			display: inline-block;
 			position: relative;
-			top: 4px;
-			margin-right: 5px;
+			top: 1px;
+			margin-right: 4px;
+			vertical-align: top;
+			left: 1px;
 		}
 	}
 	#items-in-archive{
