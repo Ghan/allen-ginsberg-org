@@ -182,30 +182,33 @@ blockquote p {
 // Homepage ==================== //
 
 #homepage{
+	#top-half{
+		margin-bottom: 2em;
+	}
 	#homepage-main-text{
-		width:35%;
+		width:50%;
 		margin-right:5%;
 		margin-bottom:20px;
+		padding: 10px;
 		display:inline-block;
 		vertical-align: top;
 	}
 	#quote{
-		width:55%;
+		width:50%;
 		height:300px;
 		position:absolute;
 		display: inline-block;
 		vertical-align: top;
 		background:url(#{$urlBase}watermark-fish.jpg) 0% 30% no-repeat;
 		#quote-text{
-			font-size: 2em;
-			font-style: italic;
-			padding: 75px 10% 0px;
 			color:$quote-text-color;
+			font-size: 1.5em;
+			font-style: italic;
+			padding: 1px 22% 0px;
 		}
 		#quote-source{
-			text-align: right;
+			text-align: center;
 			font-size: 1.5em;
-			padding-right: 100px;
 		}
 	}
 	.jump-box{
