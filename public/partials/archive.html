@@ -36,7 +36,7 @@
 		  	<span class="view-all-sprite"></span>
 		  </div>
 		<ul ng-if="viewAllClicked">
-			<li ng-repeat="item in archive[archType].slice(15,archive[archType].length)">
+			<li ng-repeat="item in archive[archType].slice(16, archive[archType].length)">
 	        <a ng-bind-html="item.image" href="#!/archive/{{archType}}/{{item.slug}}?id={{item.id}}"></a>
 	    </li>
 	  </ul>
