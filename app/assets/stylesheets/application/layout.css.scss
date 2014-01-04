@@ -12,6 +12,10 @@ body {
 	font-size: $font-size;
 	line-height: $line-height;
 	color:$black;
+	.header-container{
+		width: 94%;
+		margin: 0 3%;
+	}
 	.container{
 		max-width:1080px;		
 		margin: 0 auto;
@@ -90,7 +94,7 @@ blockquote p {
 }
 #mini-menu{
 	font-size: 24px;
-	padding: 16px 2%;
+	padding: 7px 2%;
  	cursor: pointer;
  	display: inline-block;
 
@@ -102,7 +106,7 @@ blockquote p {
 	display: none;
 	&:after{
 		content: "";
-		background: url(../sprite.png) 382px 543px;
+		background: url(../sprite.png) 413px 554px;
 		padding: 2px 15px;
 
 	}
@@ -137,39 +141,40 @@ blockquote p {
 	font-size:1.5em;
 }
 #social-links{
-	width:35%;
+	width:39%;
 	display:inline-block;
 	vertical-align:middle;
 	text-align:right;
 	div{
 		display:inline-block;
 		vertical-align:top;
-		width:64px;
-		height:64px;
+		width:47px;
+		height:47px;
+		margin-right: 5px;
 		cursor:pointer;
 	}
 	#blogger-icon{
-		background:url(#{$urlBase}sprite.png)  413px 95px;
+		background:url(#{$urlBase}sprite.png)  496px 178px;
 		&:hover{
-			background:url(#{$urlBase}sprite.png) 495px 95px;
+			background:url(#{$urlBase}sprite.png) 496px 125px;
 		}		
 	}
 	#facebook-icon{
-		background:url(#{$urlBase}sprite.png) 96px 168px;
+		background:url(#{$urlBase}sprite.png) 326px 179px;
 		&:hover{
-			background:url(#{$urlBase}sprite.png) 334px 169px;
+			background:url(#{$urlBase}sprite.png) 326px 126px;
 		}
 	}
 	#twitter-icon{
-		background:url(#{$urlBase}sprite.png) 176px 169px;
+		background:url(#{$urlBase}sprite.png) 384px 180px;
 		&:hover{
-			background:url(#{$urlBase}sprite.png) 413px 169px;
+			background:url(#{$urlBase}sprite.png) 384px 126px;
 		}
 	}
 	#email-icon{
-		background:url(#{$urlBase}sprite.png) 255px 168px;
+		background:url(#{$urlBase}sprite.png) 441px 179px;
 		&:hover{
-			background:url(#{$urlBase}sprite.png) 495px 168px;
+			background:url(#{$urlBase}sprite.png) 442px 125px;
 		}
 	}
 }
@@ -232,9 +237,8 @@ blockquote p {
 		position: absolute;
 		bottom: 0px;
 		left: 0px;
-		color: white;
 		background: black;
-		background: rgba(0,0,0,.7);
+		background: rgba(255,255,255,.9);
 		width: 100%;
 		padding: 5px 0px 5px;
 		text-align: center;
@@ -826,6 +830,7 @@ blockquote p {
 			overflow-y: auto;
 		}
 		#biography-box{
+			margin-top: 2em;
 			ul{
 				margin:0;
 				padding-left:20px;
