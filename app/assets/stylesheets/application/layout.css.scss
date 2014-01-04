@@ -653,6 +653,7 @@ blockquote p {
 		&:hover{
 			.archive-item-label{
 				display:block;
+				font-size: .8em;
 			}
 			border: $border-style;
 		}
