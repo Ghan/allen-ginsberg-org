@@ -29,13 +29,13 @@
 					<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4ee03d5c2bb9570a"></script>
 					<!-- AddThis Button END -->
 					<span ng-click="expand()" id="expand" class="ng-class:{expanded: expanded}"><span id="expand-text">{{expandText}}</span><span id="expand-icon"></span></span>
-					<span ng-click="nextImage()" id="next-image">{{nextImageText}}</span>
+					<span ng-if="prev_link !== ''"><a href="#!/{{prev_link}}" id="next-image">Prev Image</a></span>
+					<span ng-if="next_link !== ''"><a href="#!/{{next_link}}" id="next-image">Next Image</a></span>
 				</div>
 				<div id="item-img-div" ng-bind-html="item.image">Loading image... </div>
 			</div>
 			<div id="no-file-box" ng-if="item.no_file" ng-bind-html="item.no_file"></div>
 		</div>
-		<div id="loading-similar-content" ng-if="!finishedLoadingSimilarContent">Loading Similar Archive Content...</div>
 		<div class="clearfix"></div>
 		<div id="similar-content" ng-if="finishedLoadingSimilarContent">
 			<ul>
