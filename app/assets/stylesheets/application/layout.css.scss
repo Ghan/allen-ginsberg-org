@@ -774,6 +774,7 @@ blockquote p {
 						color: white;
 						&:hover{
 							color:$accent;
+							text-decoration: none;
 						}
 					}
 					#prev-image{
@@ -784,17 +785,18 @@ blockquote p {
 						color: white;
 						&:hover{
 							color:$accent;
+							text-decoration: none;
 						}	
-					}
-					.addthis_toolbox{
-						margin-top:1em;
-						float: right;
 					}
 				}
 				img{
 					width:100%;
 				}				
 			}
+		}
+		.addthis_toolbox{
+			margin-top:1em;
+			margin-bottom: 1em;
 		}
 		width:58%;
 		display:inline-block;
