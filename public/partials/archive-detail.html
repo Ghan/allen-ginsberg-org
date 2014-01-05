@@ -16,6 +16,7 @@
 		<div id="image-main">
 			<div id="item-image" ng-if="item.image">
 				<div ng-if="archType != 'lecture'"id="image-toolbox">
+					<span ng-if="prev_link === ''" id="prev-image">loading links...</span>
 					<span ng-if="prev_link !== ''"><a href="#!/{{prev_link}}" id="prev-image">&laquo; Prev Image</a></span>
 					<span ng-click="expand()" id="expand" class="ng-class:{expanded: expanded}"><span id="expand-text">{{expandText}}</span><span id="expand-icon"></span></span>
 					<span ng-if="next_link !== ''"><a href="#!/{{next_link}}" id="next-image">Next Image &raquo;</a></span>
