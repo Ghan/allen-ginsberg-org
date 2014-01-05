@@ -745,11 +745,11 @@ blockquote p {
 							margin-left:5px;
 							top:1px;
 							display:inline-block;
-							background:url(#{$urlBase}sprite.png) 50px 448px;
+							background:url(#{$urlBase}sprite.png) 77px 461px;
 						}
 						&:hover{
 							#expand-icon{
-								background:url(#{$urlBase}sprite.png) 50px 467px;
+								background:url(#{$urlBase}sprite.png) 77px 480px;
 							}
 							#expand-text{
 								color:$accent;
@@ -758,23 +758,37 @@ blockquote p {
 					}
 					.expanded{
 						#expand-icon{
-							background:url(#{$urlBase}sprite.png) 34px 450px !important;
+							background:url(#{$urlBase}sprite.png) 60px 463px !important;
 						}
 						&:hover{
 							#expand-icon{
-								background:url(#{$urlBase}sprite.png) 34px 467px !important;		
+								background:url(#{$urlBase}sprite.png) 60px 480px !important;		
 							}
 						}
 					}
 					#next-image{
-						cursor:pointer;
 						position:absolute;
 						top:9px;
 						right:10px;
 						display:inline-block;
+						color: white;
 						&:hover{
 							color:$accent;
 						}
+					}
+					#prev-image{
+						position:absolute;
+						top:9px;
+						left:10px;
+						display:inline-block;
+						color: white;
+						&:hover{
+							color:$accent;
+						}	
+					}
+					.addthis_toolbox{
+						margin-top:1em;
+						float: right;
 					}
 				}
 				img{
