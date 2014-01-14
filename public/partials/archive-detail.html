@@ -60,18 +60,8 @@
 							<a href="#!/archive/{{c.archive_type}}/{{c.slug}}?id={{c.id}}" title="{{c.title}} ({{c.archive_type}})">{{c.title}}</a>
 						</li>
 				</div>
-				<div id="biography-box" ng-if="atThisTime.length > 0 && archType != 'lecture'">
-					<span class="title">Also at this time</span> 
-					<ul>
-						<li ng-repeat="t in atThisTime">
-							<h4>{{t.title}}, {{t.date | date: 'yyyy'}}</h4>
-							<div ng-bind-html="t.lifeline_snippet"></div>
-						</li>
-					</ul>
-					<a href="#!/biography">View more in the Timeline.</a>
-				</div>
 				<div id="published-in" ng-if="item.published_in">
-					<div ng-if="finishedLoadingPublishedIn">
+				  <div ng-if="finishedLoadingPublishedIn">
 				    <span class="title">Published In</span>
 				    <ul>
 				      <li ng-repeat="p in formattedPublishedIn">
@@ -83,6 +73,16 @@
 				      </li>
 				    </ul>
 				  </div>
+				</div>
+				<div id="biography-box" ng-if="atThisTime.length > 0 && archType != 'lecture'">
+					<span class="title">Also at this time</span> 
+					<ul>
+						<li ng-repeat="t in atThisTime">
+							<h4>{{t.title}}, {{t.date | date: 'yyyy'}}</h4>
+							<div ng-bind-html="t.lifeline_snippet"></div>
+						</li>
+					</ul>
+					<a href="#!/biography">View more in the Timeline.</a>
 				</div>
 			</div>
 		<!-- <div #id="scroll-for-more">Scroll for More</div> -->
