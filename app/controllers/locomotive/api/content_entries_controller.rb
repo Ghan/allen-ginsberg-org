@@ -457,7 +457,8 @@ module Locomotive
                         "category" => entry.category.category,
                         "title" => entry.title,
                         "description" => @description,
-                        "url" => entry.url
+                        "url" => entry.url,
+                        "pos" => entry.sort_position
               }
               @new_content_entries.push(entry)
             }

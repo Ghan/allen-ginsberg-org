@@ -78,7 +78,7 @@
 					<span class="title">Also at this time</span> 
 					<ul>
 						<li ng-repeat="t in atThisTime">
-							<h4>{{t.title}}, {{t.date | date: 'yyyy'}}</h4>
+							<h4>{{t.title}}, {{t.date | date: 'MMM d, yyyy'}}</h4>
 							<div ng-bind-html="t.lifeline_snippet"></div>
 						</li>
 					</ul>
