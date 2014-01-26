@@ -1,23 +1,33 @@
-<div id="timeline">
-<!-- 	<ul>
-    <li ng-repeat="item in timeline">
-        <p>Name: {{item.id}}</p>
-        <p>Cost: {{item.date}}</p> 
-        <slider floor={{timeline[0].date}} ceiling={{timeline[3].date}} step="50" precision="2" ng-model="item.date"></slider>
-    </li>
-	</ul> -->
-	<div id="timeline-box">
-		<h3>Life Events / Chronology</h3>
-	  <slider floor="0" ceiling={{timeline.length-1}} precision="0" translate="dateDisplay "ng-model="currentTime"></slider>
-	  <div ng-if="!finishedLoadingTimeline">Loading Timeline, please wait.</div>
-	  <div id="timeline-body" ng-if="finishedLoadingTimeline">
-		  <h4 id="timeline-title">{{timeline[currentTime].title}}</h4>
-		  <div id="timeline-image" ng-bind-html='timeline[currentTime].image'></div>
-	  	<div id="timeline-date">{{dateDisplay(currentTime)}}</div>
-	  	<div id="lifeline-snippet" ng-bind-html='timeline[currentTime].lifeline_snippet'></div>
-			<div id="in-his-words">{{ timeline[currentTime].chronological_addenda_snippet || "" }}</div>
+<div id="biographical">
+	<div id="timeline">
+		<div id="timeline-box">
+		  <div ng-if="!finishedLoadingTimeline">Loading Timeline, please wait.</div>
+		  <div ng-if="finishedLoadingTimeline">
+			  <div id="timeline-menu">
+			  	<h2>Life Events / Chronology</h2>
+			  	<ul id="timeline-master-list">
+			  	<li ng-repeat="(title, list) in timeline" id="{{title}}" ng-click="selectDecade(title)" class="decade-item" ng-class="decadeClass(title)">{{title}}s
+			  		<ul class="item-list">
+			  			<li ng-repeat="item in list" class="timeline-item-li" data-item="{{item.id}}">
+			  				<a href ng-click="updateItem(item)">
+			  					<span class="timeline-title">{{item.title}}</span>
+			  					<span class="timeline-date">({{item.date | date:'mediumDate'}})</span>
+			  				</a>
+			  			</li>
+			  		</ul>
+			  	</li>
+			    </ul>
+			  </div>
+			  <div id="timeline-body">
+				  <h4 id="timeline-title">{{currentItem.title}}</h4>
+				  <div id="timeline-image" ng-bind-html='currentItem.image'></div>
+			  	<div id="timeline-date">{{currentItem.date | date: "mediumDate" }}</div>
+			  	<div id="lifeline-snippet" ng-bind-html='currentItem.lifeline_snippet'></div>
+					<div id="in-his-words">{{ currentItem.chronological_addenda_snippet || "" }}</div>
+				</div>
+		  </div>
 		</div>
 	</div>
+	<h3>Biography by Michael Schumacher</h3>
+	<div id="bio-by-michael" ng-bind-html='bioByMichael'></div>
 </div>
-<h3>Biography by Michael Schumacher</h3>
-<div id="bio-by-michael" ng-bind-html='bioByMichael'></div>

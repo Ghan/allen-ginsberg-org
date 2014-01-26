@@ -157,6 +157,17 @@
 	#footer ul li ul{
 		padding: 0;
 	}
+
+	#timeline-box {
+		max-height: 99999em;
+		#timeline-menu, #timeline-body{
+			max-height: 20em;
+			width: 96%;
+		}
+		#timeline-master-list{
+			max-height: 15em;
+		}
+	}
 }
 
 @media only screen and (max-width : 390px) {
