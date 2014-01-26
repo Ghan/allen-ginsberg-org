@@ -17,3 +17,4 @@
 //= require ../../../lib/assets/javascripts/controllers.js
 //= require ../../../lib/assets/javascripts/filters.js
 //= require ../../../lib/assets/javascripts/directives.js
+//= require ../../../lib/assets/javascripts/angular-google-analytics.js
