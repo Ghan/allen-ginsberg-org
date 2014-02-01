@@ -254,43 +254,50 @@ blockquote p {
 	text-align: center;
 }
 .blog-post-snippet{
-	width: 31%;
+	width: 28%;
+	padding: 0;
 	display: inline-block;
 	vertical-align: top;
-	margin: 0.5%;
+	margin: 2%;
 	margin-bottom: 20px;
 	border: $border-style;
-	padding: 0;
-	&:hover{
-		.post-header{
-			background:lighten($hover,10%);
-			color:$black;
-		}
-		.post-date{
-			text-decoration:none;
-			color:$black;
+	.blog-img{
+		background-size: cover;
+		height:0;
+		padding-bottom: 100%;
+		position: relative;
+		&:hover{
+			.post-header{
+				background:lighten($hover,10%);
+				color:$black;
+			}
+			.post-date{
+				text-decoration:none;
+				color:$black;
 
+			}
+			.post-title{
+				color:$black;
+			}
 		}
-		.post-title{
-			color:$black;
-		}
-	}
-	img{
-		width:100%;
-		height:auto;
 	}
 	.post-header{
-		padding:10px;
-		height: 5em;
+		padding: 5% 3% 3%;
+		height: 2em;
 		background: #f5f5f5;
+		position: absolute;
+		bottom: 0;
+		width: 94%;
 		.post-date{
-			text-decoration:none;
-			text-align:right;
-			color:$black;
-			font-size:.8em;
+			text-decoration: none;
+			color: lighten($gray, 20%);
+			font-size: .8em;
+			position: absolute;
+			bottom: 3%;
+			right: 3%;
 		}
 		.post-title{
-			font-size:1.35em;
+			font-size:1em;
 			line-height:1.1em;
 			&:hover{
 			}

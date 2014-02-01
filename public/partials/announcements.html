@@ -5,12 +5,13 @@
 	<div id="announcements" ng-if="finishedLoadingAnnouncements">
 		<div class="blog-post-snippet" ng-repeat="item in blog.items">
 			<a href="{{item.url}}" target="_blank" title="Visit blog post: {{item.title}}">
-				<div class="post-header">
-					<div class="post-date">{{ item.updated | date:'mediumDate' }}</div>
-					<div class="post-title">{{item.title}}</div>
+				<div style="background-image:url('{{item.img}}');" class="blog-img">
+					<div class="post-header">
+						<div class="post-title">{{item.title}}</div>
+						<div class="post-date">{{ item.updated | date:'mediumDate' }}</div>
+					</div>
 				</div>
 			</a>
-			<div class="post-content" ng-bind-html="item.content"></div>
 		</div>
 		<div id="blog-nav-box">
 			<span id="prev-link" ng-if="blog.prevPageToken"><a ng-click="swapPage(blog.prevPageToken, 'prev')" href title="Return to latest posts"><span class="left-arrow"></span> Back to Top</a>  |  </span> 
