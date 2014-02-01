@@ -182,6 +182,7 @@ blockquote p {
 // Homepage ==================== //
 
 #homepage{
+	padding: 1%;
 	#top-half{
 		margin-bottom: 2em;
 	}
@@ -189,7 +190,6 @@ blockquote p {
 		width:50%;
 		margin-right:5%;
 		margin-bottom:20px;
-		padding: 10px;
 		display:inline-block;
 		vertical-align: top;
 	}
@@ -424,7 +424,7 @@ blockquote p {
 #works-menu{
 	text-transform:uppercase;
 	padding:0;
-	margin-left:20px;
+	margin-left: 1%;
 	li{
 		list-style-type:none;
 		display: inline-block;
@@ -496,6 +496,7 @@ blockquote p {
 #works-detail{
 	max-width: 1000px;
 	margin: 0 auto;
+	padding: 1%;
 	#works-detail-sidebar{
 		float: right;
 		width: 150px;
@@ -627,7 +628,7 @@ blockquote p {
 #archive-menu{
 	text-transform:uppercase;
 	padding:0;
-	margin-left:20px;
+	margin-left:1%;
 	li{
 		list-style-type:none;
 		display: inline-block;
@@ -746,6 +747,7 @@ blockquote p {
 }
 
 #archive-detail{
+	padding: 1%;
 	#back-arrow{
 		height: 10px;
 		width: 14px;
