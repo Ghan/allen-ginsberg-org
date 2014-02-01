@@ -231,10 +231,12 @@ blockquote p {
 		background: url(#{$urlBase}lectures.jpg) 50% 50%;
 	}
 	#published-work{
-		background: url(#{$urlBase}published-works.jpg) 50% 50%;
+		background: url(#{$urlBase}published-works.jpg);
+		background-size: cover;
 	}
 	#shop-merch{
-		background: url(#{$urlBase}merch.jpg) 50% 50%;
+		background: url(#{$urlBase}merch.jpg);
+		background-size: cover;
 	}
 	.box-text{
 		position: absolute;
