@@ -550,8 +550,8 @@ blockquote p {
 
 	}
 	#works-detail-img{
-		float:right;
-		padding:0 0 30px 30px;
+		float: left;
+		padding: 0 30px 30px 0;
 	}
 	.work-detail-date{
 		margin-bottom:1.25em;
@@ -561,6 +561,7 @@ blockquote p {
 	}
 	.work-detail-purchase{
 		margin-bottom: 1em;
+		display: inline-block;
 	}
 	.work-detail-purchase a{
 		font-family: "Futura", "ProximaNova Rg", "Helvetica", sans-serif;

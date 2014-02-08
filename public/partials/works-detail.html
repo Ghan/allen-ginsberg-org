@@ -22,6 +22,7 @@
     </div> 
   </div> --><!--works-detail-sidebar-->
   <div id="works-detail-main">
+    <div id="works-detail-img" ng-bind-html="work[workSlug].image"></div>
     <div id="title-box">
       <h2>{{work[workSlug].name}}</h2>
       <div class="work-detail-purchase"><a href="{{work[workSlug].amazon_slash_itunes_url}}" target="_blank" title="Purchase"><span id="amazon-sprite"></span>PURCHASE</a></div>
@@ -29,7 +30,6 @@
       <div class="work-detail-date">{{work[workSlug].date | date: mediumDate }}</div>
     </div><!--title-box-->
     <div id="description-box">
-      <div id="works-detail-img" ng-bind-html="work[workSlug].image"></div>
       <div>
         <div ng-bind-html='work[workSlug].description'></div>
         <div id="items-in-archive" ng-if="formattedItemsInArchive.length > 0">
