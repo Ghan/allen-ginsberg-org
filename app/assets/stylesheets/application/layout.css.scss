@@ -6,8 +6,13 @@
 // Layout styles
 //-----------------------------------------
 
-html {}
+html {
+	width:100%;
+	overflow-x: hidden;
+}
 body {
+	width:100%;
+	overflow-x: hidden;
 	font-family: $font-family;
 	font-size: $font-size;
 	line-height: $line-height;
@@ -194,7 +199,7 @@ blockquote p {
 		vertical-align: top;
 	}
 	#quote{
-		width:50%;
+		width:45%;
 		height:300px;
 		position:absolute;
 		display: inline-block;
@@ -401,7 +406,7 @@ blockquote p {
 	#timeline-body{
 		position: relative;
 		display: inline-block;
-		width:48.6666666%;
+		width:48%;
 		padding: 2%;
 		max-height: 32em;
 		overflow-y: scroll;
@@ -978,6 +983,9 @@ blockquote p {
 		padding:0 10px 10px 10px;
 		overflow-y:scroll;
 		margin:0;
+		li{
+			list-style-type: none;
+		}
 	}
 	border: $border-style;
 }
