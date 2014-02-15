@@ -13,6 +13,7 @@ gem 'thin', :group => 'production'
 gem 'html5-rails'
 gem 'newrelic_rpm'
 gem 'prerender_rails'
+gem 'rack-rewrite'
 
 # Gems used only for assets and not required
 # in production environments by default.
