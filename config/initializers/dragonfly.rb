@@ -16,7 +16,7 @@ app.configure_with(:imagemagick)
 #       :region => 'us-west-2'
 #     )
 #     # trial
-#     # c.url_host = 'http://www.allenginsberg.org'
+#     # c.url_host = 'http://allenginsberg.org'
 #       # First we configure our before_serve method,
 #       # Before serving, the first time it is requested stores the thumbnail in the datastore
 #     # c.server.before_serve do |job, env|

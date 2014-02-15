@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   	@appPath = "http://localhost:8080/"
     @S3imgURL = "https://allenginsberg.s3.amazonaws.com"
   	if Rails.env.production?
-	  	@appPath = "http://www.allenginsberg.org/"
+	  	@appPath = "http://allenginsberg.org/"
       @S3imgURL = ""
 	  end
 	end
