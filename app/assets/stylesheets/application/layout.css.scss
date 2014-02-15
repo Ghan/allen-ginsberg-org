@@ -2,6 +2,8 @@
 // https://github.com/sporkd/html5-rails
 // Upgrade with: $ rails generate html5:install
 
+// @import "compass";
+
 //-----------------------------------------
 // Layout styles
 //-----------------------------------------
@@ -903,6 +905,8 @@ blockquote p {
 		position: relative;
 		border: 2px solid rgb(221, 221, 221);
 		padding: 2%;
+		max-height: 46em;
+		overflow-y: auto;
 		#content-scroll{
 			overflow-y: auto;
 		}
@@ -994,11 +998,20 @@ blockquote p {
 
 // Footer =============== //
 #footer{
-	background:#f5f5f5;
-	border-top: $border-style;
-	padding:20px 10px 10% 40%;
+	background:#C2C2C2;
+	// background-color: #f5f5f5; // Old browsers
+	// @include filter-gradient(#f5f5f5, #a7a7a7, vertical); // IE6-8
+	// $experimental-support-for-svg: true;
+	// @include background-image(linear-gradient(top,  #f5f5f5 0%,#dddddd 15%,#a7a7a7 100%));
+	border-top: $footer-border-style;
+	padding:2%;
 	margin-top:10px;
 	font-size:.8em;
+	min-height: 220px;
+	height: auto;
+	a{
+		color: #586C7A;
+	}
 	ul{
 		padding:0;
 		margin:0;
@@ -1011,27 +1024,40 @@ blockquote p {
 			}
 		}
 	}
-
-}
-#sitemap>ul{
-	display:inline-block;
-	width:47%;
-}
-#footer>div{
-	display:inline-block;
-	vertical-align:top;
-	width:20%;
-	margin-right:2%;
-}
-#footer>#allen-watermark{
-	width:0px;
-}
-// 	height:200px;
-// 	width:200px;
-// 	background: url(#{$urlBase}sprite.png) no-repeat 500px 500px;
-// }
-#footer>#sitemap{
-	width:50%;
+	#allen-watermark{
+		height:220px;
+		width:35%;
+		background: url(#{$urlBase}allen-watermark.png) no-repeat center top;
+		display: inline-block;
+		vertical-align: top;
+		margin-left:-4px;
+		float:left;
+	}
+	#sitemap{
+		display: inline-block;
+		width: 40%;
+		vertical-align: top;
+		margin-left: -4px;
+	}
+	#sitemap>ul{
+		display: inline-block;
+		width:50%;
+		vertical-align: top;
+		margin-left: -4px;
+	}
+	#external-links{
+		display: inline-block;
+		width: 20%;
+		vertical-align: top;
+		margin-left: -4px;
+	}
+	#siteinfo{
+		display: inline-block;
+		width: 60%;
+		vertical-align: top;
+		margin: 1em 0 2em -8px;
+		margin-bottom: 2em;
+	}
 }
 
 // Angular-Slider

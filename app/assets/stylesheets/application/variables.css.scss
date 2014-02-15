@@ -36,9 +36,10 @@ $selected-font-color: #fff;
 $selected-background-color: $hover;
 $invalid-background-color: #f0dddd;
 $border-style: 2px solid lighten($hover, 10%);
+$footer-border-style: 2px solid darken($hover, 20%);
 $quote-text-color: $gray;
 
-$urlBase: "./";
+$urlBase: "../";
 
 // FONTS 
 // @font-face {
