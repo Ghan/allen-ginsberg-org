@@ -113,7 +113,7 @@ blockquote p {
 	display: none;
 	&:after{
 		content: "";
-		background: url(../sprite.png) 413px 554px;
+		background: url(#{$urlBase}sprite.png) 413px 554px;
 		padding: 2px 15px;
 
 	}
