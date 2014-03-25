@@ -4,12 +4,144 @@
 		"selected_items":
 		[
 			[
-				"last",
-				"last-child"
+				"ver",
+				"vertical-align"
+			],
+			[
+				"overfl",
+				"overflow-x"
+			],
+			[
+				"overf",
+				"overflow-y"
+			],
+			[
+				"data",
+				"data"
+			],
+			[
+				"arc",
+				"archType"
+			],
+			[
+				"overflo",
+				"overflow-y"
+			],
+			[
+				"arch",
+				"arch_type"
+			],
+			[
+				"5px",
+				"5px"
+			],
+			[
+				"next_p",
+				"next_page_data"
+			],
+			[
+				"in",
+				"in_cache"
+			],
+			[
+				"similar-conte",
+				"similar-content-title"
+			],
+			[
+				"hover",
+				"hover"
+			],
+			[
+				"background",
+				"background-image"
+			],
+			[
+				"all",
+				"allen-ginsberg-org"
+			],
+			[
+				"new",
+				"new_content_entries"
+			],
+			[
+				"overflow-",
+				"overflow-x"
+			],
+			[
+				"border",
+				"border-style"
+			],
+			[
+				"text-",
+				"text-decoration"
+			],
+			[
+				"light",
+				"proxima_nova_light-webfont"
+			],
+			[
+				"list-style",
+				"list-style-type"
+			],
+			[
+				"publis",
+				"published_work"
+			],
+			[
+				"pub",
+				"publishedInString"
+			],
+			[
+				"archiv",
+				"archive_items"
+			],
+			[
+				"items",
+				"items_in_archive"
+			],
+			[
+				"archive",
+				"archive_items"
+			],
+			[
+				"item",
+				"itemsInArchive"
+			],
+			[
+				"content",
+				"content_entries"
+			],
+			[
+				"pageT",
+				"pageToken"
+			],
+			[
+				"pageToken",
+				"pageTokenString"
+			],
+			[
+				"art",
+				"art"
 			],
 			[
 				"for",
-				"for	for (…) {…}"
+				"for	for (…) {…} (Improved Native For-Loop)"
+			],
+			[
+				"amazon",
+				"amazon_slash_itunes_url"
+			],
+			[
+				"timeline",
+				"timelinePhotoService"
+			],
+			[
+				"date",
+				"date"
+			],
+			[
+				"last",
+				"last-child"
 			],
 			[
 				"proje",
@@ -39,6 +171,64 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "app/views/layouts/application.html.erb",
+			"settings":
+			{
+				"buffer_size": 4152,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 348 files for \"ga.js\"\n\n/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/angular-google-analytics.js:\n  114                var document = $document[0];\n  115                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\n  116:               ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n  117                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\n  118              })();\n\n/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/app.js:\n   18      AnalyticsProvider.trackPrefix('my-app');\n   19  \n   20:     // Use analytics.js instead of ga.js\n   21      AnalyticsProvider.useAnalytics(true);\n   22  \n\n2 matches across 2 files\n\n\nSearching 348 files for \"ga.js\"\n\n/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/angular-google-analytics.js:\n  114                var document = $document[0];\n  115                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\n  116:               ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n  117                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\n  118              })();\n\n/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/app.js:\n   18      AnalyticsProvider.trackPrefix('my-app');\n   19  \n   20:     // Use analytics.js instead of ga.js\n   21      AnalyticsProvider.useAnalytics(true);\n   22  \n\n2 matches across 2 files\n\n\nSearching 350 files for \"/sprite.png\"\n\n/Users/ghanpatel/Sites/allen_ginsberg_org/app/assets/stylesheets/application/layout.css.scss:\n  114  	&:after{\n  115  		content: \"\";\n  116: 		background: url(../sprite.png) 413px 554px;\n  117  		padding: 2px 15px;\n  118  \n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 1924,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "lib/assets/javascripts/angular-google-analytics.js",
+			"settings":
+			{
+				"buffer_size": 12365,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lib/assets/javascripts/app.js",
+			"settings":
+			{
+				"buffer_size": 3143,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "public/partials/contact.html",
+			"settings":
+			{
+				"buffer_size": 1637,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/application/layout.css.scss",
+			"settings":
+			{
+				"buffer_size": 23176,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/application/media_queries.css.scss",
+			"settings":
+			{
+				"buffer_size": 2968,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -64,13 +254,70 @@
 	},
 	"file_history":
 	[
-		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/mongoid.yml",
-		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/views/layouts/application.html.erb",
-		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/initializers/locomotive.rb",
-		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/initializers/carrierwave.rb",
+		"/Users/ghanpatel/Downloads/cgiemail.asc",
+		"/Users/ghanpatel/Downloads/cgiemail.ascii",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/environment.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/no_www.rb",
 		"/Users/ghanpatel/Sites/allen_ginsberg_org/Gemfile",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config.ru",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/controllers/locomotive/api/content_entries_controller.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/services.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/controllers.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/assets/stylesheets/application/layout.css.scss",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/views/layouts/application.html.erb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/assets/stylesheets/application/media_queries.css.scss",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/controllers/application_controller.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/initializers/dragonfly.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/works-detail.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/assets/stylesheets/application/variables.css.scss",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/views/application/_footer.html.erb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/biography.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/announcements.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/app.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/views/application/_head.html.erb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/assets/javascripts/application.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/index.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/links.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/archive-detail.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/archive.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/blog-post.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/works.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/angular/angular-scenario.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/angular/angular.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/admin.html",
 		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/environments/production.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/main.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/newrelic.yml",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/views/application/_header.html.erb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/assets/stylesheets/application/index.css.scss",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/partials/contact.html",
 		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/application.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/views/application/index.html.erb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/locomotive/dragonfly.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/environments/development.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/routes.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/angular-slider.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/mongoid.yml",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/controllers/locomotive/api/content_entries_controller-fix.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/Prockfile",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/controllers/locomotive/api/content_entries_controller-disabled.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/angular.min.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/directives.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/assets/application.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/lib/assets/javascripts/filters.js",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/initializers/locomotive.rb",
+		"/Users/ghanpatel/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/models/.gitkeep",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/assets/stylesheets/application/application.css",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/html5_rails.yml",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/assets/stylesheets/application.css",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/controllers/global_controller.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/models/api_key.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/config/initializers/carrierwave.rb",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/views/pages/index.liquid",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/views/pages/index.html",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/app/content_types/events.yml",
+		"/Users/ghanpatel/Sites/allen_ginsberg_org/public/assets/manifest.yml",
 		"/Applications/MAMP/htdocs/lawyersfortherestofus/wp-content/themes/scttheme/library/scss/_1240up.scss",
 		"/Applications/MAMP/htdocs/lawyersfortherestofus/wp-content/themes/scttheme/library/scss/_base.scss",
 		"/Applications/MAMP/htdocs/lawyersfortherestofus/wp-content/themes/scttheme/library/scss/_mixins.scss",
@@ -108,7 +355,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			""
@@ -119,41 +366,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"precom",
-			"precompile",
-			"MONGODB",
-			"MONGOHQ",
-			"visited",
-			"custom",
-			"sidebar",
+			"sprite",
+			"/sprite.png",
+			"google-analytics.com/ga.js",
+			"ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';",
+			"ga.js",
+			"www",
+			"http://allenginsberg.org",
+			"http://www.allenginsberg.org",
+			"www.allenginsberg.com",
+			"www.allen",
+			"http://allen-ginsberg-org.herokuapp.com",
+			"allen-ginsberg",
+			"allen-ginsberge",
+			"media",
+			"allen-watermark",
+			"allen",
+			"footer",
+			"right-side",
+			"timeline",
+			".link-cat .link-list",
+			"quote",
+			"work-detail-main",
+			"blog",
+			"sprite",
+			"csrf_meta",
+			"meta content",
+			"meta",
+			"angularytics",
+			"angular-slider",
+			".module",
+			"head",
+			"formatDate",
+			"dateDisplay",
+			"timeline",
+			"links",
+			"#published-in",
+			"publishedInString",
+			"next-image",
+			"next",
+			".right-arro",
+			"at this",
+			"#mini-menu",
+			"min-width",
+			"Biography",
+			"AT THIS TIME",
+			"activeMenu",
+			"archive ",
+			"archive",
+			"detail",
+			"archive",
+			"archive detail",
+			"next",
+			"lecture",
+			"href=",
+			"href=\"/",
+			"href",
+			"href=\"#",
+			"href",
+			"app.use",
+			"type",
+			"lecture",
+			"console.",
+			"announcements",
+			"Browse Lectures",
+			"href",
+			"a href",
+			"no-file",
+			"similararchiveitem",
+			"works-detail",
+			"link-title",
+			"extend",
+			"link-cat",
+			"archive_type",
+			"archive",
+			"AllenGinsbergOrg",
+			"image-toolbox",
+			"type",
+			"$location",
+			"workId",
+			"similar",
+			"workSlug",
+			"contact",
+			"work-item-name",
+			"missing",
+			"$sce",
+			"sce",
+			"archive",
+			"transc",
+			"transcripts",
+			"trans",
+			"similar",
+			"consol",
+			"console.log",
+			"works",
+			"blank",
+			"herokuapp",
+			"ENV",
+			"allen-ginsberg-org.herokuapp",
+			"dragonfly",
+			"dalli",
+			"puts",
 			";\n",
-			"h4",
-			"clear",
-			"gradient",
-			"shadow",
-			";\n",
-			"navigation",
-			"a",
-			"red",
-			"hover",
-			"'g'",
-			"\"g\"",
-			"submit-bu",
-			"carousel-image",
-			"carousel .item",
-			"carousel",
-			"navbar .nav",
-			"carousel img",
-			".nav",
-			"navbar .nav",
-			"marketing",
-			"container",
-			"websiteDetails",
-			"app.configure",
-			"cloud_name",
-			"MONGOHQ_URL",
-			"MONGOLAB_URI",
-			"MONGO"
+			"localhost",
+			"works",
+			"selected",
+			"anchorScroll",
+			"menu",
+			"gray",
+			"lines",
+			"border",
+			"menu",
+			"active",
+			"selected",
+			"unsafe",
+			"unsalfe",
+			"color",
+			"href=\"#/announcements",
+			"cache",
+			"token",
+			"@token",
+			"localhost",
+			"api_token",
+			"localhost:8080",
+			"slug",
+			"mongoid",
+			"similar",
+			"console",
+			"similar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -161,6 +501,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"http://allenginsberg.org",
+			"http://www.allenginsberg.org",
+			"href=\"#!/",
+			"href=\"",
 			"projectDetails"
 		],
 		"reverse": false,
@@ -172,8 +516,233 @@
 	"groups":
 	[
 		{
+			"selected": 5,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/views/layouts/application.html.erb",
+					"settings":
+					{
+						"buffer_size": 4152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								710,
+								710
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 1924,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										415,
+										420
+									],
+									[
+										731,
+										736
+									],
+									[
+										1237,
+										1242
+									],
+									[
+										1553,
+										1558
+									],
+									[
+										1843,
+										1854
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								1843,
+								1843
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 3,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 663.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lib/assets/javascripts/angular-google-analytics.js",
+					"settings":
+					{
+						"buffer_size": 12365,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3603,
+								3629
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 592.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lib/assets/javascripts/app.js",
+					"settings":
+					{
+						"buffer_size": 3143,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/partials/contact.html",
+					"settings":
+					{
+						"buffer_size": 1637,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/assets/stylesheets/application/layout.css.scss",
+					"settings":
+					{
+						"buffer_size": 23176,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1808,
+								1808
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/assets/stylesheets/application/media_queries.css.scss",
+					"settings":
+					{
+						"buffer_size": 2968,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2220,
+								2220
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2600.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -208,6 +777,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 27.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -219,8 +792,192 @@
 		"selected_items":
 		[
 			[
+				"medi",
+				"app/assets/stylesheets/application/media_queries.css.scss"
+			],
+			[
+				"lay",
+				"app/assets/stylesheets/application/layout.css.scss"
+			],
+			[
+				"contact",
+				"public/partials/contact.html"
+			],
+			[
+				"appl",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"conf",
+				"config.ru"
+			],
+			[
+				"confi",
+				"config.ru"
+			],
+			[
+				"e",
+				"config/environment.rb"
+			],
+			[
+				"envir",
+				"config/environment.rb"
+			],
+			[
+				"foot",
+				"app/views/application/_footer.html.erb"
+			],
+			[
+				"works",
+				"public/partials/works-detail.html"
+			],
+			[
+				"biogr",
+				"public/partials/biography.html"
+			],
+			[
+				"anno",
+				"public/partials/announcements.html"
+			],
+			[
+				"head",
+				"app/views/application/_head.html.erb"
+			],
+			[
 				"app",
+				"lib/assets/javascripts/app.js"
+			],
+			[
+				"foo",
+				"app/views/application/_footer.html.erb"
+			],
+			[
+				"footer",
+				"app/views/application/_footer.html.erb"
+			],
+			[
+				"media",
+				"app/assets/stylesheets/application/media_queries.css.scss"
+			],
+			[
+				"vari",
+				"app/assets/stylesheets/application/variables.css.scss"
+			],
+			[
+				"layou",
+				"app/assets/stylesheets/application/layout.css.scss"
+			],
+			[
+				"archive",
+				"public/partials/archive-detail.html"
+			],
+			[
+				"varia",
+				"app/assets/stylesheets/application/variables.css.scss"
+			],
+			[
+				"var",
+				"app/assets/stylesheets/application/variables.css.scss"
+			],
+			[
+				"archiv",
+				"public/partials/archive.html"
+			],
+			[
+				"archi",
+				"public/partials/archive.html"
+			],
+			[
+				"cont",
+				"app/controllers/locomotive/api/content_entries_controller.rb"
+			],
+			[
+				"controller",
+				"lib/assets/javascripts/controllers.js"
+			],
+			[
+				"layo",
+				"app/assets/stylesheets/application/layout.css.scss"
+			],
+			[
+				"produc",
+				"config/environments/production.rb"
+			],
+			[
+				"index",
+				"public/partials/index.html"
+			],
+			[
+				"scss",
+				"app/assets/stylesheets/application/variables.css.scss"
+			],
+			[
+				"main",
+				"lib/assets/javascripts/main.js"
+			],
+			[
+				"appli",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"contro",
+				"lib/assets/javascripts/controllers.js"
+			],
+			[
+				"service",
+				"lib/assets/javascripts/services.js"
+			],
+			[
+				"serv",
+				"lib/assets/javascripts/services.js"
+			],
+			[
+				"dra",
+				"config/initializers/dragonfly.rb"
+			],
+			[
+				"applicat",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"product",
+				"config/environments/production.rb"
+			],
+			[
+				"application.",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"applicati",
 				"config/application.rb"
+			],
+			[
+				"mongo",
+				"config/mongoid.yml"
+			],
+			[
+				"config",
+				"config.ru"
+			],
+			[
+				"config.y",
+				"config/mongoid.yml"
+			],
+			[
+				"layouscss",
+				"app/assets/stylesheets/application/layout.css.scss"
+			],
+			[
+				"application.js",
+				"public/assets/application.js"
+			],
+			[
+				"routes",
+				"config/routes.rb"
+			],
+			[
+				"yml",
+				"public/assets/manifest.yml"
 			],
 			[
 				"prodc",
