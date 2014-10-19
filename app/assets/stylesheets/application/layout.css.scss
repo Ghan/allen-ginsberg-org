@@ -910,6 +910,11 @@ blockquote p {
 		#content-scroll{
 			overflow-y: auto;
 		}
+		.content-detail {
+			img {
+				width: 100%;
+			}
+		}
 		#biography-box{
 			margin-top: 2em;
 			ul{
