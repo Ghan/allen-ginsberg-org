@@ -25,7 +25,7 @@
     <div id="works-detail-img" ng-bind-html="work[workSlug].image"></div>
     <div id="title-box">
       <h2>{{work[workSlug].name}}</h2>
-      <div class="work-detail-purchase"><a href="{{work[workSlug].amazon_slash_itunes_url}}" target="_blank" title="Purchase"><span id="amazon-sprite"></span>PURCHASE</a></div>
+      <div class="work-detail-purchase"><a ng-click="clickPurchase(work[workSlug])" title="Purchase"><span id="amazon-sprite"></span>PURCHASE</a></div>
       <div class="work-detail-publisher">{{work[workSlug].publisher}}</div>
       <div class="work-detail-date">{{work[workSlug].date | date: mediumDate }}</div>
     </div><!--title-box-->

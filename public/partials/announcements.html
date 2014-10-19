@@ -4,7 +4,7 @@
 	</div>
 	<div id="announcements" ng-if="finishedLoadingAnnouncements">
 		<div class="blog-post-snippet" ng-repeat="item in blog.items">
-			<a href="{{item.url}}" title="Visit blog post: {{item.title}}">
+			<a ng-click="visitBlogPage(item.url)" title="Visit blog post: {{item.title}}">
 				<div style="background-image:url('{{item.img}}');" class="blog-img">
 					<div class="post-header">
 						<div class="post-title">{{item.title}}</div>

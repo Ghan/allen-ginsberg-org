@@ -271,6 +271,7 @@ blockquote p {
 	margin-bottom: 20px;
 	border: $border-style;
 	.blog-img{
+		cursor: pointer;
 		background-size: cover;
 		height:0;
 		padding-bottom: 100%;
