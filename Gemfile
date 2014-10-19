@@ -30,9 +30,7 @@ end
 
 gem 'jquery-rails'
 
-group :development do
-  gem 'unicorn'
-end
+gem 'unicorn'
 
 
 # To use ActiveModel has_secure_password
