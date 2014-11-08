@@ -371,18 +371,39 @@ blockquote p {
 		padding-left: 10px;
 		margin: .5em 0;
 	}
-	#timeline-master-list{
-		max-height: 30em;
-		height:auto;
-		overflow-y: scroll;
+	#timeline-header {
+		background: lighten($hover, 20%);
+		h2 {
+			display: inline-block;
+			vertical-align: bottom;
+			margin: 0.6em 0 0.83em 20px;
+		}
+	}
+	#timeline-master-list {
+		display: inline-block;
+		vertical-align: bottom;
+		float: right;
+		margin-right: 20px;
+		li {
+			display: inline-block;
+			list-style-type: none;
+			margin: 0;
+			padding: 0.83em 10px;
+			vertical-align: top;
+			cursor: pointer;
+		}
+		.active {
+			text-decoration: underline;
+		}
 	}
 	#timeline-menu{
-		padding: 0 2%;
+		padding: 2%;
 		width: 43.333333%;
 		display: inline-block;
+		max-height: 300px;
+		overflow-y: auto;
 		vertical-align: top;
 		margin-right: -4px;
-		background: lighten($hover, 19%);
 		.timeline-title{
 			color: $black;
 		}
@@ -409,10 +430,11 @@ blockquote p {
 	#timeline-body{
 		position: relative;
 		display: inline-block;
+		vertical-align: top;
 		width:48%;
 		padding: 2%;
-		max-height: 32em;
-		overflow-y: scroll;
+		max-height: 300px;
+		overflow-y: auto;
 		img{
 			max-width: 100%;
 			width: auto;
