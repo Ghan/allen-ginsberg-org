@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def index
   	@title = "Allen Ginsberg site, by the Allen Ginsberg Project."
-  	@appPath = "http://localhost:8080/"
+  	@appPath = "http://localhost:5000/"
     @S3imgURL = "https://allenginsberg.s3.amazonaws.com"
   	if Rails.env.production?
 	  	@appPath = "http://allenginsberg.org/"

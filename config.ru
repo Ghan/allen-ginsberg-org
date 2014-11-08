@@ -8,7 +8,7 @@ require "rack-rewrite"
 ENV['RACK_ENV'] ||= 'development'
 
 if ENV['RACK_ENV'] == 'development'
-  ENV['SITE_URL'] = 'localhost:8080'
+  ENV['SITE_URL'] = 'localhost:5000'
   else
   ENV['SITE_URL'] = 'allenginsberg.org'
 end
